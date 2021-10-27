@@ -6,5 +6,144 @@
 
 module.exports = {
   /* Your site config here */
-  plugins: [],
+  siteMetadata: {
+    title: `Prince Bazawule - designer, developer, dj`,
+    author: {
+      name: `Prince`,
+      initials: `pb`,
+      summary: `designer, developer, dj`,
+    },
+    description: `designer, developer, dj & gooner`,
+    copyright: `2021 — princebazawule`,
+    siteUrl: `https://princebazawule.com`,
+    social: [
+      {
+        network: `twitter`,
+        link: `https://twitter.com/princebazawule`,
+        artwork:``,
+        color: `#34D399`
+      },
+      {
+        network: `instagram`,
+        link: `https://instagram.com/princebazawule`,
+        artwork:``,
+        color: `#34D399`
+      },
+      {
+        network: `linkedin`,
+        link: `https://linkedin.com/in/princebazawule`,
+        artwork:``,
+        color: `#34D399`
+      },
+      {
+        network: `github`,
+        link: `https://github.com/princebazawule`,
+        artwork:``,
+        color: `#34D399`
+      },
+      {
+        network: `dribbble`,
+        link: `https://dribbble.com/princebazawule`,
+        artwork:``,
+        color: `#34D399`
+      },
+      {
+        network: `behance`,
+        link: `https://behance.net/princebazawule`,
+        artwork:``,
+        color: `#34D399`
+      },
+    ],
+    play: [
+      {
+        network: `spotify`,
+        link: `https://open.spotify.com/user/princebazawule/playlists`,
+        artwork:``,
+        color: `#34D399`,
+      },
+      {
+        network: `mixcloud`,
+        link: `https://www.mixcloud.com/princebazawule/`,
+        artwork:``,
+        color: `#34D399`,
+      },
+      {
+        network: `soundcloud`,
+        link: `https://soundcloud.com/princebazawule/tracks`,
+        artwork:``,
+        color: `#34D399`,
+      },
+    ],
+    shop: [
+      {
+        network: `society6`,
+        link: `https://society6.com/princebazawule`,
+        artwork:``,
+        color: `#34D399`,
+      },
+      {
+        network: `redbubble`,
+        link: `https://www.redbubble.com/people/princebazawule/shop`,
+        artwork:``,
+        color: `#34D399`,
+      },
+      {
+        network: `zazzle`,
+        link: `https://www.zazzle.co.uk/`,
+        artwork:``,
+        color: `#34D399`,
+      },
+    ],
+    defaultImage: "",
+  },
+  plugins: [
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-dark-mode`,
+    `gatsby-transformer-remark`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        postCssPlugins: [
+          require("tailwindcss"),
+          require("./tailwind.config.js"), // Optional: Load custom Tailwind CSS configuration
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `projects`,
+        path: `${__dirname}/src/projects`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `designs`,
+        path: `${__dirname}/src/designs`,
+      },
+    },
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        url:
+          process.env.WPGRAPHQL_URL || `http://princebazawule.com/graphql`,
+        schema: {
+          typePrefix: `Wp`,
+        },
+        develop: {
+          hardCacheMediaFiles: true,
+        },
+        type: {
+          Post: {
+            limit:
+              process.env.NODE_ENV === `development` ? 50 : 5000,
+          },
+        },
+      },
+    },
+  ],
 }
