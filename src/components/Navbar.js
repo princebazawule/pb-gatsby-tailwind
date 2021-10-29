@@ -8,6 +8,7 @@ import { ThemeToggler } from 'gatsby-plugin-dark-mode'
 
 export default function Navbar({}) {
   const location = useLocation()
+  
   // console.log(location)
 
   const [isOpen, setIsOpen] = useState(false)
@@ -19,7 +20,7 @@ export default function Navbar({}) {
           to="/"
           activeClassName="active"
         >
-          <SvgPrincebazawuleLogo title="logo" />
+          <SvgPrincebazawuleLogo title="princebazawule logo" />
         </Link>
 
       </h1>
@@ -93,7 +94,7 @@ export default function Navbar({}) {
       <div className='flex flex-nowrap'>
         <ThemeToggler>
           {({ theme, toggleTheme }) => (
-              <div className='mr-3 sm:mr-8 -mt-2 leading-none scale-150'>
+              <div className='theme-switcher mr-3 sm:mr-8 -mt-2 leading-none scale-150'>
                 <input type="checkbox" id="switch" onChange={e => toggleTheme(e.target.checked ? 'dark' : 'light')} checked={theme === 'dark'} />
                 <label htmlFor="switch"></label>
               </div>
@@ -104,19 +105,19 @@ export default function Navbar({}) {
           className="menu-btn w-14 h-14 relative bg-transparent rounded z-50"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <div className="block w-5 absolute left-6 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <div className="group block w-5 absolute left-6 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <span
-              className={`block absolute h-1.5 w-9 rounded-sm bg-current transform transition duration-300 ease-in-out ${
+              className={`block absolute h-1.5 w-9 rounded-sm bg-current transform transition duration-300 ease-in-out text-green-500 dark:text-green-400 group-hover:text-gray-900 dark:group-hover:text-blueGray-100 ${
                 isOpen ? "rotate-45" : "-translate-y-2.5"
               }`}
             ></span>
             <span
-              className={`block absolute h-1.5 w-7 rounded-sm bg-current transform transition duration-300 ease-in-out ${
+              className={`block absolute h-1.5 w-7 rounded-sm bg-current transform transition duration-300 ease-in-out text-green-500 dark:text-green-400 group-hover:text-gray-900 dark:group-hover:text-blueGray-100 ${
                 isOpen ? "opacity-0" : ""
               }`}
             ></span>
             <span
-              className={`block absolute h-1.5 w-9 rounded-sm bg-current transform transition duration-300 ease-in-out ${
+              className={`block absolute h-1.5 w-9 rounded-sm bg-current transform transition duration-300 ease-in-out text-green-500 dark:text-green-400 group-hover:text-gray-900 dark:group-hover:text-blueGray-100 ${
                 isOpen ? "-rotate-45" : "translate-y-2.5"
               }`}
             ></span>

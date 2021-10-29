@@ -15,7 +15,7 @@ module.exports = {
     },
     description: `designer, developer, dj & gooner`,
     copyright: `2021 — princebazawule`,
-    siteUrl: `https://princebazawule.com`,
+    siteUrl: `http://localhost:8000`,
     social: [
       {
         network: `twitter`,
@@ -58,19 +58,19 @@ module.exports = {
       {
         network: `spotify`,
         link: `https://open.spotify.com/user/princebazawule/playlists`,
-        artwork:``,
+        artwork: 'p_spotify.png',
         color: `#34D399`,
       },
       {
         network: `mixcloud`,
         link: `https://www.mixcloud.com/princebazawule/`,
-        artwork:``,
+        artwork: 'p_mixcloud.png',
         color: `#34D399`,
       },
       {
         network: `soundcloud`,
         link: `https://soundcloud.com/princebazawule/tracks`,
-        artwork:``,
+        artwork: 'p_soundcloud.png',
         color: `#34D399`,
       },
     ],
@@ -124,6 +124,20 @@ module.exports = {
       options: {
         name: `designs`,
         path: `${__dirname}/src/designs`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `music`,
+        path: `${__dirname}/src/music`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images/`,
       },
     },
     {

@@ -66,6 +66,10 @@ module.exports = {
       '9xl': '8rem',
       '10xl': '10rem',
       '11xl': '11rem',
+      '12xl': '12rem',
+      '13xl': '13rem',
+      '14xl': '14rem',
+      '15xl': '15rem',
      },
      fill: theme => ({
       'green': theme('colors.green.500'),
@@ -91,11 +95,21 @@ module.exports = {
         sky: colors.sky,
         yellow: colors.amber,
       },
+      keyframes: {
+        outIn: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' },
+        }
+      },
+      animation: {
+        outIn: 'outIn 0.5s ease-in-out',
+      },
     },
   },
   variants: {
     extend: {
       ringWidth: ['hover', 'active'],
+      animation: ['hover'],
     },
     textColor: ['first-of-type', 'display'],
   },

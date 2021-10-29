@@ -9,7 +9,8 @@ const BlogIndex = ({ data, pageContext: { nextPagePath, previousPagePath }}) => 
     const posts = data.allWpPost.nodes
     
     const isFirstPage = previousPagePath === null ? true : false
-    console.log(isFirstPage)
+    
+    // console.log(isFirstPage)
 
   if (!posts.length) {
     return (

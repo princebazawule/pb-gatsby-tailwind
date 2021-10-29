@@ -1,5 +1,4 @@
 import { graphql, Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 import React, { useRef, useEffect, useState } from "react"
 import { gsap } from "gsap"
 import SvgGithubIcon from "../components/icons/GithubIcon"
@@ -13,6 +12,8 @@ export default function Home({ data }) {
 
   // console.log(data)
 
+  const [skill, setSkill] = useState('design')
+  
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const textRef = useRef()
   const listRef = useRef()
@@ -22,6 +23,16 @@ export default function Home({ data }) {
       x: e.clientX / window.innerWidth - 0.5,
       y: e.clientY / window.innerHeight - 0.5,
     })
+  }
+
+  const changeProfilePhoto = (skill) => {
+    const profilePic = document.querySelector('#profile-pic')
+    profilePic.classList.toggle('animated')
+
+    setTimeout(() => {
+      profilePic.classList.remove('animated')
+    }, 600)
+    setSkill(skill)
   }
 
   useEffect(() => {
@@ -52,10 +63,9 @@ export default function Home({ data }) {
         <div className="flex flex-col sm:flex-grow 3xl:w-11/12 4xl:w-10/12 3xl:mx-auto justify-between flex-1">
           <section
             ref={textRef}
-            className="xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-20 xl:px-4 2xl:px-8 flex flex-col justify-center sm:flex-initial"
-            // className="xl:min-h-8/10 py-8 sm:py-6 xs:px-12 sm:px-16 md:px-16 lg:px-20 xl:px-4 2xl:px-8 flex flex-col justify-center sm:flex-initial transition duration-300"
+            className="xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-20 xl:px-4 2xl:px-8 flex flex-col justify-center sm:flex-initial cursor-default"
             onMouseMove={e => handlePositionChange(e)}
-            role="main"
+            role="button"
           >
             <h1 className="text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight font-black text-4xl leading-tight xs:text-5xl xs:leading-tight sm:text-6xl sm:leading-none md:text-7xl md:leading-none lg:text-8xl lg:leading-none xl:text-8xl xl:leading-none 2xl:text-8xl 2xl:leading-none 3xl:text-9xl 3xl:leading-none 4xl:text-10xl 4xl:leading-none">
               i’m {author.name}.<br /> i{" "}
@@ -64,6 +74,7 @@ export default function Home({ data }) {
                 data-skill="design"
                 className="dee transition duration-500 ease-in-out bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-500"
                 data-text="Design"
+                onMouseOver={() => changeProfilePhoto('design')}
               >
                 Design
               </Link>
@@ -73,6 +84,7 @@ export default function Home({ data }) {
                 to="/developer"
                 data-skill="code"
                 className="transition duration-500 ease-in-out bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-blue-400 to-indigo-400 dark:bg-gradient-to-r dark:from-green-200 dark:via-blue-400 dark:to-indigo-400 hover:bg-gradient-to-r hover:from-green-800 hover:to-green-800 dark:hover:bg-gradient-to-r dark:hover:from-emerald-100 dark:hover:to-emerald-100"
+                onMouseOver={() => changeProfilePhoto('coding')}
               >
                 Code
               </Link>{" "}
@@ -81,6 +93,7 @@ export default function Home({ data }) {
                 to="/blog"
                 data-skill="blog"
                 className="transition duration-500 ease-in-out bg-clip-text text-transparent bg-gradient-to-tr from-pink-400 via-blue-300 to-green-500 dark:bg-gradient-to-tr dark:from-pink-400 dark:via-blue-300 dark:to-green-500 hover:bg-gradient-to-r hover:from-green-400 hover:to-green-400 dark:hover:bg-gradient-to-r dark:hover:from-green-400 dark:hover:to-green-400"
+                onMouseOver={() => changeProfilePhoto('blog')}
               >
                 Blog
               </Link>{" "}
@@ -90,6 +103,7 @@ export default function Home({ data }) {
                 to="/dj"
                 data-skill="dj"
                 className="transition duration-500 ease-in-out bg-clip-text text-transparent bg-gradient-to-r from-green-300 to-purple-400 dark:bg-gradient-to-br dark:from-green-300 dark:to-purple-400 hover:bg-gradient-to-r hover:from-green-700 hover:to-green-700 dark:hover:from-emerald-200 dark:hover:to-emerald-200"
+                onMouseOver={() => changeProfilePhoto('dj')}
               >
                 Dj
               </Link>
@@ -112,7 +126,7 @@ export default function Home({ data }) {
           >
             <div className='transition duration-300 flex flex-row flex-wrap items-end xl:items-center justify-center'>
               <a 
-                href="https://princebazawule.com"
+                href="https://github.com/princebazawule"
                 target='_blank'
                 rel='noreferrer'
                 title='external link'>
@@ -123,7 +137,7 @@ export default function Home({ data }) {
                 </div>
               </a>
               <a 
-                href="https://princebazawule.com"
+                href="https://soundcloud.com/princebazawule/tracks"
                 target='_blank'
                 rel='noreferrer'
                 title='external link'>
@@ -133,21 +147,22 @@ export default function Home({ data }) {
                   </span>
                 </div>
               </a>
-              <div className="m-2 xl:m-3 2xl:m-4 rounded-4xl flex flex-col justify-center items-center content-center overflow-hidden bg-yellow-100 scale-100 transform-gpu rotate-12 transition duration-300 ease-in-out hover:rotate-3 hover:scale-100 flex-shrink w-32 h-32 xs:w-40 xs:h-40 md:w-56 md:h-56 xl:w-52 xl:h-52 2xl:w-60 2xl:h-60 3xl:w-64 3xl:h-64 order-first sm:order-none 3xl:order-first">
+              <div className="m-2 xl:m-3 2xl:m-4 rounded-4xl flex flex-col justify-center items-center content-center overflow-hidden scale-100 transform-gpu rotate-12 transition duration-300 ease-in-out hover:rotate-3 hover:scale-100 flex-shrink w-32 h-32 xs:w-40 xs:h-40 md:w-56 md:h-56 xl:w-52 xl:h-52 2xl:w-60 2xl:h-60 3xl:w-64 3xl:h-64 order-first sm:order-none 3xl:order-first">
                 <span className="-rotate-12 transform scale-150">
-                  <StaticImage
-                    src="../images/profile-design.jpeg"
-                    className="max-w-full"
+                  <img
+                    src={`profile-${skill}.png`}
+                    className='max-w-full opacity-0 transition-opacity duration-300' data-replace='{ "opacity-0" : "opacity-100" }'
                     alt="profile - design"
                     placeholder="blurred"
                     layout="fixed"
                     width={200}
                     height={200}
+                    id="profile-pic"
                   />
                 </span>
               </div>
               <a 
-                href="https://princebazawule.com"
+                href="https://society6.com/princebazawule"
                 target='_blank'
                 rel='noreferrer'
                 title='external link'>
@@ -158,7 +173,7 @@ export default function Home({ data }) {
                 </div>
               </a>
               <a 
-                href="https://princebazawule.com"
+                href="https://open.spotify.com/user/princebazawule/playlists"
                 target='_blank'
                 rel='noreferrer'
                 title='external link'>
@@ -169,7 +184,7 @@ export default function Home({ data }) {
                 </div>
               </a>{" "}
               <a 
-                href="https://princebazawule.com"
+                href="https://dribbble.com/princebazawule"
                 target='_blank'
                 rel='noreferrer'
                 title='external link'>

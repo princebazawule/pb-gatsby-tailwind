@@ -1,12 +1,33 @@
 import { graphql } from "gatsby"
-import React from "react"
+import React, { useRef, useEffect, useState } from 'react'
+import { gsap } from "gsap"
 import Layout from "../components/Layout"
 import { getIconComponentByName } from "../utils/icons-map"
 import "../styles/contact.module.scss"
 
-export default function contact({ data }) {
+export default function Contact({ data }) {
 
-  console.log(data)
+  // console.log(data)
+
+  const [position, setPosition] = useState({ x: 0, y: 0 })
+  const textRef = useRef()
+
+  const handlePositionChange = e => {
+    setPosition({
+      x: e.clientX / window.innerWidth - 0.5,
+      y: e.clientY / window.innerHeight - 0.5,
+    })
+  }
+
+  useEffect(() => {
+    gsap.to(textRef.current, {
+      rotationY: -5 * position.y,
+      rotationX: -5 * position.x,
+      transformPerspective: 700,
+      ease: 'power3',
+      transformOrigin: "center",
+    })
+  })
 
   const { social } = data.site.siteMetadata
   const { shop } = data.site.siteMetadata
@@ -15,7 +36,12 @@ export default function contact({ data }) {
   return (
     <>
       <Layout>
-        <section className="xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-10 xl:px-4 2xl:px-8 flex flex-col justify-center sm:flex-initial">
+        <section 
+          ref={textRef}
+          className="xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-10 xl:px-4 2xl:px-8 flex flex-col justify-center sm:flex-initial cursor-default"
+          onMouseMove={e => handlePositionChange(e)}
+          role="button"
+        >
           <h1 className="text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight font-black text-4xl leading-normal xs:text-5xl xs:leading-normal sm:text-6xl sm:leading-normal md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal xl:text-8xl xl:leading-normal 2xl:text-8xl 2xl:leading-normal 3xl:text-9xl 3xl:leading-normal 4xl:text-10xl 4xl:leading-normal">
             <span className="transition duration-300 ease-in-out bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
               Connect
