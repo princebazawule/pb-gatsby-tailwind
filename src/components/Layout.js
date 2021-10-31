@@ -19,12 +19,15 @@ export default function Layout({ children }) {
       }, [])
       
     return (
-        <div className='bg-teal-50 dark:bg-coolGray-900 min-h-full flex flex-col justify-between m-0 p-0 opacity-0 transition-opacity duration-500' data-replace='{ "opacity-0" : "opacity-100" }'>
-            <Navbar />
-            <div className="w-11/12 mx-auto flex-1 flex flex-col">
-                { children }
-            </div>
-            <Footer />
-        </div>
+        <>
+        {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
+          <div className='selection:bg-yellow-100 selection:text-blueGray-800 dark:selection:bg-teal-200 dark:selection:text-blueGray-900 bg-teal-50 bg-opacity-80 dark:bg-coolGray-900 min-h-full flex flex-col justify-between m-0 p-0 opacity-0 transition-opacity duration-500' data-replace='{ "opacity-0" : "opacity-100" }'>
+              <Navbar />
+              <div className="w-11/12 mx-auto flex-1 flex flex-col">
+                  { children }
+              </div>
+              <Footer />
+          </div>
+        </>
     )
 }

@@ -2,13 +2,7 @@
 @import "~tailwindcss/components";
 @import "~tailwindcss/utilities";
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,800;0,900;1,300&display=swap');
-
 $font-stack: 'Poppins', sans-serif;
-
-:root {
-    --main-font: $font-stack;
-}
 
 * {
     box-sizing: border-box;
@@ -17,7 +11,7 @@ $font-stack: 'Poppins', sans-serif;
 }
 
 body {
-    font-family: var(--main-font);
+    font-family: $font-stack;
     
     i {
         font-weight: 300;
@@ -51,9 +45,8 @@ body {
         }
     }
 
-    // gallery styles
+    // gallery styles - smooth scroll + hide scroll track
     .gallery-scroller {
-        // smooth scroll
         scroll-behavior: smooth;
 
         -ms-overflow-style: none;

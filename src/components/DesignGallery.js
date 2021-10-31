@@ -69,7 +69,7 @@ export default function DesignGallery({ data }) {
 
                     return (
                         <Link
-                            to={`/designs/${design.frontmatter.slug}`}
+                            to={`/project/${design.frontmatter.slug}`}
                             key={design.id}
                             className="slide-item flex flex-col justify-center items-center rounded-lg ring-0 ring-white ring-opacity-0 flex-shrink-0 self-stretch w-9/12 md:w-2/4 h-56 mx-4 my-4 xl:w-10/12 xl:h-2/4 xl:mx-auto xl:my-4 bg-teal-500 overflow-hidden"
                         >

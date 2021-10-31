@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/Layout"
+import Seo from '../components/Seo'
 import { PostCode } from "./Postcode"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import parse, {domToReact} from 'html-react-parser';
@@ -34,6 +35,8 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
 
   return (
     <Layout>
+      <Seo title={post.title} keywords={[`${post.categories.nodes[0].name}`, `blog`, `tips`, `tutorials`, `resources`, `freebies`]} />
+
       <section 
         className="xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-20 xl:px-4 2xl:px-8 flex flex-col lg:flex-row flex-nowrap justify-center items-start sm:flex-initial"
       >
@@ -64,7 +67,7 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
               />
               <h1 
                 itemProp="headline"
-                className="mt-16 mb-4 text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight font-black text-xl leading-tight xs:text-2xl xs:leading-tight sm:text-2xl sm:leading-tight md:text-3xl md:leading-tight lg:text-4xl lg:leading-tight xl:text-4xl xl:leading-tight 2xl:text-5xl 2xl:leading-tight 3xl:text-6xl 3xl:leading-tight 4xl:text-6xl 4xl:leading-tight"
+                className="mt-16 mb-4 text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight xl:tracking-tighter font-black text-xl leading-tight xs:text-2xl xs:leading-tight sm:text-2xl sm:leading-tight md:text-3xl md:leading-tight lg:text-4xl lg:leading-tight xl:text-4xl xl:leading-tight 2xl:text-5xl 2xl:leading-tight 3xl:text-6xl 3xl:leading-tight 4xl:text-6xl 4xl:leading-tight"
               >
                 {post.title}
               </h1>

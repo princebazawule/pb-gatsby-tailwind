@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react"
 import { gsap } from "gsap"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { OutboundLink } from "gatsby-plugin-google-gtag"
 import SvgUparrowIcon from "../components/icons/UparrowIcon"
 import useWindowWidth from "../utils/useWindowWidth"
 import '../styles/gallery.module.scss'
@@ -68,7 +69,7 @@ export default function MusicGallery( { data }) {
                     // console.log(image)
                     
                     return (
-                        <a
+                        <OutboundLink
                             href={item.frontmatter.link}
                             target='_blank'
                             rel='noreferrer'
@@ -93,7 +94,7 @@ export default function MusicGallery( { data }) {
                                     className="z-10 transition duration-300 w-full h-64 xl:h-96 scale-105 group-hover:scale-125"
                                 />)}
                             </div>
-                        </a>
+                        </OutboundLink>
                     )
                 }) }
             </div>

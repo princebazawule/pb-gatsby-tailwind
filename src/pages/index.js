@@ -1,12 +1,14 @@
-import { graphql, Link } from "gatsby"
-import React, { useRef, useEffect, useState } from "react"
-import { gsap } from "gsap"
-import SvgGithubIcon from "../components/icons/GithubIcon"
-import SvgSoundcloudIcon from "../components/icons/SoundcloudIcon"
-import SvgSociety6Icon from "../components/icons/Society6Icon"
-import SvgSpotifyIcon from "../components/icons/SpotifyIcon"
-import SvgDribbbleIcon from "../components/icons/DribbbleIcon"
-import Layout from "../components/Layout"
+import { graphql, Link } from 'gatsby'
+import React, { useRef, useEffect, useState } from 'react'
+import { gsap } from 'gsap'
+import { OutboundLink } from "gatsby-plugin-google-gtag"
+import SvgGithubIcon from '../components/icons/GithubIcon'
+import SvgSoundcloudIcon from '../components/icons/SoundcloudIcon'
+import SvgSociety6Icon from '../components/icons/Society6Icon'
+import SvgSpotifyIcon from '../components/icons/SpotifyIcon'
+import SvgDribbbleIcon from '../components/icons/DribbbleIcon'
+import Layout from '../components/Layout'
+import Seo from '../components/Seo'
 
 export default function Home({ data }) {
 
@@ -60,19 +62,21 @@ export default function Home({ data }) {
   return (
     <>
       <Layout>
-        <div className="flex flex-col sm:flex-grow 3xl:w-11/12 4xl:w-10/12 3xl:mx-auto justify-between flex-1">
+        <Seo title="Home" keywords={[`frontend`, `developer`, `designer`, `dj`, `artist`]} />
+
+        <div className="flex flex-col sm:flex-grow 3xl:w-11/12 4xl:w-11/12 3xl:mx-auto justify-between flex-1">
           <section
             ref={textRef}
             className="xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-20 xl:px-4 2xl:px-8 flex flex-col justify-center sm:flex-initial cursor-default"
             onMouseMove={e => handlePositionChange(e)}
             role="button"
           >
-            <h1 className="text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight font-black text-4xl leading-tight xs:text-5xl xs:leading-tight sm:text-6xl sm:leading-none md:text-7xl md:leading-none lg:text-8xl lg:leading-none xl:text-8xl xl:leading-none 2xl:text-8xl 2xl:leading-none 3xl:text-9xl 3xl:leading-none 4xl:text-10xl 4xl:leading-none">
-              i’m {author.name}.<br /> i{" "}
+            <h1 className="text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight xl:tracking-tighter font-black text-4xl leading-tight xs:text-5xl xs:leading-tight sm:text-6xl sm:leading-none md:text-7xl md:leading-none lg:text-8xl lg:leading-none xl:text-8xl xl:leading-none 2xl:text-8xl 2xl:leading-none 3xl:text-9xl 3xl:leading-none 4xl:text-10xl 4xl:leading-none">
+              i’m {author.first_name}.<br /> i{" "}
               <Link
                 to="/designer"
                 data-skill="design"
-                className="dee transition duration-500 ease-in-out bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-500"
+                className="transition duration-500 ease-in-out bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-500"
                 data-text="Design"
                 onMouseOver={() => changeProfilePhoto('design')}
               >
@@ -125,7 +129,7 @@ export default function Home({ data }) {
             role="list"
           >
             <div className='transition duration-300 flex flex-row flex-wrap items-end xl:items-center justify-center'>
-              <a 
+              <OutboundLink 
                 href="https://github.com/princebazawule"
                 target='_blank'
                 rel='noreferrer'
@@ -135,8 +139,8 @@ export default function Home({ data }) {
                     <SvgGithubIcon title="github-icon" fill='#1E293B' />
                   </span>
                 </div>
-              </a>
-              <a 
+              </OutboundLink>
+              <OutboundLink 
                 href="https://soundcloud.com/princebazawule/tracks"
                 target='_blank'
                 rel='noreferrer'
@@ -146,7 +150,7 @@ export default function Home({ data }) {
                     <SvgSoundcloudIcon title="soundcloud-icon" fill='#F8FAFC' />
                   </span>
                 </div>
-              </a>
+              </OutboundLink>
               <div className="m-2 xl:m-3 2xl:m-4 rounded-4xl flex flex-col justify-center items-center content-center overflow-hidden scale-100 transform-gpu rotate-12 transition duration-300 ease-in-out hover:rotate-3 hover:scale-100 flex-shrink w-32 h-32 xs:w-40 xs:h-40 md:w-56 md:h-56 xl:w-52 xl:h-52 2xl:w-60 2xl:h-60 3xl:w-64 3xl:h-64 order-first sm:order-none 3xl:order-first">
                 <span className="-rotate-12 transform scale-150">
                   <img
@@ -161,7 +165,7 @@ export default function Home({ data }) {
                   />
                 </span>
               </div>
-              <a 
+              <OutboundLink 
                 href="https://society6.com/princebazawule"
                 target='_blank'
                 rel='noreferrer'
@@ -171,8 +175,8 @@ export default function Home({ data }) {
                     <SvgSociety6Icon title="society6-icon" fill='#34D399' />
                   </span>
                 </div>
-              </a>
-              <a 
+              </OutboundLink>
+              <OutboundLink 
                 href="https://open.spotify.com/user/princebazawule/playlists"
                 target='_blank'
                 rel='noreferrer'
@@ -182,8 +186,8 @@ export default function Home({ data }) {
                     <SvgSpotifyIcon title="spotify-icon" fill='#F8FAFC' />
                   </span>
                 </div>
-              </a>{" "}
-              <a 
+              </OutboundLink>{" "}
+              <OutboundLink 
                 href="https://dribbble.com/princebazawule"
                 target='_blank'
                 rel='noreferrer'
@@ -193,7 +197,7 @@ export default function Home({ data }) {
                     <SvgDribbbleIcon title="dribbble-icon" fill='#34D399' />
                   </span>
                 </div>
-              </a>
+              </OutboundLink>
             </div>
           </section>
         </div>
@@ -207,7 +211,7 @@ export const query = graphql`
     site {
       siteMetadata {
         author {
-          name
+          first_name
         }
       }
     }

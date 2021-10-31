@@ -1,9 +1,10 @@
 import { graphql } from "gatsby"
 import React, { useRef, useEffect, useState } from 'react'
-import { gsap } from "gsap"
-import Layout from "../../components/Layout"
-import MusicGallery from "../../components/MusicGallery"
-import "../../styles/dj.module.scss"
+import { gsap } from 'gsap'
+import Layout from '../../components/Layout'
+import Seo from '../../components/Seo'
+import MusicGallery from '../../components/MusicGallery'
+import '../../styles/dj.module.scss'
 
 export default function Dj({ data }) {
   
@@ -32,12 +33,14 @@ export default function Dj({ data }) {
   return (
     <>
       <Layout>
+        <Seo title="DJ" keywords={[`music`, `mixes`, `playlist`, `mixcloud`, `soundcloud`, `spotify`]} />
+
         <section ref={textRef}
           className="xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-20 xl:px-4 2xl:px-8 flex flex-col justify-center sm:flex-initial cursor-default"
           onMouseMove={e => handlePositionChange(e)}
           role="button"
         >
-          <h1 className="text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight font-black text-4xl leading-normal xs:text-5xl xs:leading-normal sm:text-6xl sm:leading-normal md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal xl:text-8xl xl:leading-normal 2xl:text-8xl 2xl:leading-normal 3xl:text-9xl 3xl:leading-normal 4xl:text-10xl 4xl:leading-normal">
+          <h1 className="selection:bg-opacity-0 text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight xl:tracking-tighter font-black text-4xl leading-normal xs:text-5xl xs:leading-normal sm:text-6xl sm:leading-normal md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal xl:text-8xl xl:leading-normal 2xl:text-8xl 2xl:leading-normal 3xl:text-9xl 3xl:leading-normal 4xl:text-10xl 4xl:leading-normal">
             <span className="transition duration-300 ease-in-out bg-clip-text text-transparent bg-gradient-to-r from-green-300 to-purple-400 dark:bg-gradient-to-br dark:from-green-300 dark:to-purple-400">
               DJ
               <span className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl 2xl:text-6xl 3xl:text-7xl 4xl:text-8xl">

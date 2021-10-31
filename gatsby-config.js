@@ -7,9 +7,10 @@
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: `Prince Bazawule - designer, developer, dj`,
+    title: `Prince Bazawule`,
     author: {
-      name: `Prince`,
+      first_name: `Prince`,
+      last_name: `Bazawule`,
       initials: `pb`,
       summary: `designer, developer, dj`,
     },
@@ -104,6 +105,54 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Poppins\:ital,wght@0,400;0,800;0,900;1,300` // you can also specify font weights and styles
+        ],
+        display: 'swap'
+      }
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `gatsby-starter-default`,
+        short_name: `starter`,
+        start_url: `/`,
+        background_color: `#663399`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `src/images/icon.png`, // This path is relative to the root of the site.
+        cache_busting_mode: 'none'
+      },
+    },
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/blog/`, `/contact/`, `/designer/`, `/developer/`, `/dj/`, `/post/*`, `/project/*`],
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/fonts\.gstatic\.com/,
+            handler: 'cacheFirst',
+            options: {
+              cacheableResponse: {
+                statuses: [0, 200]
+              },
+              cacheName: 'google-fonts-webfonts',
+              expiration: {
+                maxAgeSeconds: 60 * 60,
+                maxEntries: 30
+              }
+            }
+          },
+        ],
+        workboxConfig: {
+          globPatterns: ['**/icon-path*']
+       }
+      },
+    },
+    {
       resolve: `gatsby-plugin-sass`,
       options: {
         postCssPlugins: [
@@ -156,6 +205,23 @@ module.exports = {
             limit:
               process.env.NODE_ENV === `development` ? 50 : 5000,
           },
+        },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          'UA-12787182-1',
+        ],
+        gtagConfig: {
+          anonymize_ip: true,
+          cookie_expires: 0,
+        },
+        pluginConfig: {
+          head: false,
+          respectDNT: true,
+          exclude: ['/preview/**', '/do-not-track/me/too/'],
         },
       },
     },

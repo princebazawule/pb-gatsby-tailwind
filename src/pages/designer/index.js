@@ -1,7 +1,9 @@
 import { graphql } from "gatsby"
 import React, { useRef, useEffect, useState } from 'react'
 import { gsap } from "gsap"
+import { OutboundLink } from "gatsby-plugin-google-gtag"
 import Layout from '../../components/Layout'
+import Seo from '../../components/Seo'
 import DesignGallery from '../../components/DesignGallery'
 import '../../styles/designer.module.scss'
 
@@ -36,13 +38,15 @@ export default function Designer({ data }) {
     return (
         <>
             <Layout>
+              <Seo title="Designer" keywords={[`ui design`, `digital art`, `graphic design`, `design`, `art`, `artist`]} />
+
               <section 
                 ref={textRef}
                 className="xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-20 xl:px-4 2xl:px-8 flex flex-col justify-center sm:flex-initial cursor-default"
                 onMouseMove={e => handlePositionChange(e)}
                 role="button"
               >
-                    <h1 className="text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight font-black text-4xl leading-normal xs:text-5xl xs:leading-normal sm:text-6xl sm:leading-normal md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal xl:text-8xl xl:leading-normal 2xl:text-8xl 2xl:leading-normal 3xl:text-9xl 3xl:leading-normal 4xl:text-10xl 4xl:leading-normal">
+                    <h1 className="selection:bg-opacity-0 text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight xl:tracking-tighter font-black text-4xl leading-normal xs:text-5xl xs:leading-normal sm:text-6xl sm:leading-normal md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal xl:text-8xl xl:leading-normal 2xl:text-8xl 2xl:leading-normal 3xl:text-9xl 3xl:leading-normal 4xl:text-10xl 4xl:leading-normal">
                         <span className='transition duration-300 ease-in-out bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500'>
                             Designer
                         </span>
@@ -56,7 +60,7 @@ export default function Designer({ data }) {
                         I love to explore UIs, digital art and have been happy to create<br /> award-winning work for clients.
                     </p>
                     <p className="mb-8 text text-gray-800 dark:text-blueGray-100 tracking-tighter sm:tracking-tight font-normal text-xl leading-normal xs:text-2xl xs:leading-normal sm:text-2xl sm:leading-normal md:text-2xl md:leading-normal lg:text-2xl lg:leading-normal xl:text-2xl xl:leading-normal 2xl:text-3xl 2xl:leading-normal 3xl:text-3xl 3xl:leading-normal 4xl:text-3xl 4xl:leading-normal">
-                        Explore my designs on <a href="https://dribbble.com/princebazawule" target='_blank' rel='noreferrer' title='external link' className='text-gray-900 dark:text-green-200 no-underline hover:text-green-500 dark:hover:text-green-300 hover:underline transition duration-300'><i>dribbble</i></a> &amp; <a href="https://behance.net/princebazawule" target='_blank' rel='noreferrer' title='external link' className='text-gray-900 dark:text-green-200 no-underline hover:text-green-500 dark:hover:text-green-300 hover:underline transition duration-300'><i>behance</i></a> or shop them on <a href="https://society6.com/princebazawule" target='_blank' rel='noreferrer' title='external link ' className='text-gray-900 dark:text-green-200 no-underline hover:text-green-500 dark:hover:text-green-300 hover:underline transition duration-300'><i>society6</i></a> &amp; <a href="https://zazzle.com/princebazawule" target='_blank' rel='noreferrer' title='external link' className='text-gray-900 dark:text-green-200 no-underline hover:text-green-500 dark:hover:text-green-300 hover:underline transition duration-300'><i>zazzle</i></a>.
+                        Explore my designs on <OutboundLink href="https://dribbble.com/princebazawule" target='_blank' rel='noreferrer' title='external link' className='text-gray-900 dark:text-green-200 no-underline hover:text-green-500 dark:hover:text-green-300 hover:underline transition duration-300'><i>dribbble</i></OutboundLink> &amp; <OutboundLink href="https://behance.net/princebazawule" target='_blank' rel='noreferrer' title='external link' className='text-gray-900 dark:text-green-200 no-underline hover:text-green-500 dark:hover:text-green-300 hover:underline transition duration-300'><i>behance</i></OutboundLink> or shop them on <OutboundLink href="https://society6.com/princebazawule" target='_blank' rel='noreferrer' title='external link ' className='text-gray-900 dark:text-green-200 no-underline hover:text-green-500 dark:hover:text-green-300 hover:underline transition duration-300'><i>society6</i></OutboundLink> &amp; <OutboundLink href="https://zazzle.com/princebazawule" target='_blank' rel='noreferrer' title='external link' className='text-gray-900 dark:text-green-200 no-underline hover:text-green-500 dark:hover:text-green-300 hover:underline transition duration-300'><i>zazzle</i></OutboundLink>.
                     </p>
 
                     <div className="inline-block">

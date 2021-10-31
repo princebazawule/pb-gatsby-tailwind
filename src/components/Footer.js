@@ -8,7 +8,8 @@ export default function Footer() {
             site {
                 siteMetadata {
                     author {
-                        name
+                        first_name
+                        last_name
                         initials
                     }
                 }
@@ -20,7 +21,7 @@ export default function Footer() {
 
     return (
         <footer className='pt-8 xl:px-20 pb-4 px-4 flex flex-wrap items-center justify-end text-sm text-gray-700 dark:text-blueGray-100 italic'>
-            <p>&copy; {new Date().getFullYear()} — {author.name}</p>
+            <p>&copy; {new Date().getFullYear()} — {author.first_name} {author.last_name}</p>
         </footer>
     )
 }

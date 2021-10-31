@@ -3,6 +3,7 @@ import React, { useRef, useEffect, useState } from 'react'
 import { gsap } from "gsap"
 import Layout from "../components/Layout"
 import { getIconComponentByName } from "../utils/icons-map"
+import { OutboundLink } from "gatsby-plugin-google-gtag"
 import "../styles/contact.module.scss"
 
 export default function Contact({ data }) {
@@ -42,7 +43,7 @@ export default function Contact({ data }) {
           onMouseMove={e => handlePositionChange(e)}
           role="button"
         >
-          <h1 className="text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight font-black text-4xl leading-normal xs:text-5xl xs:leading-normal sm:text-6xl sm:leading-normal md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal xl:text-8xl xl:leading-normal 2xl:text-8xl 2xl:leading-normal 3xl:text-9xl 3xl:leading-normal 4xl:text-10xl 4xl:leading-normal">
+          <h1 className="selection:bg-opacity-0 text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight xl:tracking-tighter font-black text-4xl leading-normal xs:text-5xl xs:leading-normal sm:text-6xl sm:leading-normal md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal xl:text-8xl xl:leading-normal 2xl:text-8xl 2xl:leading-normal 3xl:text-9xl 3xl:leading-normal 4xl:text-10xl 4xl:leading-normal">
             <span className="transition duration-300 ease-in-out bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
               Connect
             </span>
@@ -55,12 +56,12 @@ export default function Contact({ data }) {
           <div className="flex flex-col sm:flex-row sm:flex-wrap sm:justify-between xl:w-11/12 2xl:w-10/12 3xl:w-10/12">
             <div className="contact-content">
               <p className="mb-8 text text-gray-800 dark:text-blueGray-100 tracking-tighter sm:tracking-tight font-normal text-xl leading-normal xs:text-2xl xs:leading-normal sm:text-2xl sm:leading-normal md:text-2xl md:leading-normal lg:text-2xl lg:leading-normal xl:text-2xl xl:leading-normal 2xl:text-3xl 2xl:leading-normal 3xl:text-3xl 3xl:leading-normal 4xl:text-3xl 4xl:leading-normal">
-                <a
+                <OutboundLink
                   href="https://pixldinc.com"
                   className="text-green-500 dark:text-green-200 no-underline hover:text-green-800 dark:hover:text-green-50 hover:underline transition duration-300"
                 >
                   <i>say hello</i>
-                </a>{" "}
+                </OutboundLink>{" "}
                 via email or connect on socials.
               </p>
               <p className="mb-8 text text-gray-800 dark:text-blueGray-100 tracking-tighter sm:tracking-tight font-normal text-xl leading-normal xs:text-2xl xs:leading-normal sm:text-2xl sm:leading-normal md:text-2xl md:leading-normal lg:text-2xl lg:leading-normal xl:text-2xl xl:leading-normal 2xl:text-3xl 2xl:leading-normal 3xl:text-3xl 3xl:leading-normal 4xl:text-3xl 4xl:leading-normal">
@@ -80,9 +81,9 @@ export default function Contact({ data }) {
                                     className='mb-6 scale-75'
                                     key={item.network}
                                 >
-                                    <a href={item.link} className='social-icon transition text-sm scale-80' target='_blank' rel='noreferrer' title='social icon'>
+                                    <OutboundLink href={item.link} className='social-icon transition text-sm scale-80' target='_blank' rel='noreferrer' title='social icon'>
                                         {getIconComponentByName(item.network, item.color)}
-                                    </a>
+                                    </OutboundLink>
                                 </li>
                             )
                         })} 
@@ -98,9 +99,9 @@ export default function Contact({ data }) {
                                     className='mb-6 scale-75'
                                     key={item.network}
                                 >
-                                    <a href={item.link} className='social-icon transition text-sm scale-80' target='_blank' rel='noreferrer' title='social icon'>
+                                    <OutboundLink href={item.link} className='social-icon transition text-sm scale-80' target='_blank' rel='noreferrer' title='social icon'>
                                         {getIconComponentByName(item.network, item.color)}
-                                    </a>
+                                    </OutboundLink>
                                 </li>
                             )
                         })} 
@@ -116,9 +117,9 @@ export default function Contact({ data }) {
                                     className='mb-6 scale-75'
                                     key={item.network}
                                 >
-                                    <a href={item.link} className='social-icon transition text-sm scale-80' target='_blank' rel='noreferrer' title='social icon'>
+                                    <OutboundLink href={item.link} className='social-icon transition text-sm scale-80' target='_blank' rel='noreferrer' title='social icon'>
                                         {getIconComponentByName(item.network, item.color)}
-                                    </a>
+                                    </OutboundLink>
                                 </li>
                             )
                         })} 

@@ -40,7 +40,7 @@ export default function NotFound() {
                         onMouseMove={e => handlePositionChange(e)}
                         role="button"
                     >
-                            <h1 className="text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight font-black text-7xl leading-normal xs:text-8xl xs:leading-normal sm:text-9xl sm:leading-normal md:text-11xl md:leading-normal lg:text-11xl lg:leading-normal xl:text-11xl xl:leading-normal 2xl:text-11xl 2xl:leading-normal 3xl:text-13xl 3xl:leading-normal 4xl:text-14xl 4xl:leading-normal">
+                            <h1 className="selection:bg-opacity-0 text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight xl:tracking-tighter font-black text-7xl leading-normal xs:text-8xl xs:leading-normal sm:text-9xl sm:leading-normal md:text-11xl md:leading-normal lg:text-11xl lg:leading-normal xl:text-11xl xl:leading-normal 2xl:text-11xl 2xl:leading-normal 3xl:text-13xl 3xl:leading-normal 4xl:text-14xl 4xl:leading-normal">
                                 <span className='transition duration-300 ease-in-out bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500'>
                                     Ooops!
                                 </span>
