@@ -45,7 +45,7 @@ const BlogIndex = ( { pageContext } ) => {
 
         <div className="blog-wrap mt-16 relative">
           <div className={`blog-filter right-0 lg:w-3/12 ${isFirstPage ? 'lg:absolute' : 'relative left-0 right-0 w-full mb-20' }`}>
-            <h5 className='text-gray-800 text-xl font-semibold'>Filter Posts:</h5>
+            <h5 className='text-gray-800 text-xl font-semibold text-gray-900 dark:text-blueGray-100 mb-4'>Filter Posts:</h5>
             <ul className={`flex flex-row flex-wrap mb-8 lg:max-w-xs ${isFirstPage ? '' : 'max-w-none flex-wrap lg:flex-nowrap' }`}>
               <li className='text-lg py-3 px-4 rounded-md bg-emerald-200 hover:bg-green-500 transform hover:scale-105 hover:text-white m-1 transition duration-300 cursor-pointer'>css</li>
               <li className='text-lg py-3 px-4 rounded-md bg-emerald-200 hover:bg-green-500 transform hover:scale-105 hover:text-white m-1 transition duration-300 cursor-pointer'>html</li>
@@ -73,19 +73,22 @@ const BlogIndex = ( { pageContext } ) => {
                       <article 
                         itemScope 
                         itemType="http://schema.org/Article"
-                        className={`relative rounded-md p-4 flex  xl:flex-row flex-nowrap justify-between items-center w-full  bg-emerald-100 hover:bg-yellow-200 border-0 transition duration-200 ${
-                            isFirstPage ? 'lg:group-first-of-type:w-2/3 group-first-of-type:bg-white group-first-of-type:border group-first-of-type:border-gray-400 group-first-of-type:border-opacity-50 lg:group-first-of-type:mb-12' : ''}`}
+                        className={`relative rounded-md p-4 flex  xl:flex-row flex-nowrap justify-between items-center w-full  bg-emerald-100 dark:bg-green-200 hover:bg-yellow-200 dark:hover:bg-yellow-200 border-0 transition duration-200 ${
+                            isFirstPage ? 'lg:group-first-of-type:w-2/3 group-first-of-type:bg-white group-first-of-type:hover:bg-white group-first-of-type:border group-first-of-type:border-gray-400 group-first-of-type:border-opacity-50 lg:group-first-of-type:mb-12' : ''}`}
                       >
                           <div className={`hidden ${isFirstPage ? 'group-first-of-type:block absolute right-4 top-4 flex-grow-0 text-sm font-bold italic text-blue-900 py-2 px-4 bg-gray-100 border border-gray-400 border-opacity-50 text-center rounded-md' : '' }`}>newest</div>
 
                           <div className={`flex flex-row flex-nowrap justify-start items-start w-full xl:w-3/4 relative ${isFirstPage ? 'group-first-of-type:flex-wrap xl:group-first-of-type:pl-60 group-first-of-type:flex-col xl:group-first-of-type:w-4/5' : '' }`}>
                               <div className={`thumbnail hidden ${isFirstPage ? 'group-first-of-type:block xl:group-first-of-type:absolute group-first-of-type:left-0 group-first-of-type:w-60' : '' }`}><GatsbyImage image={image} alt={alt} /></div>
                               <div className={`date italic text-gray-700 w-2/12 text-xs md:text-sm lg:text-base mr-2 ${isFirstPage ? 'group-first-of-type:w-1/2' : 'xl:w-2/12'}`}>{post.node.date}</div>
-                              <h4 className={`title flex-grow text-gray-800 text-base md:text-lg lg:text-xl font-medium transform group-hover:scale-105 transition duration-200 ${isFirstPage ? 'group-first-of-type:block group-first-of-type:text-gray-900 group-first-of-type:order-first group-first-of-type:text-3xl group-first-of-type:font-bold' : '' }`}>{title}</h4>
+                              <h4 className={`title flex-grow text-gray-800 text-base md:text-lg lg:text-xl font-medium transform group-hover:scale-105 transition duration-200 ${isFirstPage ? 'group-first-of-type:block group-first-of-type:text-gray-900 group-first-of-type:order-first group-first-of-type:text-3xl group-first-of-type:font-bold' : '' }`}>
+                                {title}
+                                <span className={`min italic text-gray-700 w-2/12 text-xs md:text-sm lg:text-base ml-2 ${isFirstPage ? 'font-light' : '' }`}> • {post.node.acfPosts.readingTime} min.</span>
+                              </h4>
                               <div className={`category flex-grow-0 text-xs lg:text-sm italic text-gray-700 p-2 bg-white border border-gray-400 border-opacity-50 text-center rounded-md ${isFirstPage ? 'group-first-of-type:bg-transparent group-first-of-type:border-0 group-first-of-type:border-transparent group-first-of-type:block' : '' }`}>{post.node.categories.nodes[0].name}</div>
                               <div className={`excerpt hidden ${isFirstPage ? 'group-first-of-type:block group-first-of-type:text-lg' : '' }`} dangerouslySetInnerHTML={{ __html: post.node.excerpt}}></div>
                           </div>
-                          <button className={`read-more text-2xl transform translate-x-0 group-hover:translate-x-4 transition duration-200 ${isFirstPage ? 'group-first-of-type:mt-10 xl:group-first-of-type:mt-0 group-first-of-type:self-start xl:group-first-of-type:self-center group-first-of-type:py-3 group-first-of-type:px-4 group-first-of-type:bg-emerald-500 group-first-of-type:text-white group-first-of-type:rounded-md' : '' }`}>
+                          <button className={`read-more text-2xl transform translate-x-0 group-hover:translate-x-4 transition duration-200 ${isFirstPage ? 'group-first-of-type:-translate-x-4 group-first-of-type:group-hover:translate-x-0 group-first-of-type:mt-10 xl:group-first-of-type:mt-0 group-first-of-type:self-start xl:group-first-of-type:self-center group-first-of-type:py-3 group-first-of-type:px-4 group-first-of-type:bg-emerald-500 group-first-of-type:text-white group-first-of-type:rounded-md' : '' }`}>
                               <span className={`hidden ${isFirstPage ? 'group-first-of-type:inline-block group-first-of-type:mr-2' : '' }`}>Read</span> →
                           </button>
                       </article>
@@ -102,12 +105,12 @@ const BlogIndex = ( { pageContext } ) => {
       <div className='w-full flex flex-row flex-nowrap justify-center'>
 				{ ! first ? 
           <Link to={ previousUrl }>
-            <div className='mx-8 leading-none text-center rounded-md text-xl italic hover:text-green-500 transition duration-300'>← Newer posts</div>
+            <div className='mx-8 leading-none text-center rounded-md text-xl italic text-blueGray-900 dark:text-green-300 hover:text-green-500 dark:hover:text-green-100 transition duration-300'>← Newer posts</div>
           </Link> : null }
 				
         { ! last ? 
         <Link to={ nextUrl }>
-          <div className='mx-8 leading-none text-center rounded-md text-xl italic hover:text-green-500 transition duration-300'>Older posts →</div>
+          <div className='mx-8 leading-none text-center rounded-md text-xl italic text-blueGray-900 dark:text-green-300 hover:text-green-500 dark:hover:text-green-100 transition duration-300'>Older posts →</div>
         </Link> : null }
 			</div>
 

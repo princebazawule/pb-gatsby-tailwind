@@ -72,12 +72,15 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
                 {post.title}
               </h1>
               <div>
-                <span className='italic text-gray-700'>
+                <span className='italic text-gray-700 dark:text-blueGray-100'>
                   {post.date}
                 </span> 
                 <span className='ml-4 italic text-white bg-green-500 py-2 px-3 rounded-md'>
                   {post.categories.nodes[0].name}
                 </span>
+                <span className='italic text-gray-700 dark:text-blueGray-100 ml-2'>
+                 • {post.acfPosts.readingTime} {post.acfPosts.readingTime === 1 ? `min` : `mins`}.
+                </span> 
               </div>
             </header>
 
@@ -101,18 +104,18 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
               <div>
                 {previous && (
                   <Link to={`/post${previous.uri}`} rel="prev">
-                    <div className='mx-6 leading-none text-center rounded-md text-xl italic hover:text-green-500 transition duration-200'>
+                    <div className='mx-6 leading-none text-center rounded-md text-xl italic text-blueGray-900 dark:text-green-400 hover:text-green-500 dark:hover:text-green-100 transition duration-200'>
                       ← {previous.title}
                     </div>
                   </Link>
                 )}
               </div>
-              {(previous && next) && <div className='mx-6 hidden md:block'>|</div>}
+              {(previous && next) && <div className='mx-6 hidden md:block text-blueGray-900 dark:text-green-400'>|</div>}
 
               <div>
                 {next && (
                   <Link to={`/post${next.uri}`} rel="next">
-                    <div className='mx-6 leading-none text-center rounded-md text-xl italic hover:text-green-500 transition duration-200'>
+                    <div className='mx-6 leading-none text-center rounded-md text-xl italic text-blueGray-900 dark:text-green-400 hover:text-green-500 dark:hover:text-green-100 transition duration-200'>
                     {next.title} →
                   </div>
                   </Link>
@@ -161,6 +164,9 @@ query BlogPostById(
         }
         altText
       }
+    }
+    acfPosts {
+      readingTime
     }
   }
 

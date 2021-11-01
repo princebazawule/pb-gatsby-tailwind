@@ -18,19 +18,22 @@ query WpAllPosts {
                     uri
                     date(formatString: "DD MMM, 'YY")
                     featuredImage {
-                    node {
-                        localFile {
-                            childImageSharp {
-                                gatsbyImageData(
-                                    width: 200
-                                    placeholder: BLURRED
-                                    formats: [AUTO, WEBP, AVIF]
-                                    blurredOptions: {toFormat: NO_CHANGE}
-                                )
+                        node {
+                            localFile {
+                                childImageSharp {
+                                    gatsbyImageData(
+                                        width: 200
+                                        placeholder: BLURRED
+                                        formats: [AUTO, WEBP, AVIF]
+                                        blurredOptions: {toFormat: NO_CHANGE}
+                                    )
+                                }
                             }
+                            altText
                         }
-                        altText
                     }
+                    acfPosts {
+                        readingTime
                     }
                 }
             }

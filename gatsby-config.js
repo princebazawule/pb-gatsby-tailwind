@@ -152,6 +152,18 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-page-progress",
+      options: {
+        includePaths: [{ regex: "^/post/" }],
+        excludePaths: [],
+        height: 5,
+        prependToBody: false,
+        color: `#10B981`,
+        footerHeight: 500,
+        headerHeight: 0,
+      },
+    },
+    {
       resolve: `gatsby-plugin-sass`,
       options: {
         postCssPlugins: [
