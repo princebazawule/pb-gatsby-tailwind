@@ -116,21 +116,20 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `princeBazawule`,
+        short_name: `princeBazawule`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/icon.png`, // This path is relative to the root of the site.
-        cache_busting_mode: 'none'
+        background_color: `#D1FAE5`,
+        theme_color: `#111827`,
+        display: `standalone`,
+        icon: `src/images/icon.png`
       },
     },
     `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-offline`,
       options: {
-        precachePages: [`/blog/`, `/contact/`, `/designer/`, `/developer/`, `/dj/`, `/post/*`, `/project/*`],
+        precachePages: [`/blog/*`, `/contact/*`, `/designer/*`, `/developer/*`, `/dj/*`, `/post/*`, `/project/*`],
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/fonts\.gstatic\.com/,

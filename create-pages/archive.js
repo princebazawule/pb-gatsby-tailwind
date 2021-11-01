@@ -69,7 +69,7 @@ module.exports = async ( { actions, graphql } ) => {
 		// 2. Create Single PAGE: Loop through all posts and create single posts for posts.
 		posts && posts.map( async (page) => {
 
-            console.log('this...', JSON.stringify(page.node, null, 2))
+            // console.log('this...', JSON.stringify(page.node, null, 2))
 
 			if ( undefined === page.node.uri ) {
 				return;

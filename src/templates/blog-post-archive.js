@@ -14,7 +14,7 @@ const BlogIndex = ( { pageContext } ) => {
     
     const isFirstPage = previousUrl === '/blog/0' ? true : false
     
-    console.log(isFirstPage)
+    // console.log(isFirstPage)
 
   if (!group) {
     return (
