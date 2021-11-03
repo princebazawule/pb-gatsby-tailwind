@@ -114,6 +114,14 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-plugin-social9-socialshare`,
+      options: {
+        async:  true,
+			  defer:  true,
+        content: "7c4a243cb52d4f88b81cc53a39e7c85b"
+      }
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `princeBazawule`,

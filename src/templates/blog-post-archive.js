@@ -44,7 +44,7 @@ const BlogIndex = ( { pageContext } ) => {
         </div>
 
         <div className="blog-wrap mt-16 relative">
-          <div className={`blog-filter right-0 lg:w-3/12 ${isFirstPage ? 'lg:absolute' : 'relative left-0 right-0 w-full mb-20' }`}>
+          <div className={`blog-filter hidden right-0 lg:w-3/12 ${isFirstPage ? 'lg:absolute' : 'relative left-0 right-0 w-full mb-20' }`}>
             <h5 className='text-gray-800 text-xl font-semibold text-gray-900 dark:text-blueGray-100 mb-4'>Filter Posts:</h5>
             <ul className={`flex flex-row flex-wrap mb-8 lg:max-w-xs ${isFirstPage ? '' : 'max-w-none flex-wrap lg:flex-nowrap' }`}>
               <li className='text-lg py-3 px-4 rounded-md bg-emerald-200 hover:bg-green-500 transform hover:scale-105 hover:text-white m-1 transition duration-300 cursor-pointer'>css</li>
@@ -74,21 +74,40 @@ const BlogIndex = ( { pageContext } ) => {
                         itemScope 
                         itemType="http://schema.org/Article"
                         className={`relative rounded-md p-4 flex  xl:flex-row flex-nowrap justify-between items-center w-full  bg-emerald-100 dark:bg-green-200 hover:bg-yellow-200 dark:hover:bg-yellow-200 border-0 transition duration-200 ${
-                            isFirstPage ? 'lg:group-first-of-type:w-2/3 group-first-of-type:bg-white group-first-of-type:hover:bg-white group-first-of-type:border group-first-of-type:border-gray-400 group-first-of-type:border-opacity-50 lg:group-first-of-type:mb-12' : ''}`}
+                            isFirstPage ? 'group-first-of-type:flex-col 2xl:group-first-of-type:flex-row 3xl:group-first-of-type:w-2/3 group-first-of-type:bg-white group-first-of-type:hover:bg-white group-first-of-type:border group-first-of-type:border-gray-400 group-first-of-type:border-opacity-50 lg:group-first-of-type:mb-12' : ''}`}
                       >
                           <div className={`hidden ${isFirstPage ? 'group-first-of-type:block absolute right-4 top-4 flex-grow-0 text-sm font-bold italic text-blue-900 py-2 px-4 bg-gray-100 border border-gray-400 border-opacity-50 text-center rounded-md' : '' }`}>newest</div>
 
-                          <div className={`flex flex-row flex-nowrap justify-start items-start w-full xl:w-3/4 relative ${isFirstPage ? 'group-first-of-type:flex-wrap xl:group-first-of-type:pl-60 group-first-of-type:flex-col xl:group-first-of-type:w-4/5' : '' }`}>
-                              <div className={`thumbnail hidden ${isFirstPage ? 'group-first-of-type:block xl:group-first-of-type:absolute group-first-of-type:left-0 group-first-of-type:w-60' : '' }`}><GatsbyImage image={image} alt={alt} /></div>
-                              <div className={`date italic text-gray-700 w-2/12 text-xs md:text-sm lg:text-base mr-2 ${isFirstPage ? 'group-first-of-type:w-1/2' : 'xl:w-2/12'}`}>{post.node.date}</div>
-                              <h4 className={`title flex-grow text-gray-800 text-base md:text-lg lg:text-xl font-medium transform group-hover:scale-105 transition duration-200 ${isFirstPage ? 'group-first-of-type:block group-first-of-type:text-gray-900 group-first-of-type:order-first group-first-of-type:text-3xl group-first-of-type:font-bold' : '' }`}>
-                                {title}
-                                <span className={`min italic text-gray-700 w-2/12 text-xs md:text-sm lg:text-base ml-2 ${isFirstPage ? 'font-light' : '' }`}> • {post.node.acfPosts.readingTime} min.</span>
-                              </h4>
-                              <div className={`category flex-grow-0 text-xs lg:text-sm italic text-gray-700 p-2 bg-white border border-gray-400 border-opacity-50 text-center rounded-md ${isFirstPage ? 'group-first-of-type:bg-transparent group-first-of-type:border-0 group-first-of-type:border-transparent group-first-of-type:block' : '' }`}>{post.node.categories.nodes[0].name}</div>
-                              <div className={`excerpt hidden ${isFirstPage ? 'group-first-of-type:block group-first-of-type:text-lg' : '' }`} dangerouslySetInnerHTML={{ __html: post.node.excerpt}}></div>
+                          <div className={`flex flex-row flex-nowrap justify-start items-start w-full xl:w-3/4 relative ${isFirstPage ? 'group-first-of-type:flex-wrap xl:group-first-of-type:pl-60 group-first-of-type:flex-col xl:group-first-of-type:w-full' : '' }`}>
+                            <div className={`thumbnail hidden ${isFirstPage ? 'group-first-of-type:block xl:group-first-of-type:absolute group-first-of-type:left-0 group-first-of-type:w-60' : '' }`}>
+                            
+                              <div className="mb-4 rounded-5xl flex flex-col justify-center items-center content-center overflow-hidden scale-100 transform-gpu rotate-12 transition duration-300 ease-in-out group-hover:rotate-3 group-hover:scale-100 flex-shrink w-32 h-32 xs:w-40 xs:h-40 md:w-48 md:h-48">
+                                <span className="-rotate-12 transform scale-150">
+                                  <GatsbyImage image={image} alt={alt} />
+                                  {/* <img
+                                    src={`profile-${skill}.png`}
+                                    className='max-w-full opacity-0 transition-opacity duration-300' data-replace='{ "opacity-0" : "opacity-100" }'
+                                    alt="profile - design"
+                                    placeholder="blurred"
+                                    layout="fixed"
+                                    width={200}
+                                    height={200}
+                                    id="profile-pic"
+                                  /> */}
+                                </span>
+                              </div>
+                              
+                            </div>
+                            <div className={`date italic text-gray-700 w-2/12 text-xs md:text-sm lg:text-base mr-2 ${isFirstPage ? 'group-first-of-type:w-1/2' : 'xl:w-2/12'}`}>{post.node.date}</div>
+                            <h4 className={`title leading-tight flex-grow text-gray-800 text-base md:text-lg lg:text-xl font-medium transform group-hover:scale-105 transition duration-200 ${isFirstPage ? 'group-first-of-type:mb-8 group-first-of-type:block group-first-of-type:text-gray-900 group-first-of-type:order-first group-first-of-type:text-3xl group-first-of-type:font-bold' : '' }`}>
+                              {title}
+                              <span className={`min italic text-gray-700 w-2/12 text-xs md:text-sm lg:text-base ml-2 ${isFirstPage ? 'font-light' : '' }`}> • {post.node.acfPosts.readingTime} min.</span>
+                            </h4>
+                            <div className={`category mr-4 2xl:mr-0 flex-grow-0 text-xs lg:text-sm italic text-gray-700 px-2 lg:px-2 py-2 bg-white border border-gray-400 border-opacity-50 text-center rounded-md ${isFirstPage ? 'group-first-of-type:px-0 group-first-of-type:bg-transparent group-first-of-type:border-0 group-first-of-type:border-transparent group-first-of-type:block' : '' }`}>{post.node.categories.nodes[0].name}</div>
+                            <div className={`excerpt hidden ${isFirstPage ? '2xl:group-first-of-type:mb-4 2xl:group-first-of-type:mr-12 group-first-of-type:block group-first-of-type:text-lg' : '' }`} dangerouslySetInnerHTML={{ __html: post.node.excerpt}}></div>
+                          
                           </div>
-                          <button className={`read-more text-2xl transform translate-x-0 group-hover:translate-x-4 transition duration-200 ${isFirstPage ? 'group-first-of-type:-translate-x-4 group-first-of-type:group-hover:translate-x-0 group-first-of-type:mt-10 xl:group-first-of-type:mt-0 group-first-of-type:self-start xl:group-first-of-type:self-center group-first-of-type:py-3 group-first-of-type:px-4 group-first-of-type:bg-emerald-500 group-first-of-type:text-white group-first-of-type:rounded-md' : '' }`}>
+                          <button className={`read-more flex flex-row flex-nowrap text-2xl transform translate-x-0 group-hover:translate-x-4 transition duration-200 ${isFirstPage ? 'group-first-of-type:translate-x-0 group-hover:group-first-of-type:translate-x-4 2xl:group-hover:group-first-of-type:-translate-x-4 group-first-of-type:mt-10 xl:group-first-of-type:mt-8 2xl:group-first-of-type:mt-0 group-first-of-type:self-start xl:group-first-of-type:ml-60 2xl:group-first-of-type:ml-0 2xl:group-first-of-type:mt-24 group-first-of-type:py-3 group-first-of-type:px-4 group-first-of-type:bg-emerald-500 group-first-of-type:text-white group-first-of-type:rounded-md' : '' }`}>
                               <span className={`hidden ${isFirstPage ? 'group-first-of-type:inline-block group-first-of-type:mr-2' : '' }`}>Read</span> →
                           </button>
                       </article>

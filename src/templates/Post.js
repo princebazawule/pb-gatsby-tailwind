@@ -123,8 +123,12 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
               </div>
             </div>
           </nav>
+        </div> 
+
+        <div className="block my-12">
+          <div className="inline-block s9-widget-wrapper"></div>
         </div>
-        
+
       </section>
     </Layout>
   )

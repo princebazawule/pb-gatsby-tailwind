@@ -22,10 +22,10 @@ query WpAllPosts {
                             localFile {
                                 childImageSharp {
                                     gatsbyImageData(
-                                        width: 200
+                                        width: 750
                                         placeholder: BLURRED
-                                        formats: [AUTO, WEBP, AVIF]
                                         blurredOptions: {toFormat: NO_CHANGE}
+                                        formats: [AUTO, WEBP, AVIF]
                                     )
                                 }
                             }

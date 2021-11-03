@@ -70,7 +70,7 @@ export default function MusicGallery( { data }) {
                     
                     return (
                         <OutboundLink
-                            href={item.frontmatter.link}
+                            href={item.frontmatter.url}
                             target='_blank'
                             rel='noreferrer'
                             key={item.frontmatter.slug}

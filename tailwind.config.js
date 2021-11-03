@@ -34,12 +34,12 @@ module.exports = {
       'none': '0',
       'sm': '0.125rem',
       DEFAULT: '0.25rem',
-      DEFAULT: '4px',
       'md': '0.375rem',
       'lg': '0.5rem',
       'full': '9999px',
       'large': '12px',
       '4xl': '40%',
+      '5xl': '42.5%',
     },
     borderWidth: {
       DEFAULT: '1px',
@@ -120,6 +120,7 @@ module.exports = {
     extend: {
       ringWidth: ['hover', 'active'],
       animation: ['hover'],
+      aspectRatio: ['responsive', 'hover'],
     },
     textColor: ['first-of-type', 'display'],
   },

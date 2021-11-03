@@ -46,7 +46,7 @@ export default function Designer({ data }) {
                 onMouseMove={e => handlePositionChange(e)}
                 role="button"
               >
-                    <h1 className="selection:bg-opacity-0 text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight xl:tracking-tighter font-black text-4xl leading-normal xs:text-5xl xs:leading-normal sm:text-6xl sm:leading-normal md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal xl:text-8xl xl:leading-normal 2xl:text-8xl 2xl:leading-normal 3xl:text-9xl 3xl:leading-normal 4xl:text-10xl 4xl:leading-normal">
+                    <h1 className="text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight xl:tracking-tighter font-black text-4xl leading-normal xs:text-5xl xs:leading-normal sm:text-6xl sm:leading-normal md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal xl:text-8xl xl:leading-normal 2xl:text-8xl 2xl:leading-normal 3xl:text-9xl 3xl:leading-normal 4xl:text-10xl 4xl:leading-normal">
                         <span className='transition duration-300 ease-in-out bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500'>
                             Designer
                         </span>
@@ -104,13 +104,15 @@ export const query = graphql`
             }
           }
           featuredImg {
-            childImageSharp {
-              gatsbyImageData(
-                width: 750
-                placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
-                blurredOptions: {toFormat: NO_CHANGE}
-              )
+            src {
+              childImageSharp {
+                gatsbyImageData(
+                  width: 1000
+                  placeholder: BLURRED
+                  blurredOptions: {toFormat: NO_CHANGE}
+                  formats: [AUTO, WEBP, AVIF]
+                )
+              }
             }
           }
         }

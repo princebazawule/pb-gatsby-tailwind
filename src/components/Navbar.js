@@ -32,7 +32,7 @@ export default function Navbar({}) {
         <Link
           className={cx(
             "nav-item text-green-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal 2xl:text-8xl 2xl:leading-normal hover:text-emerald-300 transition duration-300",
-            { 'text-gray-900 dark:text-emerald-300 pointer-events-none': location.pathname === withPrefix("/") }
+            { 'text-blueGray-900 dark:text-emerald-300 pointer-events-none': location.pathname === withPrefix("/") }
           )}
           to="/"
           activeClassName="active"
@@ -42,7 +42,7 @@ export default function Navbar({}) {
         <Link
           className={cx(
             "nav-item text-green-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal 2xl:text-8xl 2xl:leading-normal hover:text-emerald-300 transition duration-300",
-            { 'text-gray-900 dark:text-emerald-300 pointer-events-none': location.pathname === withPrefix("/designer") }
+            { 'text-blueGray-900 dark:text-emerald-300 pointer-events-none': location.pathname === withPrefix("/designer") }
           )}
           to="/designer"
           activeClassName="active"
@@ -52,7 +52,7 @@ export default function Navbar({}) {
         <Link
           className={cx(
             "nav-item text-green-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal 2xl:text-8xl 2xl:leading-normal hover:text-emerald-300 transition duration-300",
-            { 'text-gray-900 dark:text-emerald-300 pointer-events-none': location.pathname === withPrefix("/developer") }
+            { 'text-blueGray-900 dark:text-emerald-300 pointer-events-none': location.pathname === withPrefix("/developer") }
           )}
           to="/developer"
           activeClassName="active"
@@ -62,7 +62,7 @@ export default function Navbar({}) {
         <Link
           className={cx(
             "nav-item text-green-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal 2xl:text-8xl 2xl:leading-normal hover:text-emerald-300 transition duration-300",
-            { 'text-gray-900 dark:text-emerald-300 pointer-events-none': location.pathname === withPrefix("/dj") }
+            { 'text-blueGray-900 dark:text-emerald-300 pointer-events-none': location.pathname === withPrefix("/dj") }
           )}
           to="/dj"
           activeClassName="active"
@@ -72,7 +72,7 @@ export default function Navbar({}) {
         <Link
           className={cx(
             "nav-item text-green-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal 2xl:text-8xl 2xl:leading-normal hover:text-emerald-300 transition duration-300",
-            { 'text-gray-900 dark:text-emerald-300 pointer-events-none': location.pathname === withPrefix("/blog") }
+            { 'text-blueGray-900 dark:text-emerald-300 pointer-events-none': location.pathname === withPrefix("/blog") }
           )}
           to="/blog"
           activeClassName="active"
@@ -82,7 +82,7 @@ export default function Navbar({}) {
         <Link
           className={cx(
             "nav-item text-green-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal 2xl:text-8xl 2xl:leading-normal hover:text-emerald-300 transition duration-300",
-            { 'text-gray-900 dark:text-emerald-300 pointer-events-none': location.pathname === withPrefix("/contact") }
+            { 'text-blueGray-900 dark:text-emerald-300 pointer-events-none': location.pathname === withPrefix("/contact") }
           )}
           to="/contact"
           activeClassName="active"
@@ -96,7 +96,7 @@ export default function Navbar({}) {
           {({ theme, toggleTheme }) => (
               <div className='theme-switcher mr-3 sm:mr-8 -mt-2 leading-none scale-150'>
                 <input type="checkbox" id="switch" onChange={e => toggleTheme(e.target.checked ? 'dark' : 'light')} checked={theme === 'dark'} />
-                <label htmlFor="switch"></label>
+                <label tabIndex='0' htmlFor="switch"></label>
               </div>
           )}
         </ThemeToggler>
@@ -107,17 +107,17 @@ export default function Navbar({}) {
         >
           <div className="group block w-5 absolute left-6 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <span
-              className={`block absolute h-1.5 w-9 rounded-sm bg-current transform transition duration-300 ease-in-out text-green-500 dark:text-green-400 group-hover:text-gray-900 dark:group-hover:text-blueGray-100 ${
+              className={`block absolute h-1.5 w-9 rounded-sm bg-current transform transition duration-300 ease-in-out text-green-500 dark:text-green-400 group-hover:text-blueGray-900 dark:group-hover:text-blueGray-100 ${
                 isOpen ? "rotate-45" : "-translate-y-2.5"
               }`}
             ></span>
             <span
-              className={`block absolute h-1.5 w-7 rounded-sm bg-current transform transition duration-300 ease-in-out text-green-500 dark:text-green-400 group-hover:text-gray-900 dark:group-hover:text-blueGray-100 ${
+              className={`block absolute h-1.5 w-7 rounded-sm bg-current transform transition duration-300 ease-in-out text-green-500 dark:text-green-400 group-hover:text-blueGray-900 dark:group-hover:text-blueGray-100 ${
                 isOpen ? "opacity-0" : ""
               }`}
             ></span>
             <span
-              className={`block absolute h-1.5 w-9 rounded-sm bg-current transform transition duration-300 ease-in-out text-green-500 dark:text-green-400 group-hover:text-gray-900 dark:group-hover:text-blueGray-100 ${
+              className={`block absolute h-1.5 w-9 rounded-sm bg-current transform transition duration-300 ease-in-out text-green-500 dark:text-green-400 group-hover:text-blueGray-900 dark:group-hover:text-blueGray-100 ${
                 isOpen ? "-rotate-45" : "translate-y-2.5"
               }`}
             ></span>

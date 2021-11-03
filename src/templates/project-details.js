@@ -1,6 +1,7 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import React, { useEffect } from "react"
+import { Link, graphql, navigate } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { OutboundLink } from "gatsby-plugin-google-gtag"
 import Layout from "../components/Layout"
 import Seo from '../components/Seo'
 import "../styles/blog.module.scss"
@@ -8,87 +9,144 @@ import "../styles/blog.module.scss"
 export default function ProjectDetails({ data }) {
 
     const { html } = data.markdownRemark
-    const { title, date, stack, featuredImg }  = data.markdownRemark.frontmatter
+    const { title, date, category, stack, url, featuredImg }  = data.markdownRemark.frontmatter
 
-    const image = getImage(featuredImg)
+    console.log(url)
+
+    useEffect(() => {
+        const replacers = document.querySelectorAll('[data-replace]')
+
+        Array.from(replacers).forEach(NODE => {
+          let replaceClasses = JSON.parse(NODE.dataset.replace.replace(/'/g, '"'))
+  
+          Object.keys(replaceClasses).forEach(function(key) {
+            NODE.classList.remove(key)
+            NODE.classList.add(replaceClasses[key])
+          })
+        })
+    }, [])
     
     return (
-        <Layout>
+        <>
             <Seo title={title} keywords={[`${stack}`, `design`, `development`, `web`]} />
 
             <section 
-                className="xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-20 xl:px-4 2xl:px-8 flex flex-col lg:flex-row flex-nowrap justify-center items-start sm:flex-initial"
+                className='selection:bg-yellow-100 selection:text-blueGray-800 dark:selection:bg-teal-200 dark:selection:text-blueGray-900 bg-teal-50 bg-opacity-80 dark:bg-coolGray-900 min-h-full flex flex-col justify-between m-0 p-0 opacity-0 transition-opacity duration-500' data-replace='{ "opacity-0" : "opacity-100" }'
             >
-                <div className='flex-grow-0 flex flex-row flex-nowrap items-center mr-12'>
-                    <Link
-                        to="/developer"
-                        activeClassName="active"
-                    >
-                        <h1 className="text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight xl:tracking-tighter font-black text-4xl leading-normal xs:text-5xl xs:leading-normal sm:text-6xl sm:leading-normal md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal xl:text-8xl xl:leading-normal 2xl:text-8xl 2xl:leading-normal 3xl:text-9xl 3xl:leading-normal 4xl:text-10xl 4xl:leading-normal">
-                            <span className='transition duration-300 ease-in-out bg-clip-text text-transparent bg-gradient-to-tr from-pink-400 via-blue-300 to-green-500 dark:bg-gradient-to-tr dark:from-pink-400 dark:via-blue-300 dark:to-green-500'>
-                                Projects
-                            </span>
-                        </h1>
-                    </Link>
-                </div>
+        
+                <div className={`mt-8 mb-16 flex flex-row justify-between items-center transform transition duration-300 w-11/12 2xl:w-10/12 mx-auto`}>
 
-                <div className='flex-grow w-full'>       
-                    <article className="blog-post relative 2xl:w-4/5">
                         <header>
-                            <GatsbyImage 
-                                image={image} 
-                                alt={title}
-                                className='border-16 border-white drop-shadow-lg h-64 w-full aspect-w-16 aspect-h-6'
-                            />
                             <h1 
                                 itemProp="headline"
-                                className="mt-16 mb-4 text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight font-black text-xl leading-tight xs:text-2xl xs:leading-tight sm:text-2xl sm:leading-tight md:text-3xl md:leading-tight lg:text-4xl lg:leading-tight xl:text-4xl xl:leading-tight 2xl:text-5xl 2xl:leading-tight 3xl:text-6xl 3xl:leading-tight 4xl:text-6xl 4xl:leading-tight"
+                                className="mb-8 text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight font-black text-xl leading-tight xs:text-2xl xs:leading-tight sm:text-2xl sm:leading-tight md:text-3xl md:leading-tight lg:text-4xl lg:leading-tight xl:text-4xl xl:leading-tight 2xl:text-5xl 2xl:leading-tight 3xl:text-6xl 3xl:leading-tight 4xl:text-6xl 4xl:leading-tight"
                             >
                                 {title}
                             </h1>
                             <div>
-                                <span className='italic text-gray-700'>
+                                <span className='italic text-gray-700 dark:text-blueGray-200 text-sm md:text-base 2xl:text-lg'>
                                     {date}
                                 </span> 
-                                <span className='ml-4 italic text-white bg-green-500 py-2 px-3 rounded-md'>
+                                <span className='mb-8 ml-4 text-sm md:text-base 2xl:text-lg italic text-blueGray-100 dark:text-blueGray-900 bg-green-700 dark:bg-green-400 py-2 px-3 rounded-md'>
                                     {stack}
                                 </span>
                             </div>
                         </header>
 
+                        <button
+                            className="menu-btn w-14 h-14 relative bg-transparent rounded z-50"
+                            onClick={() => navigate(category === 'design' ? `/designer` : `/developer`)}
+                            title='close'
+                        >
+                            <div className="group block w-5 absolute left-6 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                <span
+                                className={`block absolute h-1.5 w-9 rounded-sm bg-current transform transition duration-300 ease-in-out text-green-500 dark:text-green-400 group-hover:text-gray-900 dark:group-hover:text-blueGray-100 rotate-45`}
+                                ></span>
+                                <span
+                                className={`block absolute h-1.5 w-7 rounded-sm bg-current transform transition duration-300 ease-in-out text-green-500 dark:text-green-400 group-hover:text-gray-900 dark:group-hover:text-blueGray-100 opacity-0`}
+                                ></span>
+                                <span
+                                className={`block absolute h-1.5 w-9 rounded-sm bg-current transform transition duration-300 ease-in-out text-green-500 dark:text-green-400 group-hover:text-gray-900 dark:group-hover:text-blueGray-100 -rotate-45`}
+                                ></span>
+                            </div> 
+                        </button>
+                </div>
 
-                        <section itemProp="articleBody">
+                <div className='flex-grow w-11/12 2xl:w-10/12 mx-auto'>       
+                    <article className="blog-post relative text-center">
+                        
+                        <section itemProp="articleBody flex flex-col flex-wrap justify-center">
+
                             <div 
                                 className='blog-content mt-16 text-lg xl:text-xl 3xl:text-2xl break-normal'
                                 dangerouslySetInnerHTML={{ __html: html}}
                             >
                             </div>
+
+                            {featuredImg && (
+                                featuredImg.map((item, index) => {
+
+                                    const image = getImage(item.src.childImageSharp)
+                                    const alt = title
+
+                                    return (
+                                        <GatsbyImage 
+                                            key={index}
+                                            image={image} 
+                                            alt={alt}
+                                            className='mb-8 border-16 border-white drop-shadow-lg block h-full'
+                                        />
+                                    )
+                                })
+                            )}
+                            
+                            {url && (
+                            <OutboundLink 
+                                href={url}
+                                target='_blank'
+                                rel='noreferrer'
+                                title={`${title} project link`}
+                                className='block'>
+                                <div className="inline-block my-12 py-4 px-8 rounded-md bg-green-500 hover:bg-emerald-200 text-white hover:text-blueGray-900 transform hover:scale-105 transition duration-300">
+                                    <button className='text-2xl font-semibold'>view project</button>
+                                </div>
+                            </OutboundLink>)}
+
+                            <div className="block my-12">
+                                <div className="inline-block s9-widget-wrapper"></div>
+                            </div>
                         </section>
                     </article>
                 </div>
             </section>
-        </Layout>
+        </>
     )
 }
 
 export const query = graphql`
-  query ProjectPages($slug: String) {
-    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        title
-        stack
-        featuredImg {
-          childImageSharp {
-            gatsbyImageData(
-              width: 750
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
-              blurredOptions: { toFormat: NO_CHANGE }
-            )
-          }
+query ProjectPages($slug: String) {
+    markdownRemark(frontmatter: {slug: {eq: $slug}}) {
+        frontmatter {
+            title
+            stack
+            url
+            date(formatString: "DD MMM, 'YY")
+            category
+            featuredImg {
+                src {
+                    childImageSharp {
+                        gatsbyImageData(
+                            width: 1280
+                            placeholder: BLURRED
+                            blurredOptions: {toFormat: NO_CHANGE}
+                            formats: AUTO
+                        )
+                    }
+                }
+            }
         }
-      }
+        html
     }
-  }
+}
+  
 `
