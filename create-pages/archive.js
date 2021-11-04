@@ -4,41 +4,55 @@ const createPaginatedPages = require('gatsby-paginate');
 
 // Get all the posts.
 const GET_POSTS = `
-query WpAllPosts {
-    allWpPost(limit: 5000) {
-            posts: edges {
-                node {
-                    excerpt
-                    title
-                    categories {
-                        nodes {
-                            name
-                        }
-                    }
-                    uri
-                    date(formatString: "DD MMM, 'YY")
-                    featuredImage {
-                        node {
-                            localFile {
-                                childImageSharp {
-                                    gatsbyImageData(
-                                        width: 750
-                                        placeholder: BLURRED
-                                        blurredOptions: {toFormat: NO_CHANGE}
-                                        formats: [AUTO, WEBP, AVIF]
-                                    )
-                                }
-                            }
-                            altText
-                        }
-                    }
-                    acfPosts {
-                        readingTime
-                    }
+query WpAllCategories {
+    allWpCategory {
+      categories: edges {
+        node {
+          name
+          slug
+          uri
+          id
+          posts {
+            nodes {
+              excerpt
+              title
+              categories {
+                nodes {
+                  name
                 }
+              }
+              uri
+              date(formatString: "DD MMM, 'YY")
+              author {
+                node {
+                  name
+                }
+              }
+              featuredImage {
+                node {
+                  localFile {
+                    childImageSharp {
+                      gatsbyImageData(
+                        width: 750
+                        placeholder: BLURRED
+                        blurredOptions: {toFormat: NO_CHANGE}
+                        formats: [AUTO, WEBP, AVIF]
+                      )
+                    }
+                  }
+                  altText
+                }
+              }
+              acfPosts {
+                readingTime
+              }
             }
+          }
+        }
+      }
     }
-}
+  }
+  
 `
 
 module.exports = async ( { actions, graphql } ) => {
@@ -51,41 +65,35 @@ module.exports = async ( { actions, graphql } ) => {
 		return await graphql( GET_POSTS )
 			.then( ( { data } ) => {
 
-				const { allWpPost: { posts } } = data;
+				const { allWpCategory: { categories } } = data;
 
-				return { posts: posts };
+				return { categories: categories };
 			} );
 	};
 
 	// When the above fetchPosts is resolved, then loop through the results i.e posts to create posts.
-	await fetchPosts().then( ( { posts } ) => {
-        
-		createPaginatedPages({
-			edges: posts,
-			createPage: createPage,
-			pageTemplate: singlePageTemplate,
-			pageLength: 10, // This is optional and defaults to 10 if not used
-			pathPrefix: 'blog', // This is optional and defaults to an empty string if not used
-			context: {}, // This is optional and defaults to an empty object if not used
-		});
+	await fetchPosts().then( ( { categories } ) => {
 
-		// 2. Create Single PAGE: Loop through all posts and create single posts for posts.
-		posts && posts.map( async (page) => {
+        // 2. Create Single PAGE: Loop through all categories and create single archive page for posts.
+        categories &&
+		categories.map( ( category ) => {
 
-            // console.log('this...', JSON.stringify(page.node, null, 2))
-
-			if ( undefined === page.node.uri ) {
-				return;
-			}
-
-			createPage( {
-				path: `/blog${ page.node.uri }`,
-				component: slash( singlePageTemplate ),
-				context: { ...page }, // pass single post page data in context, so its available in the singlePagetTemplate in props.pageContext.
-			} );
-
-		} );
-
+            /**
+			 * Create Archive Pages with Pagination.
+			 * This will create a each paginaion page in this loop at different URLs ( category.node.uri ) e.g. /category/adventure/
+			 * And category ( which contains posts that belong to that category will be available )
+			 *
+			 * Paginated pages will be available at e.g. ( /category/adventure/ /category/adventure/2, /category/adventure/3 ) etc.
+			 */
+            createPaginatedPages({
+                edges: category.node.posts.nodes,
+                createPage: createPage,
+                pageTemplate: singlePageTemplate,
+                pageLength: 10, // This is optional and defaults to 10 if not used
+                pathPrefix: `${ category.node.uri.replace(/^\/|\/$/g, '') }`, // This is optional and defaults to an empty string if not used ( replaced the begining and trailing slash ),
+                context: { ...category, ...categories }, // This is optional and defaults to an empty object if not used
+            });
+        })
 	} )
 
 };

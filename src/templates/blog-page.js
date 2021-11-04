@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql, withPrefix } from "gatsby"
+import { Link, graphql, useStaticQuery, withPrefix } from "gatsby"
 import { useLocation } from "@reach/router"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
@@ -7,30 +7,37 @@ import Seo from '../components/Seo'
 import cx from "classnames"
 import "../styles/blog.module.scss"
 
-const ArchiveIndex = ( { pageContext } ) => {
+const BlogIndex = ( { pageContext } ) => {
 
-  const location = useLocation()
+    const location = useLocation()
 
-  const { group, index, first, last, pathPrefix, additionalContext } = pageContext;
+    // Get all the posts.
+    const getAllCats = useStaticQuery(graphql`
+      query GetAllCategories {
+        allWpCategory {
+          categories: edges {
+            node {
+                name
+                uri
+                id
+            }
+          }
+        }
+      }
+    `)
+
+    const { categories } = getAllCats.allWpCategory
+
+  const { group, index, first, last, pathPrefix } = pageContext;
 
     const previousUrl = 1 === index - 1 ? `/${ pathPrefix }` : `/${ pathPrefix }/` + ( index - 1 ).toString()
 	  const nextUrl = `/${ pathPrefix }/` + ( index + 1 ).toString();
     
     const isFirstPage = previousUrl === '/blog/0' ? true : false
+    
+    // console.log(isFirstPage)
 
-
-
-    const mySet1 = new Set()          
-    Object.keys(additionalContext).map((key) => {
-      mySet1.add(additionalContext[key])
-    })
-    const myArr = []
-    myArr.push(...mySet1)
-
-    console.log('001: ',myArr, Array.isArray(myArr))
-
-    const realCats = myArr.filter(item => item.hasOwnProperty('node'))
-    console.log(realCats, Array.isArray(realCats))
+    // console.log(JSON.stringify(pageContext, null, 2))
 
   if (!group) {
     return (
@@ -40,6 +47,7 @@ const ArchiveIndex = ( { pageContext } ) => {
       </p>
     )
   }
+
 
   return (
     <Layout>
@@ -63,11 +71,9 @@ const ArchiveIndex = ( { pageContext } ) => {
           <div className={`blog-filter right-0 lg:w-3/12 ${isFirstPage ? 'lg:absolute' : 'relative left-0 right-0 w-full mb-20' }`}>
             <h5 className='text-gray-800 text-xl font-semibold text-gray-900 dark:text-blueGray-100 mb-4'>Filter Posts:</h5>
             
-
-            
             <ul className={`flex flex-row flex-wrap mb-8 lg:max-w-xs ${isFirstPage ? '' : 'max-w-none flex-wrap lg:flex-nowrap' }`}>
-            { realCats ? (
-              realCats.map(item => {
+            { categories ? (
+              categories.map(item => {
                 // console.log(item.name)
                return (
                 <li 
@@ -76,7 +82,7 @@ const ArchiveIndex = ( { pageContext } ) => {
                     'text-lg py-3 px-4 rounded-md bg-emerald-200 hover:bg-green-500 transform hover:scale-105 hover:text-white m-1 transition duration-300 cursor-pointer', 
                     { 'text-white bg-green-600 pointer-events-none': location.pathname === withPrefix(item.node.uri) })}
                 >
-                  <Link
+                  <Link 
                     to={item.node.uri}
                     activeClassName="active"
                   >
@@ -89,8 +95,8 @@ const ArchiveIndex = ( { pageContext } ) => {
             ) : null }
               <li
                 className={cx(
-                  'text-lg py-3 px-4 rounded-md bg-emerald-200 hover:bg-green-500 transform hover:scale-105 hover:text-white m-1 transition duration-300 cursor-pointer', 
-                  { 'text-white bg-green-600 pointer-events-none': location.pathname === withPrefix('/blog') })}
+                    'text-lg py-3 px-4 rounded-md bg-emerald-200 hover:bg-green-500 transform hover:scale-105 hover:text-white m-1 transition duration-300 cursor-pointer', 
+                    { 'text-white bg-green-600 pointer-events-none': location.pathname === withPrefix('/blog') })}
               >
                 <Link 
                     to='/blog'
@@ -100,22 +106,32 @@ const ArchiveIndex = ( { pageContext } ) => {
                 </Link>
               </li>
             </ul>
+            
+            
+            {/* <ul className={`flex flex-row flex-wrap mb-8 lg:max-w-xs ${isFirstPage ? '' : 'max-w-none flex-wrap lg:flex-nowrap' }`}>
+              <li className='text-lg py-3 px-4 rounded-md bg-emerald-200 hover:bg-green-500 transform hover:scale-105 hover:text-white m-1 transition duration-300 cursor-pointer'>css</li>
+              <li className='text-lg py-3 px-4 rounded-md bg-emerald-200 hover:bg-green-500 transform hover:scale-105 hover:text-white m-1 transition duration-300 cursor-pointer'>html</li>
+              <li className='text-lg py-3 px-4 rounded-md bg-emerald-200 hover:bg-green-500 transform hover:scale-105 hover:text-white m-1 transition duration-300 cursor-pointer'>javascript</li>
+              <li className='text-lg py-3 px-4 rounded-md bg-emerald-200 hover:bg-green-500 transform hover:scale-105 hover:text-white m-1 transition duration-300 cursor-pointer'>all</li>
+              <li className='text-lg py-3 px-4 rounded-md bg-emerald-200 hover:bg-green-500 transform hover:scale-105 hover:text-white m-1 transition duration-300 cursor-pointer'>devtools</li>
+              <li className='text-lg py-3 px-4 rounded-md bg-emerald-200 hover:bg-green-500 transform hover:scale-105 hover:text-white m-1 transition duration-300 cursor-pointer'>nowplaying</li>
+            </ul> */}
           </div>
 
           <div className="blog-list">
             <ul>
               {group.map(post => {
                 
-                const image = getImage(post.featuredImage.node.localFile)
-                const alt = post.featuredImage.node.altText
-                const title = post.title
+                const image = getImage(post.node.featuredImage.node.localFile)
+                const alt = post.node.featuredImage.node.altText
+                const title = post.node.title
 
                 return (
                   <li 
-                    key={post.uri}
+                    key={post.node.uri}
                     className='group my-4'
                   >
-                    <Link to={`/post${post.uri}`} itemProp="url">
+                    <Link to={`/post${post.node.uri}`} itemProp="url">
                       <article 
                         itemScope 
                         itemType="http://schema.org/Article"
@@ -144,13 +160,13 @@ const ArchiveIndex = ( { pageContext } ) => {
                               </div>
                               
                             </div>
-                            <div className={`date italic text-gray-700 w-2/12 text-xs md:text-sm lg:text-base mr-2 ${isFirstPage ? 'group-first-of-type:w-1/2' : 'xl:w-2/12'}`}>{post.date}</div>
+                            <div className={`date italic text-gray-700 w-2/12 text-xs md:text-sm lg:text-base mr-2 ${isFirstPage ? 'group-first-of-type:w-1/2' : 'xl:w-2/12'}`}>{post.node.date}</div>
                             <h4 className={`title leading-tight flex-grow text-gray-800 text-base md:text-lg lg:text-xl font-medium transform group-hover:scale-105 transition duration-200 ${isFirstPage ? 'group-first-of-type:mb-8 group-first-of-type:block group-first-of-type:text-gray-900 group-first-of-type:order-first group-first-of-type:text-3xl group-first-of-type:font-bold' : '' }`}>
                               {title}
-                              <span className={`min italic text-gray-700 w-2/12 text-xs md:text-sm lg:text-base ml-2 ${isFirstPage ? 'font-light' : '' }`}> • {post.acfPosts.readingTime} min.</span>
+                              <span className={`min italic text-gray-700 w-2/12 text-xs md:text-sm lg:text-base ml-2 ${isFirstPage ? 'font-light' : '' }`}> • {post.node.acfPosts.readingTime} min.</span>
                             </h4>
-                            <div className={`category mr-4 2xl:mr-0 flex-grow-0 text-xs lg:text-sm italic text-gray-700 px-2 lg:px-2 py-2 bg-white border border-gray-400 border-opacity-50 text-center rounded-md ${isFirstPage ? 'group-first-of-type:px-0 group-first-of-type:bg-transparent group-first-of-type:border-0 group-first-of-type:border-transparent group-first-of-type:block' : '' }`}>{post.categories.nodes[0].name}</div>
-                            <div className={`excerpt hidden ${isFirstPage ? '2xl:group-first-of-type:mb-4 2xl:group-first-of-type:mr-12 group-first-of-type:block group-first-of-type:text-lg' : '' }`} dangerouslySetInnerHTML={{ __html: post.excerpt}}></div>
+                            <div className={`category mr-4 2xl:mr-0 flex-grow-0 text-xs lg:text-sm italic text-gray-700 px-2 lg:px-2 py-2 bg-white border border-gray-400 border-opacity-50 text-center rounded-md ${isFirstPage ? 'group-first-of-type:px-0 group-first-of-type:bg-transparent group-first-of-type:border-0 group-first-of-type:border-transparent group-first-of-type:block' : '' }`}>{post.node.categories.nodes[0].name}</div>
+                            <div className={`excerpt hidden ${isFirstPage ? '2xl:group-first-of-type:mb-4 2xl:group-first-of-type:mr-12 group-first-of-type:block group-first-of-type:text-lg' : '' }`} dangerouslySetInnerHTML={{ __html: post.node.excerpt}}></div>
                           
                           </div>
                           <button className={`read-more flex flex-row flex-nowrap text-2xl transform translate-x-0 group-hover:translate-x-4 transition duration-200 ${isFirstPage ? 'group-first-of-type:translate-x-0 group-hover:group-first-of-type:translate-x-4 2xl:group-hover:group-first-of-type:-translate-x-4 group-first-of-type:mt-10 xl:group-first-of-type:mt-8 2xl:group-first-of-type:mt-0 group-first-of-type:self-start xl:group-first-of-type:ml-60 2xl:group-first-of-type:ml-0 2xl:group-first-of-type:mt-24 group-first-of-type:py-3 group-first-of-type:px-4 group-first-of-type:bg-emerald-500 group-first-of-type:text-white group-first-of-type:rounded-md' : '' }`}>
@@ -183,18 +199,4 @@ const ArchiveIndex = ( { pageContext } ) => {
   )
 }
 
-export default ArchiveIndex
-
-
-// Get all the posts.
-// export const allCats = graphql`
-// query GetAllCategories {
-//   allWpCategory {
-//     categories: edges {
-//       node {
-//         name
-//       }
-//     }
-//   }
-// }
-// `
+export default BlogIndex

@@ -7,7 +7,9 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import parse, {domToReact} from 'html-react-parser';
 import "../styles/blog.module.scss"
 
-const BlogPostTemplate = ({ data: { previous, next, post } }) => {
+const BlogPostTemplate = ({ data, data: { previous, next, post } }) => {
+
+  console.log(data)
 
   const image = getImage(post.featuredImage.node.localFile)
   const alt = post.featuredImage.node.altText

@@ -1,6 +1,7 @@
 const createAllMarkdownPages = require( './create-pages/projects' )
 const createAllPosts = require( './create-pages/posts' )
-const createBlogPage = require( './create-pages/archive' )
+const createBlogPage = require( './create-pages/blog' )
+const createArchivePage = require( './create-pages/archive' );
 
 const path = require( 'path' )
 
@@ -9,4 +10,5 @@ exports.createPages = async ( { actions, graphql } ) => {
 	await createAllMarkdownPages( { actions, graphql } )
 	await createAllPosts( { actions, graphql } )
 	await createBlogPage( { actions, graphql } )
+	await createArchivePage( { actions, graphql } );
 };
