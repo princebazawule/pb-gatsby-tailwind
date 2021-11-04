@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Seo from '../components/Seo'
-import { PostCode } from "./Postcode"
+import { Postcode } from "./Postcode"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import parse, {domToReact} from 'html-react-parser';
 import "../styles/blog.module.scss"
@@ -16,7 +16,7 @@ const BlogPostTemplate = ({ data, data: { previous, next, post } }) => {
 
   const replaceCode = node => {
     if (node.name === 'pre') {
-      return node.children.length > 0 && <PostCode language={getLanguage(node)}>{domToReact(getCode(node))}</PostCode>;
+      return node.children.length > 0 && <Postcode language={getLanguage(node)}>{domToReact(getCode(node))}</Postcode>;
     }
   };
 
