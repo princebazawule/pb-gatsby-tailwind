@@ -33,7 +33,7 @@
     "gatsby-plugin-sitemap": "^5.0.0",
     "gatsby-plugin-social9-socialshare": "^1.0.5",
     "gatsby-source-filesystem": "^3.14.0",
-    "gatsby-source-wordpress": "^5.14.1",
+    "gatsby-source-wordpress": "^5.14.2",
     "gatsby-transformer-remark": "^4.11.0",
     "gatsby-transformer-sharp": "^3.14.0",
     "gsap": "^3.8.0",

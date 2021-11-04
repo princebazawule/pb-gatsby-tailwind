@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql, withPrefix } from "gatsby"
+import { Link, withPrefix } from "gatsby"
 import { useLocation } from "@reach/router"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
@@ -18,19 +18,13 @@ const ArchiveIndex = ( { pageContext } ) => {
     
     const isFirstPage = previousUrl === '/blog/0' ? true : false
 
-
-
-    const mySet1 = new Set()          
+    const setCategories = new Set()          
     Object.keys(additionalContext).map((key) => {
-      mySet1.add(additionalContext[key])
+      setCategories.add(additionalContext[key])
     })
-    const myArr = []
-    myArr.push(...mySet1)
-
-    console.log('001: ',myArr, Array.isArray(myArr))
-
-    const realCats = myArr.filter(item => item.hasOwnProperty('node'))
-    console.log(realCats, Array.isArray(realCats))
+    const categoriesArray = []
+    categoriesArray.push(...setCategories)
+    const categories = categoriesArray.filter(item => item.hasOwnProperty('node'))
 
   if (!group) {
     return (
@@ -66,9 +60,8 @@ const ArchiveIndex = ( { pageContext } ) => {
 
             
             <ul className={`flex flex-row flex-wrap mb-8 lg:max-w-xs ${isFirstPage ? '' : 'max-w-none flex-wrap lg:flex-nowrap' }`}>
-            { realCats ? (
-              realCats.map(item => {
-                // console.log(item.name)
+            { categories ? (
+              categories.map(item => {
                return (
                 <li 
                   key={item.node.id}
@@ -129,17 +122,10 @@ const ArchiveIndex = ( { pageContext } ) => {
                             
                               <div className="mb-4 rounded-5xl flex flex-col justify-center items-center content-center overflow-hidden scale-100 transform-gpu rotate-12 transition duration-300 ease-in-out group-hover:rotate-3 group-hover:scale-100 flex-shrink w-32 h-32 xs:w-40 xs:h-40 md:w-48 md:h-48">
                                 <span className="-rotate-12 transform scale-150">
-                                  <GatsbyImage image={image} alt={alt} />
-                                  {/* <img
-                                    src={`profile-${skill}.png`}
-                                    className='max-w-full opacity-0 transition-opacity duration-300' data-replace='{ "opacity-0" : "opacity-100" }'
-                                    alt="profile - design"
-                                    placeholder="blurred"
-                                    layout="fixed"
-                                    width={200}
-                                    height={200}
-                                    id="profile-pic"
-                                  /> */}
+                                  <GatsbyImage 
+                                    image={image} 
+                                    alt={alt} 
+                                  />
                                 </span>
                               </div>
                               
@@ -184,17 +170,3 @@ const ArchiveIndex = ( { pageContext } ) => {
 }
 
 export default ArchiveIndex
-
-
-// Get all the posts.
-// export const allCats = graphql`
-// query GetAllCategories {
-//   allWpCategory {
-//     categories: edges {
-//       node {
-//         name
-//       }
-//     }
-//   }
-// }
-// `

@@ -9,35 +9,31 @@ import "../styles/blog.module.scss"
 
 const BlogIndex = ( { pageContext } ) => {
 
-    const location = useLocation()
+  const location = useLocation()
 
-    // Get all the posts.
-    const getAllCats = useStaticQuery(graphql`
-      query GetAllCategories {
-        allWpCategory {
-          categories: edges {
-            node {
-                name
-                uri
-                id
-            }
+  const getCategories = useStaticQuery(graphql`
+    query GetAllCategories {
+      allWpCategory {
+        categories: edges {
+          node {
+              name
+              uri
+              id
           }
         }
       }
-    `)
+    }
+  `)
 
-    const { categories } = getAllCats.allWpCategory
+  const { categories } = getCategories.allWpCategory
 
   const { group, index, first, last, pathPrefix } = pageContext;
 
-    const previousUrl = 1 === index - 1 ? `/${ pathPrefix }` : `/${ pathPrefix }/` + ( index - 1 ).toString()
-	  const nextUrl = `/${ pathPrefix }/` + ( index + 1 ).toString();
+  const previousUrl = 1 === index - 1 ? `/${ pathPrefix }` : `/${ pathPrefix }/` + ( index - 1 ).toString()
+  const nextUrl = `/${ pathPrefix }/` + ( index + 1 ).toString();
+  
+  const isFirstPage = previousUrl === '/blog/0' ? true : false
     
-    const isFirstPage = previousUrl === '/blog/0' ? true : false
-    
-    // console.log(isFirstPage)
-
-    // console.log(JSON.stringify(pageContext, null, 2))
 
   if (!group) {
     return (
@@ -74,7 +70,6 @@ const BlogIndex = ( { pageContext } ) => {
             <ul className={`flex flex-row flex-wrap mb-8 lg:max-w-xs ${isFirstPage ? '' : 'max-w-none flex-wrap lg:flex-nowrap' }`}>
             { categories ? (
               categories.map(item => {
-                // console.log(item.name)
                return (
                 <li 
                   key={item.node.id}
@@ -106,16 +101,6 @@ const BlogIndex = ( { pageContext } ) => {
                 </Link>
               </li>
             </ul>
-            
-            
-            {/* <ul className={`flex flex-row flex-wrap mb-8 lg:max-w-xs ${isFirstPage ? '' : 'max-w-none flex-wrap lg:flex-nowrap' }`}>
-              <li className='text-lg py-3 px-4 rounded-md bg-emerald-200 hover:bg-green-500 transform hover:scale-105 hover:text-white m-1 transition duration-300 cursor-pointer'>css</li>
-              <li className='text-lg py-3 px-4 rounded-md bg-emerald-200 hover:bg-green-500 transform hover:scale-105 hover:text-white m-1 transition duration-300 cursor-pointer'>html</li>
-              <li className='text-lg py-3 px-4 rounded-md bg-emerald-200 hover:bg-green-500 transform hover:scale-105 hover:text-white m-1 transition duration-300 cursor-pointer'>javascript</li>
-              <li className='text-lg py-3 px-4 rounded-md bg-emerald-200 hover:bg-green-500 transform hover:scale-105 hover:text-white m-1 transition duration-300 cursor-pointer'>all</li>
-              <li className='text-lg py-3 px-4 rounded-md bg-emerald-200 hover:bg-green-500 transform hover:scale-105 hover:text-white m-1 transition duration-300 cursor-pointer'>devtools</li>
-              <li className='text-lg py-3 px-4 rounded-md bg-emerald-200 hover:bg-green-500 transform hover:scale-105 hover:text-white m-1 transition duration-300 cursor-pointer'>nowplaying</li>
-            </ul> */}
           </div>
 
           <div className="blog-list">
@@ -145,17 +130,10 @@ const BlogIndex = ( { pageContext } ) => {
                             
                               <div className="mb-4 rounded-5xl flex flex-col justify-center items-center content-center overflow-hidden scale-100 transform-gpu rotate-12 transition duration-300 ease-in-out group-hover:rotate-3 group-hover:scale-100 flex-shrink w-32 h-32 xs:w-40 xs:h-40 md:w-48 md:h-48">
                                 <span className="-rotate-12 transform scale-150">
-                                  <GatsbyImage image={image} alt={alt} />
-                                  {/* <img
-                                    src={`profile-${skill}.png`}
-                                    className='max-w-full opacity-0 transition-opacity duration-300' data-replace='{ "opacity-0" : "opacity-100" }'
-                                    alt="profile - design"
-                                    placeholder="blurred"
-                                    layout="fixed"
-                                    width={200}
-                                    height={200}
-                                    id="profile-pic"
-                                  /> */}
+                                  <GatsbyImage 
+                                    image={image} 
+                                    alt={alt} 
+                                  />
                                 </span>
                               </div>
                               

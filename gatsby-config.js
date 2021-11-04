@@ -16,7 +16,7 @@ module.exports = {
     },
     description: `designer, developer, dj & gooner`,
     copyright: `2021 — princebazawule`,
-    siteUrl: `http://localhost:8000`,
+    siteUrl: `https://princebazawule.com`,
     social: [
       {
         network: `twitter`,
@@ -212,7 +212,7 @@ module.exports = {
       resolve: `gatsby-source-wordpress`,
       options: {
         url:
-          process.env.WPGRAPHQL_URL || `http://princebazawule.com/graphql`,
+          process.env.WPGRAPHQL_URL || `https://pixldinc.link/cms/princebazawulecms/graphql`,
         schema: {
           typePrefix: `Wp`,
         },
