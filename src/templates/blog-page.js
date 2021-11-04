@@ -65,7 +65,7 @@ const BlogIndex = ( { pageContext } ) => {
 
         <div className="blog-wrap mt-16 relative">
           <div className={`blog-filter right-0 lg:w-3/12 ${isFirstPage ? 'lg:absolute' : 'relative left-0 right-0 w-full mb-20' }`}>
-            <h5 className='text-gray-800 text-xl font-semibold text-gray-900 dark:text-blueGray-100 mb-4'>Filter Posts:</h5>
+            <h5 className='text-xl font-semibold text-gray-800 dark:text-blueGray-100 mb-4'>Categories:</h5>
             
             <ul className={`flex flex-row flex-wrap mb-8 lg:max-w-xs ${isFirstPage ? '' : 'max-w-none flex-wrap lg:flex-nowrap' }`}>
             { categories ? (
