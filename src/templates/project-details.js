@@ -94,7 +94,7 @@ export default function ProjectDetails({ data }) {
                                             key={index}
                                             image={image} 
                                             alt={alt}
-                                            className='mb-8 border-16 border-white drop-shadow-lg block h-full'
+                                            className='mb-8 border-16 border-white drop-shadow-lg block h-full 3xl:w-4/5 3xl:mx-auto'
                                         />
                                     )
                                 })

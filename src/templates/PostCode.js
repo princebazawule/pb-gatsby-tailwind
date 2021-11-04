@@ -2,7 +2,7 @@ import React from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { prism } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-export const Postcode = ({ language, children }) => (
+export const PostCode = ({ language, children }) => (
     <SyntaxHighlighter
         style={prism}
         customStyle={{
@@ -13,4 +13,4 @@ export const Postcode = ({ language, children }) => (
     >
         {children}
     </SyntaxHighlighter>
-);
+)
