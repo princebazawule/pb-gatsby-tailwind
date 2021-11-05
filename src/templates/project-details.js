@@ -1,8 +1,7 @@
 import React, { useEffect } from "react"
-import { Link, graphql, navigate } from "gatsby"
+import { graphql, navigate } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
-import Layout from "../components/Layout"
 import Seo from '../components/Seo'
 import "../styles/blog.module.scss"
 

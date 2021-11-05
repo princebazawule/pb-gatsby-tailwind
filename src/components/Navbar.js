@@ -6,7 +6,7 @@ import SvgPrincebazawuleLogo from "./icons/PrincebazawuleLogo"
 import { ThemeToggler } from 'gatsby-plugin-dark-mode'
 
 
-export default function Navbar({}) {
+export default function Navbar() {
   const location = useLocation()
   
   // console.log(location)
@@ -102,6 +102,7 @@ export default function Navbar({}) {
         </ThemeToggler>
         
         <button
+          title="menu link"
           className="menu-btn w-14 h-14 relative bg-transparent rounded z-50"
           onClick={() => setIsOpen(!isOpen)}
         >

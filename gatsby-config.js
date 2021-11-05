@@ -108,7 +108,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `Poppins\:ital,wght@0,400;0,800;0,900;1,300` // you can also specify font weights and styles
+          `Poppins\:ital,wght@0,400;0,800;0,900;1,300`
         ],
         display: 'swap'
       }
@@ -130,7 +130,10 @@ module.exports = {
         background_color: `#D1FAE5`,
         theme_color: `#111827`,
         display: `standalone`,
-        icon: `src/images/icon.png`
+        icon: `src/images/icon.png`,
+        icon_options: {
+          purpose: `any maskable`,
+        },
       },
     },
     `gatsby-plugin-sitemap`,

@@ -7,7 +7,6 @@ export default function NotFound() {
 
     const [position, setPosition] = useState({ x: 0, y: 0 })
     const textRef = useRef()
-    const listRef = useRef()
 
     const handlePositionChange = e => {
         setPosition({
@@ -38,7 +37,7 @@ export default function NotFound() {
                         // className="xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-20 xl:px-4 2xl:px-8 flex flex-col justify-center sm:flex-initial cursor-default"
                         className="xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-20 xl:px-4 2xl:px-8 flex flex-col justify-center sm:flex-initial cursor-default"
                         onMouseMove={e => handlePositionChange(e)}
-                        role="button"
+                        role="region"
                     >
                             <h1 className="selection:bg-opacity-0 text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight xl:tracking-tighter font-black text-7xl leading-normal xs:text-8xl xs:leading-normal sm:text-9xl sm:leading-normal md:text-11xl md:leading-normal lg:text-11xl lg:leading-normal xl:text-11xl xl:leading-normal 2xl:text-11xl 2xl:leading-normal 3xl:text-13xl 3xl:leading-normal 4xl:text-14xl 4xl:leading-normal">
                                 <span className='transition duration-300 ease-in-out bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500'>

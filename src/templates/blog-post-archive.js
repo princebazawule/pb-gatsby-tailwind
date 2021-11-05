@@ -20,7 +20,9 @@ const ArchiveIndex = ( { pageContext } ) => {
 
     const setCategories = new Set()          
     Object.keys(additionalContext).map((key) => {
-      setCategories.add(additionalContext[key])
+      return (
+        setCategories.add(additionalContext[key])
+      )
     })
     const categoriesArray = []
     categoriesArray.push(...setCategories)

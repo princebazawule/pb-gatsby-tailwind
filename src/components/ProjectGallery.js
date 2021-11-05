@@ -57,7 +57,7 @@ export default function ProjectGallery({ data }) {
             ref={galleryRef}
             className='gallery relative rounded-lg px-2 lg:px-2 3xl:px-10 mt-24 sm:mt-20 md:mt-24 lg:mt-32 xl:mt-0 xl:right-10 2xl:right-12 3xl:right-56 4xl:right-72 xl:absolute xl:top-1/2 xl:transform xl:-translate-y-1/2 xl:w-1/4 2xl:w-1/4 xl:h-3/5'
             onMouseMove={e => handlePositionChange(e)}
-            role="button"
+            role="region"
         >
             <div className='gallery-scroller flex flex-row xl:flex-col justify-start xl:content-center flex-nowrap w-full overflow-x-scroll xl:overflow-y-scroll h-full'>
                 {projects.map(project => {

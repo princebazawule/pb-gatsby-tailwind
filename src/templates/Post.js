@@ -65,7 +65,7 @@ const BlogPostTemplate = ({ data, data: { previous, next, post } }) => {
               <GatsbyImage 
                 image={image} 
                 alt={alt}
-                className='border-16 border-white drop-shadow-lg h-64 w-full aspect-w-16 aspect-h-6'
+                className='border-16 bg-white border-white drop-shadow-lg h-64 w-full aspect-w-16 aspect-h-6'
               />
               <h1 
                 itemProp="headline"

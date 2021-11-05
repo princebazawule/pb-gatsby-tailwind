@@ -1,6 +1,7 @@
 import { graphql, Link } from 'gatsby'
 import React, { useRef, useEffect, useState } from 'react'
 import { gsap } from 'gsap'
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 import SvgGithubIcon from '../components/icons/GithubIcon'
 import SvgSoundcloudIcon from '../components/icons/SoundcloudIcon'
@@ -11,6 +12,13 @@ import Layout from '../components/Layout'
 import Seo from '../components/Seo'
 
 export default function Home({ data }) {
+
+  const { author } = data.site.siteMetadata
+  const { images } = data
+
+  const profileImages = images.edges
+  
+  // console.log(profile[0].artwork)
 
   // console.log(data)
 
@@ -37,6 +45,10 @@ export default function Home({ data }) {
     setSkill(skill)
   }
 
+  const selectedImage = profileImages.filter(item => item.node.name === skill)
+  const image = getImage(selectedImage[0].node.childImageSharp)
+  const name = selectedImage[0].node.name
+
   useEffect(() => {
     gsap.to(textRef.current, {
       rotationY: -5 * position.y,
@@ -58,7 +70,6 @@ export default function Home({ data }) {
     })
   })
 
-  const { author } = data.site.siteMetadata
   return (
     <>
       <Layout>
@@ -69,7 +80,7 @@ export default function Home({ data }) {
             ref={textRef}
             className="xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-20 xl:px-4 2xl:px-8 flex flex-col justify-center sm:flex-initial cursor-default"
             onMouseMove={e => handlePositionChange(e)}
-            role="button"
+            role="region"
           >
             <h1 className="text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight xl:tracking-tighter font-black text-4xl leading-tight xs:text-5xl xs:leading-tight sm:text-6xl sm:leading-none md:text-7xl md:leading-none lg:text-8xl lg:leading-none xl:text-8xl xl:leading-none 2xl:text-8xl 2xl:leading-none 3xl:text-9xl 3xl:leading-none 4xl:text-10xl 4xl:leading-none">
               i’m {author.first_name}.<br /> i{" "}
@@ -115,7 +126,7 @@ export default function Home({ data }) {
 
             <div className="inline-block">
               <Link to="/contact">
-                <button className="flex mt-8 sm:mt-16 md:mt-14 lg:mt-16 xl:mt-24 transition duration-500 ease-in-out text-white dark:text-gray-900 text-2xl xs:text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-5xl 3xl:text-5xl font-bold rounded-full bg-green-500 dark:bg-green-400 dark:hover:bg-green-700 border-0 py-2 px-8 lg:px-12 lg:tracking-tight xl:px-12 xl:tracking-tight 2xl:px-12 2xl:tracking-tight 3xl:px-12 3xl:tracking-tight focus:ring-6 focus:ring-green-500 focus:ring-opacity-50 hover:bg-green-800 dark:hover:text-blueGray-100">
+                <button className="flex mt-8 sm:mt-16 md:mt-14 lg:mt-16 xl:mt-24 transition duration-500 ease-in-out text-white dark:text-gray-900 text-2xl xs:text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-5xl 3xl:text-5xl font-bold rounded-full bg-green-600 dark:bg-green-400 dark:hover:bg-green-700 border-0 py-2 px-8 lg:px-12 lg:tracking-tight xl:px-12 xl:tracking-tight 2xl:px-12 2xl:tracking-tight 3xl:px-12 3xl:tracking-tight focus:ring-6 focus:ring-green-500 focus:ring-opacity-50 hover:bg-green-800 dark:hover:text-blueGray-100">
                   let's connect
                 </button>
               </Link>
@@ -126,7 +137,7 @@ export default function Home({ data }) {
             ref={listRef}
             className="px-2 lg:px-2 3xl:px-10 mt-12 sm:mt-12 md:mt-8 lg:mt-0 xl:mt-0 xl:right-10 2xl:right-12 3xl:right-12 4xl:right-64 relative xl:absolute xl:top-1/2 xl:transform xl:-translate-y-1/2 xl:w-1/4 2xl:w-1/4"
             onMouseMove={e => handlePositionChange(e)}
-            role="list"
+            role="region"
           >
             <div className='transition duration-300 flex flex-row flex-wrap items-end xl:items-center justify-center'>
               <OutboundLink 
@@ -153,16 +164,19 @@ export default function Home({ data }) {
               </OutboundLink>
               <div className="m-2 xl:m-3 2xl:m-4 rounded-4xl flex flex-col justify-center items-center content-center overflow-hidden scale-100 transform-gpu rotate-12 transition duration-300 ease-in-out hover:rotate-3 hover:scale-100 flex-shrink w-32 h-32 xs:w-40 xs:h-40 md:w-56 md:h-56 xl:w-52 xl:h-52 2xl:w-60 2xl:h-60 3xl:w-64 3xl:h-64 order-first sm:order-none 3xl:order-first">
                 <span className="-rotate-12 transform scale-150">
-                  <img
-                    src={`profile-${skill}.png`}
-                    className='max-w-full opacity-0 transition-opacity duration-300' data-replace='{ "opacity-0" : "opacity-100" }'
-                    alt="profile - design"
-                    placeholder="blurred"
-                    layout="fixed"
-                    width={200}
-                    height={200}
-                    id="profile-pic"
-                  />
+                  { image && (
+                    <GatsbyImage 
+                        image={image}
+                        alt={`profile - ${name}`}
+                        className='max-w-full transition duration-300'
+                        placeholder="blurred"
+                        // layout="fixed"
+                        layout="constrained"
+                        // width={200}
+                        width={200}
+                        height={200}
+                        id="profile-pic"
+                    />) }
                 </span>
               </div>
               <OutboundLink 
@@ -212,6 +226,23 @@ export const query = graphql`
       siteMetadata {
         author {
           first_name
+        }
+      }
+    }
+
+    images: allFile(filter: {absolutePath: {regex: "/(images/profile)/"}}) {
+      edges {
+        node {
+          id
+          childImageSharp {
+            gatsbyImageData(
+              width: 200
+              placeholder: BLURRED
+              blurredOptions: {toFormat: NO_CHANGE}
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+          name
         }
       }
     }
