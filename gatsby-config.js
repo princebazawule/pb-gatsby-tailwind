@@ -163,6 +163,13 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-htaccess',
+      options: {
+        https: true,
+      },
+    },
+
+    {
       resolve: "gatsby-plugin-page-progress",
       options: {
         includePaths: [{ regex: "^/post/" }],
