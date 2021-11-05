@@ -59,7 +59,8 @@ body {
         }
         pre,
         iframe {
-            max-width: 80%;
+            @apply w-full;
+            @apply xl:w-4/5;
         }
     }
 

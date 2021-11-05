@@ -135,7 +135,7 @@ export default function Home({ data }) {
 
           <section
             ref={listRef}
-            className="px-2 lg:px-2 3xl:px-10 mt-12 sm:mt-12 md:mt-8 lg:mt-0 xl:mt-0 xl:right-10 2xl:right-12 3xl:right-12 4xl:right-64 relative xl:absolute xl:top-1/2 xl:transform xl:-translate-y-1/2 xl:w-1/4 2xl:w-1/4"
+            className="px-2 lg:px-2 3xl:px-10 mt-12 sm:mt-12 md:mt-8 lg:mt-0 xl:mt-0 xl:right-10 2xl:right-12 3xl:right-12 4xl:right-64 relative xl:absolute xl:top-1/2 xl:transform xl:-translate-y-1/2 xl:w-1/4 2xl:w-1/4 z-10"
             onMouseMove={e => handlePositionChange(e)}
             role="region"
           >
