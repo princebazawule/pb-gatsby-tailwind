@@ -31,7 +31,7 @@ export default function Navbar() {
       >
         <Link
           className={cx(
-            "nav-item text-emerald-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal 2xl:text-8xl 2xl:leading-normal hover:text-blueGray-700 dark:hover:text-emerald-200 focus:text-blueGray-700 dark:focus:text-emerald-200 transition duration-300",
+            "nav-item text-emerald-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-6xl md:leading-normal lg:text-6xl lg:leading-normal xl:text-6xl 2xl:text-8xl 2xl:leading-normal hover:text-blueGray-700 dark:hover:text-emerald-200 focus:text-blueGray-700 dark:focus:text-emerald-200 transition duration-300",
             { 'text-blueGray-800 dark:text-emerald-300 pointer-events-none focus:text-current dark:focus:text-emerald-300': location.pathname === "/" }
           )}
           to="/"
@@ -41,7 +41,7 @@ export default function Navbar() {
         </Link>
         <Link
           className={cx(
-            "nav-item text-emerald-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal 2xl:text-8xl 2xl:leading-normal hover:text-blueGray-700 dark:hover:text-emerald-200 focus:text-blueGray-700 dark:focus:text-emerald-200 transition duration-300",
+            "nav-item text-emerald-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-6xl md:leading-normal lg:text-6xl lg:leading-normal xl:text-6xl 2xl:text-8xl 2xl:leading-normal hover:text-blueGray-700 dark:hover:text-emerald-200 focus:text-blueGray-700 dark:focus:text-emerald-200 transition duration-300",
             { 'text-blueGray-800 dark:text-emerald-300 pointer-events-none focus:text-current dark:focus:text-emerald-300': location.pathname === "/designer" }
           )}
           to="/designer"
@@ -51,7 +51,7 @@ export default function Navbar() {
         </Link>
         <Link
           className={cx(
-            "nav-item text-emerald-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal 2xl:text-8xl 2xl:leading-normal hover:text-blueGray-700 dark:hover:text-emerald-200 focus:text-blueGray-700 dark:focus:text-emerald-200 transition duration-300",
+            "nav-item text-emerald-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-6xl md:leading-normal lg:text-6xl lg:leading-normal xl:text-6xl 2xl:text-8xl 2xl:leading-normal hover:text-blueGray-700 dark:hover:text-emerald-200 focus:text-blueGray-700 dark:focus:text-emerald-200 transition duration-300",
             { 'text-blueGray-800 dark:text-emerald-300 pointer-events-none focus:text-current dark:focus:text-emerald-300': location.pathname === "/developer" }
           )}
           to="/developer"
@@ -61,7 +61,7 @@ export default function Navbar() {
         </Link>
         <Link
           className={cx(
-            "nav-item text-emerald-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal 2xl:text-8xl 2xl:leading-normal hover:text-blueGray-700 dark:hover:text-emerald-200 focus:text-blueGray-700 dark:focus:text-emerald-200 transition duration-300",
+            "nav-item text-emerald-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-6xl md:leading-normal lg:text-6xl lg:leading-normal xl:text-6xl 2xl:text-8xl 2xl:leading-normal hover:text-blueGray-700 dark:hover:text-emerald-200 focus:text-blueGray-700 dark:focus:text-emerald-200 transition duration-300",
             { 'text-blueGray-800 dark:text-emerald-300 pointer-events-none focus:text-current dark:focus:text-emerald-300': location.pathname === "/dj" }
           )}
           to="/dj"
@@ -71,7 +71,7 @@ export default function Navbar() {
         </Link>
         <Link
           className={cx(
-            "nav-item text-emerald-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal 2xl:text-8xl 2xl:leading-normal hover:text-blueGray-700 dark:hover:text-emerald-200 focus:text-blueGray-700 dark:focus:text-emerald-200 transition duration-300",
+            "nav-item text-emerald-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-6xl md:leading-normal lg:text-6xl lg:leading-normal xl:text-6xl 2xl:text-8xl 2xl:leading-normal hover:text-blueGray-700 dark:hover:text-emerald-200 focus:text-blueGray-700 dark:focus:text-emerald-200 transition duration-300",
             { 'text-blueGray-800 dark:text-emerald-300 pointer-events-none focus:text-current dark:focus:text-emerald-300': location.pathname.indexOf("/blog") !== -1  || location.pathname.indexOf("/post/") !== -1 }
           )}
           to="/blog"
@@ -81,7 +81,7 @@ export default function Navbar() {
         </Link>
         <Link
           className={cx(
-            "nav-item text-emerald-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal 2xl:text-8xl 2xl:leading-normal hover:text-blueGray-700 dark:hover:text-emerald-200 focus:text-blueGray-700 dark:focus:text-emerald-200 transition duration-300",
+            "nav-item text-emerald-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-6xl md:leading-normal lg:text-6xl lg:leading-normal xl:text-6xl 2xl:text-8xl 2xl:leading-normal hover:text-blueGray-700 dark:hover:text-emerald-200 focus:text-blueGray-700 dark:focus:text-emerald-200 transition duration-300",
             { 'text-blueGray-800 dark:text-emerald-300 pointer-events-none focus:text-current dark:focus:text-emerald-300': location.pathname === "/contact" }
           )}
           to="/contact"
