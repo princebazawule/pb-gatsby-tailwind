@@ -76,7 +76,7 @@ export default function Home({ data }) {
         <div className="flex flex-col sm:flex-grow 3xl:w-11/12 4xl:w-11/12 3xl:mx-auto justify-between flex-1">
           <section
             ref={textRef}
-            className="xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-20 xl:px-4 2xl:px-8 flex flex-col justify-center sm:flex-initial cursor-default"
+            className="xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-16 xl:px-4 2xl:px-8 flex flex-col justify-center sm:flex-initial cursor-default"
             onMouseMove={e => handlePositionChange(e)}
             role="region"
           >

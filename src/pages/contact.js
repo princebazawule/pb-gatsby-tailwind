@@ -53,8 +53,8 @@ export default function Contact({ data }) {
             let’s connect
           </h2>
 
-          <div className="flex flex-col sm:flex-row sm:flex-wrap sm:justify-between xl:w-11/12 2xl:w-10/12 3xl:w-10/12">
-            <div className="contact-content">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap sm:justify-between lg:w-11/12 2xl:w-10/12 3xl:w-10/12">
+            <div className="contact-content lg:w-5/12">
               <p className="mb-8 text text-gray-800 dark:text-blueGray-100 tracking-tighter sm:tracking-tight font-normal text-xl leading-normal xs:text-2xl xs:leading-normal sm:text-2xl sm:leading-normal md:text-2xl md:leading-normal lg:text-2xl lg:leading-normal xl:text-2xl xl:leading-normal 2xl:text-3xl 2xl:leading-normal 3xl:text-3xl 3xl:leading-normal 4xl:text-3xl 4xl:leading-normal">
                 <OutboundLink
                   href="mailto:prince.bazawule@gmail.com"
