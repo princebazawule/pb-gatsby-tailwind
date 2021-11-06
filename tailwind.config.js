@@ -4,6 +4,7 @@ const plugin = require('tailwindcss/plugin');
 module.exports = {
   mode: 'jit',
   purge: [
+    './templates/**/*.{js,ts,jsx,tsx}', 
     './pages/**/*.{js,ts,jsx,tsx}', 
     './src/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
@@ -82,10 +83,13 @@ module.exports = {
       '15xl': '15rem',
      },
      fill: theme => ({
-      'green': theme('colors.green.500'),
-      'gray': theme('colors.gray.900'),
+      'red': theme('colors.red.500'),
+      'green': theme('colors.emerald.500'),
+      'blueGray': theme('colors.blueGray.900'),
       'teal': theme('colors.teal.500'),
       'white': theme('colors.blueGray.100'),
+      'lightGreen': theme('colors.emerald.300'),
+      'darkGreen': theme('colors.emerald.600'),
       }),
      minHeight: {
       '0': '0',
@@ -114,6 +118,7 @@ module.exports = {
       animation: {
         outIn: 'outIn 0.5s ease-in-out',
       },
+      fill: ['hover', 'focus'],
     },
   },
   variants: {

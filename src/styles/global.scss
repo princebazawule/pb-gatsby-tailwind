@@ -113,7 +113,7 @@ body {
                 @apply h-0.5;
                 @apply bottom-0;
                 @apply left-0;
-                @apply bg-green-700;
+                @apply bg-emerald-500;
                 @apply transition;
                 @apply ease-in-out;
                 @apply duration-300;
@@ -192,6 +192,16 @@ body {
     }
 
     &.dark {
+
+        // navigation menu
+        .nav {
+            .nav-item {
+                &:after {
+                    @apply bg-emerald-300;
+                }
+            }
+        }
+
         section {
             .blog-content {
                 h2,

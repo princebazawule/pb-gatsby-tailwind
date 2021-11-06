@@ -53,12 +53,12 @@ const BlogIndex = ( { pageContext } ) => {
           className="xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-20 xl:px-4 2xl:px-8 flex flex-col justify-center sm:flex-initial"
       >
         <div className='flex flex-row flex-nowrap items-center'>
-          <h1 className="text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight xl:tracking-tighter font-black text-4xl leading-normal xs:text-5xl xs:leading-normal sm:text-6xl sm:leading-normal md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal xl:text-8xl xl:leading-normal 2xl:text-8xl 2xl:leading-normal 3xl:text-9xl 3xl:leading-normal 4xl:text-10xl 4xl:leading-normal">
+          <h1 className="text text-blueGray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight xl:tracking-tighter font-black text-4xl leading-normal xs:text-5xl xs:leading-normal sm:text-6xl sm:leading-normal md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal xl:text-8xl xl:leading-normal 2xl:text-8xl 2xl:leading-normal 3xl:text-9xl 3xl:leading-normal 4xl:text-10xl 4xl:leading-normal">
               <span className='transition duration-300 ease-in-out bg-clip-text text-transparent bg-gradient-to-tr from-pink-400 via-blue-300 to-green-500 dark:bg-gradient-to-tr dark:from-pink-400 dark:via-blue-300 dark:to-green-500'>
                   Blog
               </span>
           </h1>
-          <h2 className="ml-8 xl:ml-12 2xl:ml-16 3xl:ml-32 text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight font-black text-xl leading-tight xs:text-2xl xs:leading-tight sm:text-2xl sm:leading-tight md:text-3xl md:leading-tight lg:text-4xl lg:leading-tight xl:text-4xl xl:leading-tight 2xl:text-5xl 2xl:leading-tight 3xl:text-6xl 3xl:leading-tight 4xl:text-6xl 4xl:leading-tight">
+          <h2 className="ml-8 xl:ml-12 2xl:ml-16 3xl:ml-32 text text-blueGray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight font-black text-xl leading-tight xs:text-2xl xs:leading-tight sm:text-2xl sm:leading-tight md:text-3xl md:leading-tight lg:text-4xl lg:leading-tight xl:text-4xl xl:leading-tight 2xl:text-5xl 2xl:leading-tight 3xl:text-6xl 3xl:leading-tight 4xl:text-6xl 4xl:leading-tight">
             some of my tips, tutorial &<br /> collections. Check back for more.
           </h2>
         </div>
@@ -139,7 +139,7 @@ const BlogIndex = ( { pageContext } ) => {
                               
                             </div>
                             <div className={`date italic text-gray-700 w-2/12 text-xs md:text-sm lg:text-base mr-2 ${isFirstPage ? 'group-first-of-type:w-1/2' : 'xl:w-2/12'}`}>{post.node.date}</div>
-                            <h4 className={`title leading-tight flex-grow text-gray-800 text-base md:text-lg lg:text-xl font-medium transform group-hover:scale-105 transition duration-200 ${isFirstPage ? 'group-first-of-type:mb-8 group-first-of-type:block group-first-of-type:text-gray-900 group-first-of-type:order-first group-first-of-type:text-3xl group-first-of-type:font-bold' : '' }`}>
+                            <h4 className={`title leading-tight flex-grow text-gray-800 text-base md:text-lg lg:text-xl font-medium transform group-hover:scale-105 transition duration-200 ${isFirstPage ? 'group-first-of-type:mb-8 group-first-of-type:block group-first-of-type:text-blueGray-900 group-first-of-type:order-first group-first-of-type:text-3xl group-first-of-type:font-bold' : '' }`}>
                               {title}
                               <span className={`min italic text-gray-700 w-2/12 text-xs md:text-sm lg:text-base ml-2 ${isFirstPage ? 'font-light' : '' }`}> • {post.node.acfPosts.readingTime} min.</span>
                             </h4>
@@ -164,12 +164,12 @@ const BlogIndex = ( { pageContext } ) => {
       <div className='w-full flex flex-row flex-nowrap justify-center'>
 				{ ! first ? 
           <Link to={ previousUrl }>
-            <div className='mx-8 leading-none text-center rounded-md text-xl italic text-blueGray-900 dark:text-green-300 hover:text-green-500 dark:hover:text-green-100 transition duration-300'>← Newer posts</div>
+            <div className='mx-8 leading-none text-center rounded-md text-xl italic text-blueGray-900 dark:text-emerald-300 hover:text-emerald-500 dark:hover:text-emerald-100 transition duration-300'>← Newer posts</div>
           </Link> : null }
 				
         { ! last ? 
         <Link to={ nextUrl }>
-          <div className='mx-8 leading-none text-center rounded-md text-xl italic text-blueGray-900 dark:text-green-300 hover:text-green-500 dark:hover:text-green-100 transition duration-300'>Older posts →</div>
+          <div className='mx-8 leading-none text-center rounded-md text-xl italic text-blueGray-900 dark:text-emerald-300 hover:text-emerald-500 dark:hover:text-emerald-100 transition duration-300'>Older posts →</div>
         </Link> : null }
 			</div>
 

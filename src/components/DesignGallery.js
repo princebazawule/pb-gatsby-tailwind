@@ -65,8 +65,6 @@ export default function DesignGallery({ data }) {
                     const image = getImage(design.frontmatter.thumb.childImageSharp)
                     const alt = design.frontmatter.title
 
-                    // console.log(image)
-
                     return (
                         <Link
                             to={`/project/${design.frontmatter.slug}`}
@@ -75,8 +73,8 @@ export default function DesignGallery({ data }) {
                         >
                             <div className="group project-item flex flex-col justify-center items-center relative">
 
-                                <div className='absolute text-center z-30 text-xl text-gray-900 dark:text-white opacity-0 group-hover:opacity-100 font-bold transition duration-300'>
-                                    <h4>{design.frontmatter.title}</h4>
+                                <div className='absolute text-center z-30 text-xl text-blueGray-900 dark:text-white opacity-0 group-hover:opacity-100 font-bold transition duration-300'>
+                                    <h3>{design.frontmatter.title}</h3>
                                     <p className='mt-2 text-base font-normal italic'>{design.frontmatter.stack}</p>
                                 </div>
 

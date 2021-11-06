@@ -22,37 +22,37 @@ module.exports = {
         network: `twitter`,
         link: `https://twitter.com/princebazawule`,
         artwork:``,
-        color: `#34D399`
+        color: `green.lightGreen`
       },
       {
         network: `instagram`,
         link: `https://instagram.com/princebazawule`,
         artwork:``,
-        color: `#34D399`
+        color: `green.lightGreen`
       },
       {
         network: `linkedin`,
         link: `https://linkedin.com/in/princebazawule`,
         artwork:``,
-        color: `#34D399`
+        color: `green.lightGreen`
       },
       {
         network: `github`,
         link: `https://github.com/princebazawule`,
         artwork:``,
-        color: `#34D399`
+        color: `green.lightGreen`
       },
       {
         network: `dribbble`,
         link: `https://dribbble.com/princebazawule`,
         artwork:``,
-        color: `#34D399`
+        color: `green.lightGreen`
       },
       {
         network: `behance`,
         link: `https://behance.net/princebazawule`,
         artwork:``,
-        color: `#34D399`
+        color: `green.lightGreen`
       },
     ],
     play: [
@@ -60,19 +60,19 @@ module.exports = {
         network: `spotify`,
         link: `https://open.spotify.com/user/princebazawule/playlists`,
         artwork: 'p_spotify.png',
-        color: `#34D399`,
+        color: `green.lightGreen`,
       },
       {
         network: `mixcloud`,
         link: `https://www.mixcloud.com/princebazawule/`,
         artwork: 'p_mixcloud.png',
-        color: `#34D399`,
+        color: `green.lightGreen`,
       },
       {
         network: `soundcloud`,
         link: `https://soundcloud.com/princebazawule/tracks`,
         artwork: 'p_soundcloud.png',
-        color: `#34D399`,
+        color: `green.lightGreen`,
       },
     ],
     shop: [
@@ -80,19 +80,19 @@ module.exports = {
         network: `society6`,
         link: `https://society6.com/princebazawule`,
         artwork:``,
-        color: `#34D399`,
+        color: `green.lightGreen`,
       },
       {
         network: `redbubble`,
         link: `https://www.redbubble.com/people/princebazawule/shop`,
         artwork:``,
-        color: `#34D399`,
+        color: `green.lightGreen`,
       },
       {
         network: `zazzle`,
         link: `https://www.zazzle.co.uk/`,
         artwork:``,
-        color: `#34D399`,
+        color: `green.lightGreen`,
       },
     ],
     defaultImage: "",

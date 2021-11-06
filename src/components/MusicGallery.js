@@ -65,8 +65,6 @@ export default function MusicGallery( { data }) {
 
                     const image = getImage(item.frontmatter.thumb.childImageSharp)
                     const alt = item.frontmatter.title
-
-                    // console.log(image)
                     
                     return (
                         <OutboundLink
@@ -78,8 +76,8 @@ export default function MusicGallery( { data }) {
                         >
                             <div className="group project-item flex flex-col justify-center items-center relative">
 
-                                <div className='absolute text-center z-30 text-xl text-gray-900 dark:text-white opacity-0 group-hover:opacity-100 font-bold transition duration-300'>
-                                    <h4>{item.frontmatter.title}</h4>
+                                <div className='absolute text-center z-30 text-xl text-blueGray-900 dark:text-white opacity-0 group-hover:opacity-100 font-bold transition duration-300'>
+                                    <h3>{item.frontmatter.title}</h3>
                                     <p className='mt-2 text-base font-normal italic'>{item.frontmatter.stack}</p>
                                 </div>
                                 <div className="overlay absolute w-full h-full bg-emerald-100 dark:bg-blueGray-900 bg-opacity-0 dark:bg-opacity-0 group-hover:bg-opacity-90 group-hover:h-1/3 transition duration-300 z-20"></div>

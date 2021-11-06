@@ -9,7 +9,7 @@ import "../styles/blog.module.scss"
 
 const BlogPostTemplate = ({ data, data: { previous, next, post } }) => {
 
-  console.log(data)
+  // console.log(data)
 
   const image = getImage(post.featuredImage.node.localFile)
   const alt = post.featuredImage.node.altText
@@ -47,7 +47,7 @@ const BlogPostTemplate = ({ data, data: { previous, next, post } }) => {
               to="/blog"
               activeClassName="active"
             >
-              <h1 className="text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight font-black text-4xl leading-normal xs:text-5xl xs:leading-normal sm:text-6xl sm:leading-normal md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal xl:text-8xl xl:leading-normal 2xl:text-8xl 2xl:leading-normal 3xl:text-9xl 3xl:leading-normal 4xl:text-10xl 4xl:leading-normal">
+              <h1 className="text text-blueGray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight font-black text-4xl leading-normal xs:text-5xl xs:leading-normal sm:text-6xl sm:leading-normal md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal xl:text-8xl xl:leading-normal 2xl:text-8xl 2xl:leading-normal 3xl:text-9xl 3xl:leading-normal 4xl:text-10xl 4xl:leading-normal">
                   <span className='transition duration-300 ease-in-out bg-clip-text text-transparent bg-gradient-to-tr from-pink-400 via-blue-300 to-green-500 dark:bg-gradient-to-tr dark:from-pink-400 dark:via-blue-300 dark:to-green-500'>
                       Blog
                   </span>
@@ -69,7 +69,7 @@ const BlogPostTemplate = ({ data, data: { previous, next, post } }) => {
               />
               <h1 
                 itemProp="headline"
-                className="mt-16 mb-4 text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight xl:tracking-tighter font-black text-xl leading-tight xs:text-2xl xs:leading-tight sm:text-2xl sm:leading-tight md:text-3xl md:leading-tight lg:text-4xl lg:leading-tight xl:text-4xl xl:leading-tight 2xl:text-5xl 2xl:leading-tight 3xl:text-6xl 3xl:leading-tight 4xl:text-6xl 4xl:leading-tight"
+                className="mt-16 mb-4 text text-blueGray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight xl:tracking-tighter font-black text-xl leading-tight xs:text-2xl xs:leading-tight sm:text-2xl sm:leading-tight md:text-3xl md:leading-tight lg:text-4xl lg:leading-tight xl:text-4xl xl:leading-tight 2xl:text-5xl 2xl:leading-tight 3xl:text-6xl 3xl:leading-tight 4xl:text-6xl 4xl:leading-tight"
               >
                 {post.title}
               </h1>
@@ -106,18 +106,18 @@ const BlogPostTemplate = ({ data, data: { previous, next, post } }) => {
               <div>
                 {previous && (
                   <Link to={`/post${previous.uri}`} rel="prev">
-                    <div className='mx-6 leading-none text-center rounded-md text-xl italic text-blueGray-900 dark:text-green-400 hover:text-green-500 dark:hover:text-green-100 transition duration-200'>
+                    <div className='mx-6 my-4 leading-none text-center rounded-md text-xl italic text-emerald-500 hover:text-blueGray-900 dark:text-emerald-400 dark:hover:text-emerald-100 transition duration-200'>
                       ← {previous.title}
                     </div>
                   </Link>
                 )}
               </div>
-              {(previous && next) && <div className='mx-6 hidden md:block text-blueGray-900 dark:text-green-400'>|</div>}
+              {(previous && next) && <div className='mx-6 my-4 hidden md:block text-emerald-500 dark:text-emerald-400'>|</div>}
 
               <div>
                 {next && (
                   <Link to={`/post${next.uri}`} rel="next">
-                    <div className='mx-6 leading-none text-center rounded-md text-xl italic text-blueGray-900 dark:text-green-400 hover:text-green-500 dark:hover:text-green-100 transition duration-200'>
+                    <div className='mx-6 my-4 leading-none text-center rounded-md text-xl italic text-emerald-500 hover:text-blueGray-900 dark:text-emerald-400 dark:hover:text-emerald-100 transition duration-200'>
                     {next.title} →
                   </div>
                   </Link>

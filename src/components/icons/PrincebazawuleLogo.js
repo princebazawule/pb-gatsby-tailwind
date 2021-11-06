@@ -8,7 +8,7 @@ function SvgPrincebazawuleLogo({ title, titleId, ...props }) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-labelledby={titleId}
-      className="fill-green hover:fill-gray dark:hover:fill-white scale-100 xl:scale-125 hover:scale-125 xl:hover:scale-150 rotate-0 hover:rotate-6 transition duration-300"
+      className="{fill} dark:fill-lightGreen hover:fill-gray dark:hover:fill-white scale-100 xl:scale-125 hover:scale-125 xl:hover:scale-150 rotate-0 hover:rotate-6 transition duration-200"
       {...props}
     >
       {title ? <title id={titleId}>{title}</title> : null}

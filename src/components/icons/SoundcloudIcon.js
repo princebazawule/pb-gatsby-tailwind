@@ -1,6 +1,15 @@
 import * as React from "react"
+import cx from "classnames"
 
 function SvgSoundcloudIcon({ title, titleId, ...props }) {
+
+  console.log(props)
+  
+  const colors = Array.from(props.fill.split('.'))
+
+  // console.log('light: ', colors[0])
+  // console.log('dark: ', colors[1])
+
   return (
     <svg
       width={48}
@@ -8,7 +17,7 @@ function SvgSoundcloudIcon({ title, titleId, ...props }) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-labelledby={titleId}
-      className='{fill} hover:fill-gray dark:hover:fill-white scale-100 xl:scale-125 hover:scale-125 xl:hover:scale-150 rotate-0 hover:rotate-6 transition duration-300'
+      className={cx(`${colors[0] === 'green' ? `fill-green hover:fill-blueGray` : `fill-${colors[0]} hover:fill-gray`} dark:fill-${colors[1]} dark:hover:fill-white scale-100 xl:scale-125 hover:scale-125 xl:hover:scale-150 rotate-0 hover:rotate-6 transition duration-300`)}
       {...props}
     >
       {title ? <title id={titleId}>{title}</title> : null}

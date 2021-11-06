@@ -13,14 +13,12 @@ import Seo from '../components/Seo'
 
 export default function Home({ data }) {
 
+  // console.log(data)
+
   const { author } = data.site.siteMetadata
   const { images } = data
 
   const profileImages = images.edges
-  
-  // console.log(profile[0].artwork)
-
-  // console.log(data)
 
   const [skill, setSkill] = useState('design')
   
@@ -82,12 +80,12 @@ export default function Home({ data }) {
             onMouseMove={e => handlePositionChange(e)}
             role="region"
           >
-            <h1 className="text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight xl:tracking-tighter font-black text-4xl leading-tight xs:text-5xl xs:leading-tight sm:text-6xl sm:leading-none md:text-7xl md:leading-none lg:text-8xl lg:leading-none xl:text-8xl xl:leading-none 2xl:text-8xl 2xl:leading-none 3xl:text-9xl 3xl:leading-none 4xl:text-10xl 4xl:leading-none">
+            <h1 className="text text-blueGray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight xl:tracking-tighter font-black text-4xl leading-tight xs:text-5xl xs:leading-tight sm:text-6xl sm:leading-none md:text-7xl md:leading-none lg:text-8xl lg:leading-none xl:text-8xl xl:leading-none 2xl:text-8xl 2xl:leading-none 3xl:text-9xl 3xl:leading-none 4xl:text-10xl 4xl:leading-none">
               i’m {author.first_name}.<br /> i{" "}
               <Link
                 to="/designer"
                 data-skill="design"
-                className="transition duration-500 ease-in-out bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-500"
+                className="transition duration-500 ease-in-out bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500 hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-500 dark:hover:from-emerald-300 dark:hover:to-emerald-300"
                 data-text="Design"
                 onMouseOver={() => changeProfilePhoto('design')}
               >
@@ -98,7 +96,7 @@ export default function Home({ data }) {
               <Link
                 to="/developer"
                 data-skill="code"
-                className="transition duration-500 ease-in-out bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-blue-400 to-indigo-400 dark:bg-gradient-to-r dark:from-green-200 dark:via-blue-400 dark:to-indigo-400 hover:bg-gradient-to-r hover:from-green-800 hover:to-green-800 dark:hover:bg-gradient-to-r dark:hover:from-emerald-100 dark:hover:to-emerald-100"
+                className="transition duration-500 ease-in-out bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-blue-400 to-indigo-400 dark:bg-gradient-to-r dark:from-green-200 dark:via-blue-400 dark:to-indigo-400 hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-500 dark:hover:from-emerald-300 dark:hover:to-emerald-300"
                 onMouseOver={() => changeProfilePhoto('coding')}
               >
                 Code
@@ -107,7 +105,7 @@ export default function Home({ data }) {
               <Link
                 to="/blog"
                 data-skill="blog"
-                className="transition duration-500 ease-in-out bg-clip-text text-transparent bg-gradient-to-tr from-pink-400 via-blue-300 to-green-500 dark:bg-gradient-to-tr dark:from-pink-400 dark:via-blue-300 dark:to-green-500 hover:bg-gradient-to-r hover:from-green-400 hover:to-green-400 dark:hover:bg-gradient-to-r dark:hover:from-green-400 dark:hover:to-green-400"
+                className="transition duration-500 ease-in-out bg-clip-text text-transparent bg-gradient-to-tr from-pink-400 via-blue-300 to-green-500 dark:bg-gradient-to-tr dark:from-pink-400 dark:via-blue-300 dark:to-green-500 hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-500 dark:hover:from-emerald-300 dark:hover:to-emerald-300"
                 onMouseOver={() => changeProfilePhoto('blog')}
               >
                 Blog
@@ -117,7 +115,7 @@ export default function Home({ data }) {
               <Link
                 to="/dj"
                 data-skill="dj"
-                className="transition duration-500 ease-in-out bg-clip-text text-transparent bg-gradient-to-r from-green-300 to-purple-400 dark:bg-gradient-to-br dark:from-green-300 dark:to-purple-400 hover:bg-gradient-to-r hover:from-green-700 hover:to-green-700 dark:hover:from-emerald-200 dark:hover:to-emerald-200"
+                className="transition duration-500 ease-in-out bg-clip-text text-transparent bg-gradient-to-r from-green-300 to-purple-400 dark:bg-gradient-to-br dark:from-green-300 dark:to-purple-400 hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-500 dark:hover:from-emerald-300 dark:hover:to-emerald-300"
                 onMouseOver={() => changeProfilePhoto('dj')}
               >
                 Dj
@@ -126,7 +124,8 @@ export default function Home({ data }) {
 
             <div className="inline-block">
               <Link to="/contact">
-                <button className="flex mt-8 sm:mt-16 md:mt-14 lg:mt-16 xl:mt-24 transition duration-500 ease-in-out text-white dark:text-gray-900 text-2xl xs:text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-5xl 3xl:text-5xl font-bold rounded-full bg-green-600 dark:bg-green-400 dark:hover:bg-green-700 border-0 py-2 px-8 lg:px-12 lg:tracking-tight xl:px-12 xl:tracking-tight 2xl:px-12 2xl:tracking-tight 3xl:px-12 3xl:tracking-tight focus:ring-6 focus:ring-green-500 focus:ring-opacity-50 hover:bg-green-800 dark:hover:text-blueGray-100">
+                <button 
+                  className="flex mt-8 sm:mt-16 md:mt-14 lg:mt-16 xl:mt-24 transition duration-500 ease-in-out bg-blueGray-900 hover:bg-emerald-100 dark:bg-emerald-300 dark:hover:bg-emerald-700 text-blueGray-100 hover:text-blueGray-900 dark:text-blueGray-900 dark:hover:text-blueGray-100 text-2xl xs:text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-5xl 3xl:text-5xl font-bold rounded-full border-0 py-2 px-8 lg:px-12 lg:tracking-tight xl:px-12 xl:tracking-tight 2xl:px-12 2xl:tracking-tight 3xl:px-12 3xl:tracking-tight focus:ring-6 focus:ring-emerald-500 focus:ring-opacity-50">
                   let's connect
                 </button>
               </Link>
@@ -147,7 +146,7 @@ export default function Home({ data }) {
                 title='external link'>
                 <div className="m-2 xl:m-3 2xl:m-4 rounded-4xl flex flex-col justify-center items-center content-center bg-white scale-100 transform-gpu rotate-12 transition duration-300 ease-in-out hover:rotate-3 hover:scale-125 flex-shrink w-24 h-24 xs:w-28 xs:h-28 md:w-26 md:h-26 md:w-20 md:h-20 xl:w-26 xl:h-26 2xl:w-28 2xl:h-28 3xl:w-36 3xl:h-36">
                   <span className="-rotate-12 transform scale-105 xl:scale-75 2xl:scale-110">
-                    <SvgGithubIcon title="github-icon" fill='#1E293B' />
+                    <SvgGithubIcon title="github-icon" fill='blueGray' />
                   </span>
                 </div>
               </OutboundLink>
@@ -158,7 +157,7 @@ export default function Home({ data }) {
                 title='external link'>
                 <div className="m-2 xl:m-3 2xl:m-4 rounded-4xl flex flex-col justify-center items-center content-center bg-green-500 transform-gpu -rotate-12 transition duration-300 ease-in-out hover:rotate-3 hover:scale-125 flex-shrink w-24 h-24 xs:w-28 xs:h-28 md:w-32 md:h-32 xl:w-24 xl:h-24 2xl:w-32 2xl:h-32">
                   <span className="rotate-12 transform scale-105 xl:scale-75 2xl:scale-110">
-                    <SvgSoundcloudIcon title="soundcloud-icon" fill='#F8FAFC' />
+                    <SvgSoundcloudIcon title="soundcloud-icon" fill="white" />
                   </span>
                 </div>
               </OutboundLink>
@@ -186,7 +185,7 @@ export default function Home({ data }) {
                 title='external link'>
                 <div className="m-2 xl:m-3 2xl:m-4 rounded-4xl flex flex-col justify-center items-center content-center bg-green-100 scale-100 transform-gpu rotate-12 transition duration-300 ease-in-out hover:rotate-3 hover:scale-75 flex-shrink-0 w-24 h-24 xs:w-28 xs:h-28 md:w-32 md:h-32 xl:w-24 xl:h-24 2xl:w-32 2xl:h-32 3xl:w-32 3xl:h-32">
                   <span className="-rotate-12 transform scale-105 xl:scale-75 2xl:scale-110">
-                    <SvgSociety6Icon title="society6-icon" fill='#34D399' />
+                    <SvgSociety6Icon title="society6-icon" fill='teal' />
                   </span>
                 </div>
               </OutboundLink>
@@ -197,7 +196,7 @@ export default function Home({ data }) {
                 title='external link'>
                 <div className="m-2 xl:m-3 2xl:m-4 rounded-4xl flex flex-col justify-center items-center content-center bg-green-500 scale-100 transform-gpu -rotate-12 transition duration-300 ease-in-out hover:rotate-3 hover:scale-90 flex-shrink w-24 h-24 xs:w-28 xs:h-28 md:w-26 md:h-26 md:w-20 md:h-20 xl:w-26 xl:h-26 2xl:w-28 2xl:h-28 3xl:w-36 3xl:h-36">
                   <span className="rotate-12 transform scale-105 xl:scale-75 2xl:scale-110">
-                    <SvgSpotifyIcon title="spotify-icon" fill='#F8FAFC' />
+                    <SvgSpotifyIcon title="spotify-icon" fill="white" />
                   </span>
                 </div>
               </OutboundLink>{" "}
@@ -208,7 +207,7 @@ export default function Home({ data }) {
                 title='external link'>
                 <div className="m-2 xl:m-3 2xl:m-4 rounded-4xl flex flex-col justify-center items-center content-center bg-green-100 scale-100 transform-gpu rotate-12 transition duration-500 hover:rotate-3 hover:scale-75 flex-shrink w-24 h-24 xs:w-28 xs:h-28 md:w-26 md:h-26 md:w-20 md:h-20 xl:w-26 xl:h-26 2xl:w-28 2xl:h-28 3xl:w-32 3xl:h-32">
                   <span className="-rotate-12 transform scale-105 xl:scale-75 2xl:scale-110">
-                    <SvgDribbbleIcon title="dribbble-icon" fill='#34D399' />
+                    <SvgDribbbleIcon title="dribbble-icon" fill='teal' />
                   </span>
                 </div>
               </OutboundLink>

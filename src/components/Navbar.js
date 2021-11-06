@@ -1,4 +1,4 @@
-import { Link, withPrefix } from "gatsby"
+import { Link } from "gatsby"
 import React, { useState } from "react"
 import { useLocation } from "@reach/router"
 import cx from "classnames"
@@ -20,7 +20,7 @@ export default function Navbar() {
           to="/"
           activeClassName="active"
         >
-          <SvgPrincebazawuleLogo title="princebazawule logo" />
+          <SvgPrincebazawuleLogo title="princebazawule logo" fill="#10B981" />
         </Link>
 
       </h1>
@@ -31,8 +31,8 @@ export default function Navbar() {
       >
         <Link
           className={cx(
-            "nav-item text-green-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal 2xl:text-8xl 2xl:leading-normal hover:text-emerald-300 transition duration-300",
-            { 'text-blueGray-900 dark:text-emerald-300 pointer-events-none': location.pathname === withPrefix("/") }
+            "nav-item text-emerald-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal 2xl:text-8xl 2xl:leading-normal hover:text-blueGray-700 dark:hover:text-emerald-200 focus:text-blueGray-700 dark:focus:text-emerald-200 transition duration-300",
+            { 'text-blueGray-800 dark:text-emerald-300 pointer-events-none focus:text-current dark:focus:text-emerald-300': location.pathname === "/" }
           )}
           to="/"
           activeClassName="active"
@@ -41,8 +41,8 @@ export default function Navbar() {
         </Link>
         <Link
           className={cx(
-            "nav-item text-green-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal 2xl:text-8xl 2xl:leading-normal hover:text-emerald-300 transition duration-300",
-            { 'text-blueGray-900 dark:text-emerald-300 pointer-events-none': location.pathname === withPrefix("/designer") }
+            "nav-item text-emerald-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal 2xl:text-8xl 2xl:leading-normal hover:text-blueGray-700 dark:hover:text-emerald-200 focus:text-blueGray-700 dark:focus:text-emerald-200 transition duration-300",
+            { 'text-blueGray-800 dark:text-emerald-300 pointer-events-none focus:text-current dark:focus:text-emerald-300': location.pathname === "/designer" }
           )}
           to="/designer"
           activeClassName="active"
@@ -51,8 +51,8 @@ export default function Navbar() {
         </Link>
         <Link
           className={cx(
-            "nav-item text-green-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal 2xl:text-8xl 2xl:leading-normal hover:text-emerald-300 transition duration-300",
-            { 'text-blueGray-900 dark:text-emerald-300 pointer-events-none': location.pathname === withPrefix("/developer") }
+            "nav-item text-emerald-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal 2xl:text-8xl 2xl:leading-normal hover:text-blueGray-700 dark:hover:text-emerald-200 focus:text-blueGray-700 dark:focus:text-emerald-200 transition duration-300",
+            { 'text-blueGray-800 dark:text-emerald-300 pointer-events-none focus:text-current dark:focus:text-emerald-300': location.pathname === "/developer" }
           )}
           to="/developer"
           activeClassName="active"
@@ -61,8 +61,8 @@ export default function Navbar() {
         </Link>
         <Link
           className={cx(
-            "nav-item text-green-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal 2xl:text-8xl 2xl:leading-normal hover:text-emerald-300 transition duration-300",
-            { 'text-blueGray-900 dark:text-emerald-300 pointer-events-none': location.pathname === withPrefix("/dj") }
+            "nav-item text-emerald-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal 2xl:text-8xl 2xl:leading-normal hover:text-blueGray-700 dark:hover:text-emerald-200 focus:text-blueGray-700 dark:focus:text-emerald-200 transition duration-300",
+            { 'text-blueGray-800 dark:text-emerald-300 pointer-events-none focus:text-current dark:focus:text-emerald-300': location.pathname === "/dj" }
           )}
           to="/dj"
           activeClassName="active"
@@ -71,8 +71,8 @@ export default function Navbar() {
         </Link>
         <Link
           className={cx(
-            "nav-item text-green-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal 2xl:text-8xl 2xl:leading-normal hover:text-emerald-300 transition duration-300",
-            { 'text-blueGray-900 dark:text-emerald-300 pointer-events-none': location.pathname === withPrefix("/blog") }
+            "nav-item text-emerald-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal 2xl:text-8xl 2xl:leading-normal hover:text-blueGray-700 dark:hover:text-emerald-200 focus:text-blueGray-700 dark:focus:text-emerald-200 transition duration-300",
+            { 'text-blueGray-800 dark:text-emerald-300 pointer-events-none focus:text-current dark:focus:text-emerald-300': location.pathname.indexOf("/blog") !== -1  || location.pathname.indexOf("/post/") !== -1 }
           )}
           to="/blog"
           activeClassName="active"
@@ -81,8 +81,8 @@ export default function Navbar() {
         </Link>
         <Link
           className={cx(
-            "nav-item text-green-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal 2xl:text-8xl 2xl:leading-normal hover:text-emerald-300 transition duration-300",
-            { 'text-blueGray-900 dark:text-emerald-300 pointer-events-none': location.pathname === withPrefix("/contact") }
+            "nav-item text-emerald-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal 2xl:text-8xl 2xl:leading-normal hover:text-blueGray-700 dark:hover:text-emerald-200 focus:text-blueGray-700 dark:focus:text-emerald-200 transition duration-300",
+            { 'text-blueGray-800 dark:text-emerald-300 pointer-events-none focus:text-current dark:focus:text-emerald-300': location.pathname === "/contact" }
           )}
           to="/contact"
           activeClassName="active"
@@ -108,17 +108,17 @@ export default function Navbar() {
         >
           <div className="group block w-5 absolute left-6 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <span
-              className={`block absolute h-1.5 w-9 rounded-sm bg-current transform transition duration-300 ease-in-out text-green-500 dark:text-green-400 group-hover:text-blueGray-900 dark:group-hover:text-blueGray-100 ${
+              className={`block absolute h-1.5 w-9 rounded-sm bg-current transform transition duration-300 ease-in-out text-emerald-500 dark:text-emerald-300 group-hover:text-blueGray-900 dark:group-hover:text-blueGray-100 ${
                 isOpen ? "rotate-45" : "-translate-y-2.5"
               }`}
             ></span>
             <span
-              className={`block absolute h-1.5 w-7 rounded-sm bg-current transform transition duration-300 ease-in-out text-green-500 dark:text-green-400 group-hover:text-blueGray-900 dark:group-hover:text-blueGray-100 ${
+              className={`block absolute h-1.5 w-7 rounded-sm bg-current transform transition duration-300 ease-in-out text-emerald-500 dark:text-emerald-300 group-hover:text-blueGray-900 dark:group-hover:text-blueGray-100 ${
                 isOpen ? "opacity-0" : ""
               }`}
             ></span>
             <span
-              className={`block absolute h-1.5 w-9 rounded-sm bg-current transform transition duration-300 ease-in-out text-green-500 dark:text-green-400 group-hover:text-blueGray-900 dark:group-hover:text-blueGray-100 ${
+              className={`block absolute h-1.5 w-9 rounded-sm bg-current transform transition duration-300 ease-in-out text-emerald-500 dark:text-emerald-300 group-hover:text-blueGray-900 dark:group-hover:text-blueGray-100 ${
                 isOpen ? "-rotate-45" : "translate-y-2.5"
               }`}
             ></span>

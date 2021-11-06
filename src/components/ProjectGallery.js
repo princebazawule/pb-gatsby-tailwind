@@ -61,11 +61,9 @@ export default function ProjectGallery({ data }) {
         >
             <div className='gallery-scroller flex flex-row xl:flex-col justify-start xl:content-center flex-nowrap w-full overflow-x-scroll xl:overflow-y-scroll h-full'>
                 {projects.map(project => {
-
+                    
                     const image = getImage(project.frontmatter.thumb.childImageSharp)
                     const alt = project.frontmatter.title
-
-                    // console.log(image)
 
                     return (
                         <Link
@@ -75,8 +73,8 @@ export default function ProjectGallery({ data }) {
                         >
                             <div className="group project-item flex flex-col justify-center items-center relative">
 
-                                <div className='absolute text-center z-30 text-xl text-gray-900 dark:text-white opacity-0 group-hover:opacity-100 font-bold transition duration-300'>
-                                    <h4>{project.frontmatter.title}</h4>
+                                <div className='absolute text-center z-30 text-xl text-blueGray-900 dark:text-white opacity-0 group-hover:opacity-100 font-bold transition duration-300'>
+                                    <h3>{project.frontmatter.title}</h3>
                                     <p className='mt-2 text-base font-normal italic'>{project.frontmatter.stack}</p>
                                 </div>
 

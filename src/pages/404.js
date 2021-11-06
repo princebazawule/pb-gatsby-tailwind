@@ -39,18 +39,18 @@ export default function NotFound() {
                         onMouseMove={e => handlePositionChange(e)}
                         role="region"
                     >
-                            <h1 className="selection:bg-opacity-0 text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight xl:tracking-tighter font-black text-7xl leading-normal xs:text-8xl xs:leading-normal sm:text-9xl sm:leading-normal md:text-11xl md:leading-normal lg:text-11xl lg:leading-normal xl:text-11xl xl:leading-normal 2xl:text-11xl 2xl:leading-normal 3xl:text-13xl 3xl:leading-normal 4xl:text-14xl 4xl:leading-normal">
+                            <h1 className="selection:bg-opacity-0 text text-blueGray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight xl:tracking-tighter font-black text-7xl leading-normal xs:text-8xl xs:leading-normal sm:text-9xl sm:leading-normal md:text-11xl md:leading-normal lg:text-11xl lg:leading-normal xl:text-11xl xl:leading-normal 2xl:text-11xl 2xl:leading-normal 3xl:text-13xl 3xl:leading-normal 4xl:text-14xl 4xl:leading-normal">
                                 <span className='transition duration-300 ease-in-out bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500'>
                                     Ooops!
                                 </span>
                             </h1>
 
-                            <h2 className="mb-8 lg:mb-14 xs:mt-2 text text-gray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight font-black text-3xl leading-none xs:text-4xl xs:leading-none sm:text-5xl sm:leading-none md:text-6xl md:leading-none lg:text-6xl lg:leading-none xl:text-6xl xl:leading-none 2xl:text-6xl 2xl:leading-none 3xl:text-7xl 3xl:leading-none 4xl:text-7xl 4xl:leading-none">
+                            <h2 className="mb-8 lg:mb-14 xs:mt-2 text text-blueGray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight font-black text-3xl leading-none xs:text-4xl xs:leading-none sm:text-5xl sm:leading-none md:text-6xl md:leading-none lg:text-6xl lg:leading-none xl:text-6xl xl:leading-none 2xl:text-6xl 2xl:leading-none 3xl:text-7xl 3xl:leading-none 4xl:text-7xl 4xl:leading-none">
                                 not sure what happened there...
                             </h2>
                             
                             <p className="mb-8 text text-gray-800 dark:text-blueGray-100 tracking-tighter sm:tracking-tight font-normal text-xl leading-normal xs:text-2xl xs:leading-normal sm:text-2xl sm:leading-normal md:text-2xl md:leading-normal lg:text-2xl lg:leading-normal xl:text-2xl xl:leading-normal 2xl:text-3xl 2xl:leading-normal 3xl:text-3xl 3xl:leading-normal 4xl:text-3xl 4xl:leading-normal">
-                                no worries, I gotcha' - let's go back to the <Link to="/"><button className="flex mt-4 sm:mt-8 md:mt-14 lg:mt-8 xl:mt-12 transition duration-500 ease-in-out text-white dark:text-gray-900 text-2xl xs:text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-5xl 3xl:text-5xl font-bold rounded-full bg-green-500 dark:bg-green-400 dark:hover:bg-green-700 border-0 py-2 px-8 lg:px-12 lg:tracking-tight xl:px-12 xl:tracking-tight 2xl:px-12 2xl:tracking-tight 3xl:px-12 3xl:tracking-tight focus:outline-none focus:ring-6 focus:ring-green-500 focus:ring-opacity-50 hover:bg-green-800 dark:hover:text-blueGray-100">homepage</button></Link>.
+                                no worries, I gotcha' - let's go back to the <Link to="/"><button className="flex mt-4 sm:mt-8 md:mt-14 lg:mt-8 xl:mt-12 transition duration-500 ease-in-out text-white dark:text-blueGray-900 text-2xl xs:text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-5xl 3xl:text-5xl font-bold rounded-full bg-green-500 dark:bg-green-400 dark:hover:bg-green-700 border-0 py-2 px-8 lg:px-12 lg:tracking-tight xl:px-12 xl:tracking-tight 2xl:px-12 2xl:tracking-tight 3xl:px-12 3xl:tracking-tight focus:outline-none focus:ring-6 focus:ring-green-500 focus:ring-opacity-50 hover:bg-green-800 dark:hover:text-blueGray-100">homepage</button></Link>.
                             </p>
                     </section>
                 </div>
