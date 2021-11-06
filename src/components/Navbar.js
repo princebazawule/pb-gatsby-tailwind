@@ -25,7 +25,7 @@ export default function Navbar() {
 
       </h1>
       <nav
-        className={`nav w-full h-full top-0 left-0 bg-teal-50 dark:bg-coolGray-900 flex flex-col justify-center items-center transform transition duration-300 z-50 ${
+        className={`nav w-full h-full top-0 left-0 bg-yellow-100 dark:bg-coolGray-900 flex flex-col justify-center items-center transform transition duration-300 z-50 ${
           isOpen ? "fade-in " : "fade-out"
         }`}
       >
