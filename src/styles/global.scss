@@ -87,6 +87,7 @@ body {
         &.fade-in {
             @apply visible;
             @apply opacity-100;
+            @apply z-50;
             
             .nav-item {
               @apply visible;

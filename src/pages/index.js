@@ -161,7 +161,7 @@ export default function Home({ data }) {
                   </span>
                 </div>
               </OutboundLink>
-              <div className="m-2 xl:m-3 2xl:m-4 rounded-4xl flex flex-col justify-center items-center content-center overflow-hidden scale-100 transform-gpu rotate-12 transition duration-300 ease-in-out hover:rotate-3 hover:scale-100 flex-shrink w-32 h-32 xs:w-40 xs:h-40 md:w-56 md:h-56 xl:w-52 xl:h-52 2xl:w-60 2xl:h-60 3xl:w-64 3xl:h-64 order-first sm:order-none 3xl:order-first">
+              <div className="m-2 xl:m-3 2xl:m-4 rounded-4xl flex flex-col justify-center items-center content-center overflow-hidden scale-100 transform-gpu rotate-12 transition duration-300 ease-in-out hover:rotate-3 hover:scale-100 flex-shrink w-32 h-32 xs:w-40 xs:h-40 md:w-56 md:h-56 xl:w-40 xl:h-40 2xl:w-60 2xl:h-60 3xl:w-64 3xl:h-64 order-first sm:order-none 3xl:order-first">
                 <span className="-rotate-12 transform scale-150">
                   { image && (
                     <GatsbyImage 
