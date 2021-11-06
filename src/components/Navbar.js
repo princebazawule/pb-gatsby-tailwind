@@ -14,7 +14,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="p-4 xl:px-20 flex flex-wrap items-center justify-between">
+    <div className="p-4 xl:px-20 flex flex-wrap items-center justify-between z-50">
       <h1>
         <Link
           to="/"
@@ -25,7 +25,7 @@ export default function Navbar() {
 
       </h1>
       <nav
-        className={`nav w-full h-full top-0 left-0 bg-teal-50 dark:bg-coolGray-900 z-50 flex flex-col justify-center items-center transform transition duration-300 ${
+        className={`nav w-full h-full top-0 left-0 bg-teal-50 dark:bg-coolGray-900 flex flex-col justify-center items-center transform transition duration-300 z-50 ${
           isOpen ? "fade-in " : "fade-out"
         }`}
       >
