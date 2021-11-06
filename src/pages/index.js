@@ -155,13 +155,13 @@ export default function Home({ data }) {
                 target='_blank'
                 rel='noreferrer'
                 title='external link'>
-                <div className="m-2 xl:m-3 2xl:m-4 rounded-4xl flex flex-col justify-center items-center content-center bg-green-500 transform-gpu -rotate-12 transition duration-300 ease-in-out hover:rotate-3 hover:scale-125 flex-shrink w-24 h-24 xs:w-28 xs:h-28 md:w-32 md:h-32 xl:w-22 xl:h-22 2xl:w-32 2xl:h-32">
+                <div className="m-2 xl:m-3 2xl:m-4 rounded-4xl flex flex-col justify-center items-center content-center bg-green-500 transform-gpu -rotate-12 transition duration-300 ease-in-out hover:rotate-3 hover:scale-125 flex-shrink w-24 h-24 xs:w-28 xs:h-28 md:w-32 md:h-32 xl:w-20 xl:h-20 2xl:w-32 2xl:h-32">
                   <span className="rotate-12 transform scale-105 xl:scale-75 2xl:scale-110">
                     <SvgSoundcloudIcon title="soundcloud-icon" fill="white" />
                   </span>
                 </div>
               </OutboundLink>
-              <div className="m-2 xl:m-3 2xl:m-4 rounded-4xl flex flex-col justify-center items-center content-center overflow-hidden scale-100 transform-gpu rotate-12 transition duration-300 ease-in-out hover:rotate-3 hover:scale-100 flex-shrink w-32 h-32 xs:w-40 xs:h-40 md:w-56 md:h-56 xl:w-38 xl:h-38 2xl:w-60 2xl:h-60 3xl:w-64 3xl:h-64 order-first sm:order-none 3xl:order-first">
+              <div className="m-2 xl:m-3 2xl:m-4 rounded-4xl flex flex-col justify-center items-center content-center overflow-hidden scale-100 transform-gpu rotate-12 transition duration-300 ease-in-out hover:rotate-3 hover:scale-100 flex-shrink w-32 h-32 xs:w-40 xs:h-40 md:w-56 md:h-56 xl:w-36 xl:h-36 2xl:w-60 2xl:h-60 3xl:w-64 3xl:h-64 order-first sm:order-none 3xl:order-first">
                 <span className="-rotate-12 transform scale-150">
                   { image && (
                     <GatsbyImage 
