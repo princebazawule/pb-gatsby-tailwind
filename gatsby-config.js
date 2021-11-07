@@ -170,15 +170,14 @@ module.exports = {
         www: false,
         host: 'princebazawule.com',
         redirect: [
-          'RewriteRule ^not-existing-url/?$ /existing-url [R=301,L,NE]',
+          'RewriteRule ^http://princebazawule.com/?$ https://princebazawule.com/ [R=301,L,NE]',
           {
-            from: 'http://princebazawule.com',
-            to: 'https://princebazawule.com',
+            from: 'http://princebazawule.com/',
+            to: 'https://princebazawule.com/',
           },
         ],
       },
     },
-
     {
       resolve: "gatsby-plugin-page-progress",
       options: {
