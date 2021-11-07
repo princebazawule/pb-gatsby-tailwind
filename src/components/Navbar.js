@@ -13,6 +13,13 @@ export default function Navbar() {
 
   const [isOpen, setIsOpen] = useState(false)
 
+  const pageContent = document.querySelectorAll('.page-content')[0]
+  if(isOpen) {
+    pageContent.classList.add('invisible')
+  } else {
+    pageContent.classList.remove('invisible')
+  }
+
   return (
     <div className="p-4 xl:px-20 flex flex-wrap items-center justify-between z-50">
       <h1>
