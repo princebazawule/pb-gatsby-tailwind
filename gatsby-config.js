@@ -165,7 +165,17 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-htaccess',
       options: {
+        RewriteBase: true,
         https: true,
+        www: false,
+        host: 'princebazawule.com',
+        redirect: [
+          'RewriteRule ^not-existing-url/?$ /existing-url [R=301,L,NE]',
+          {
+            from: 'http://princebazawule.com',
+            to: 'https://princebazawule.com',
+          },
+        ],
       },
     },
 
