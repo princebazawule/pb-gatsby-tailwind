@@ -1,5 +1,5 @@
 import { Link } from "gatsby"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { useLocation } from "@reach/router"
 import cx from "classnames"
 import SvgPrincebazawuleLogo from "./icons/PrincebazawuleLogo"
@@ -13,12 +13,14 @@ export default function Navbar() {
 
   const [isOpen, setIsOpen] = useState(false)
 
-  const pageContent = document.querySelectorAll('.page-content')[0]
-  if(isOpen) {
-    pageContent.classList.add('invisible')
-  } else {
-    pageContent.classList.remove('invisible')
-  }
+  useEffect(() => {
+    const pageContent = document.querySelectorAll('.page-content')[0]
+    if(isOpen) {
+      pageContent.classList.add('invisible')
+    } else {
+      pageContent.classList.remove('invisible')
+    }
+  })  
 
   return (
     <div className="p-4 xl:px-20 flex flex-wrap items-center justify-between z-50">

@@ -3,10 +3,7 @@ import cx from "classnames"
 
 function SvgSoundcloudIcon({ title, titleId, ...props }) {
 
-  console.log(props)
-  
   const colors = Array.from(props.fill.split('.'))
-
   // console.log('light: ', colors[0])
   // console.log('dark: ', colors[1])
 
