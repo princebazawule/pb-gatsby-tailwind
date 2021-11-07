@@ -51,7 +51,7 @@ const ArchiveIndex = ( { pageContext } ) => {
               </span>
           </h1>
           <h2 className="ml-8 xl:ml-12 2xl:ml-16 3xl:ml-32 text text-blueGray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight font-black text-xl leading-tight xs:text-2xl xs:leading-tight sm:text-2xl sm:leading-tight md:text-3xl md:leading-tight lg:text-4xl lg:leading-tight xl:text-4xl xl:leading-tight 2xl:text-5xl 2xl:leading-tight 3xl:text-6xl 3xl:leading-tight 4xl:text-6xl 4xl:leading-tight">
-            some of my tips, tutorial & <span className='hidden sm:block leading-3'><br /></span>  collections. Check back for more.
+            some of my tips, tutorial & <span className='hidden xl:block leading-3'><br /></span>  collections. Check back for more.
           </h2>
         </div>
 
