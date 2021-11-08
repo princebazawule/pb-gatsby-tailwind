@@ -23,38 +23,75 @@ body {
 
     // blog styles for wordpress content
     section {
-        .blog-content {
-            h2 {
-                font-weight: 800;
-                font-size: 1.6rem;
-                margin-top: 3rem;
-                margin-bottom: 1rem;
-            }
+        &.post {
+            .blog-content {
+                h2 {
+                    font-weight: 800;
+                    font-size: 1.6rem;
+                    margin-top: 3rem;
+                    margin-bottom: 1rem;
+                }
+                h3 {
+                    @apply font-semibold;
+                    @apply mb-2;
+                }
+    
+                h2,
+                h3 {
+                    @apply text-blueGray-900;
+                }
+    
+                p {
+                    margin-bottom: 1.6rem;
+                    @apply text-blueGray-900;
+                }
+    
+                p,
+                h2,
+                h3,
+                h4,
+                h5,
+                h6 {
+                    > a {
+                        @apply text-blueGray-900;
+                        @apply no-underline;
+                        @apply italic;
+                    
+                        &:hover {
+                            @apply text-emerald-500;
+                            @apply underline;
+                        }
+                    }
+    
+                }
+    
+                .view-demo-button {
+                    @apply p-6;
+                    @apply bg-blueGray-900;
+                    @apply text-blueGray-100;
+                    @apply text-2xl;
+                    @apply font-semibold;
+                    @apply inline-block;
+                    @apply rounded-md;
+                    @apply mx-auto;
+                    @apply w-auto;
+                    @apply transition;
+                    @apply duration-300;
+    
+                    &:hover {
+                        @apply bg-emerald-100;
+                        @apply text-blueGray-900;
+                    }
+    
+                    a {
+                        @apply text-blueGray-100;
 
-            h2,
-            h3 {
-                @apply text-blueGray-900;
-            }
-
-            p {
-                margin-bottom: 1.6rem;
-                @apply text-blueGray-900;
-            }
-
-            .view-demo-button {
-                @apply p-6;
-                @apply bg-green-500;
-                @apply hover:bg-emerald-300;
-                @apply text-white;
-                @apply hover:text-blueGray-900;
-                @apply text-2xl;
-                @apply font-semibold;
-                @apply inline-block;
-                @apply rounded-md;
-                @apply mx-auto;
-                @apply w-auto;
-                @apply transition;
-                @apply divide-purple-300;
+                        &:hover {
+                            @apply text-blueGray-900;
+                            @apply no-underline;
+                        }
+                    }
+                }
             }
         }
         pre,
@@ -204,14 +241,51 @@ body {
         }
 
         section {
-            .blog-content {
-                h2,
-                h3 {
-                    @apply text-blueGray-100;
-                }
+            &.post {
+                .blog-content {
+                    h2,
+                    h3 {
+                        @apply text-blueGray-100;
+                    }
+        
+                    p {
+                        @apply text-blueGray-100;
+                    }
+                    p,
+                    h2,
+                    h3,
+                    h4,
+                    h5,
+                    h6 {
+                        > a {
+                            @apply text-emerald-200;
+                            
+                            &:hover {
+                                @apply text-emerald-300;
+                                @apply underline;
+                            }
+                        }
     
-                p {
-                    @apply text-blueGray-100;
+                    }
+    
+                    .view-demo-button {
+                        @apply bg-emerald-300;
+                        @apply text-blueGray-900;
+    
+                        &:hover {
+                            @apply bg-emerald-700;
+                            @apply text-blueGray-100;
+                        }
+    
+                        a {
+                            @apply text-blueGray-900;
+
+                            &:hover {
+                                @apply text-blueGray-100;
+                                @apply no-underline;
+                            }
+                        }
+                    }
                 }
             }
         }

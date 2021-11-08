@@ -40,7 +40,7 @@ const BlogPostTemplate = ({ data, data: { previous, next, post } }) => {
       <Seo title={post.title} keywords={[`${post.categories.nodes[0].name}`, `blog`, `tips`, `tutorials`, `resources`, `freebies`]} />
 
       <section 
-        className="xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-20 xl:px-4 2xl:px-8 flex flex-col lg:flex-row flex-nowrap justify-center items-start sm:flex-initial"
+        className="post xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-20 xl:px-4 2xl:px-8 flex flex-col lg:flex-row flex-nowrap justify-center items-start sm:flex-initial"
       >
         <div className='flex-grow-0 flex flex-row flex-nowrap items-center mr-12'>
           <Link
@@ -77,7 +77,7 @@ const BlogPostTemplate = ({ data, data: { previous, next, post } }) => {
                 <span className='italic text-gray-700 dark:text-blueGray-100'>
                   {post.date}
                 </span> 
-                <span className='ml-4 italic text-white bg-green-500 py-2 px-3 rounded-md'>
+                <span className='ml-4 italic text-blueGray-100 dark:text-blueGray-900 bg-blueGray-900 dark:bg-emerald-300 py-2 px-3 rounded-md'>
                   {post.categories.nodes[0].name}
                 </span>
                 <span className='italic text-gray-700 dark:text-blueGray-100 ml-2'>
@@ -106,18 +106,18 @@ const BlogPostTemplate = ({ data, data: { previous, next, post } }) => {
               <div>
                 {previous && (
                   <Link to={`/post${previous.uri}`} rel="prev">
-                    <div className='mx-6 my-4 leading-none text-center rounded-md text-xl italic text-emerald-500 hover:text-blueGray-900 dark:text-emerald-400 dark:hover:text-emerald-100 transition duration-200'>
+                    <div className='mx-6 my-4 leading-none text-center rounded-md text-xl italic text-blueGray-900 dark:text-emerald-300 hover:text-emerald-500 dark:hover:text-emerald-100 transition duration-200'>
                       ← {previous.title}
                     </div>
                   </Link>
                 )}
               </div>
-              {(previous && next) && <div className='mx-6 my-4 hidden md:block text-emerald-500 dark:text-emerald-400'>|</div>}
+              {(previous && next) && <div className='mx-6 my-4 hidden md:block text-blueGray-900 dark:text-emerald-300'>|</div>}
 
               <div>
                 {next && (
                   <Link to={`/post${next.uri}`} rel="next">
-                    <div className='mx-6 my-4 leading-none text-center rounded-md text-xl italic text-emerald-500 hover:text-blueGray-900 dark:text-emerald-400 dark:hover:text-emerald-100 transition duration-200'>
+                    <div className='mx-6 my-4 leading-none text-center rounded-md text-xl italic text-blueGray-900 dark:text-emerald-300 hover:text-emerald-500 dark:hover:text-emerald-100 transition duration-200'>
                     {next.title} →
                   </div>
                   </Link>

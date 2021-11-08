@@ -28,7 +28,7 @@ export default function ProjectDetails({ data }) {
             <Seo title={title} keywords={[`${title}`, `${stack}`, `design`, `development`, `web`]} description={String([(category === 'design' ? `Details for design project - ${title}` : `Details for web development project - ${title}`)])} />
 
             <section 
-                className='selection:bg-yellow-100 selection:text-blueGray-800 dark:selection:bg-teal-200 dark:selection:text-blueGray-900 bg-teal-50 bg-opacity-80 dark:bg-coolGray-900 min-h-full flex flex-col justify-between m-0 p-0 opacity-0 transition-opacity duration-500' data-replace='{ "opacity-0" : "opacity-100" }'
+                className='post selection:bg-yellow-100 selection:text-blueGray-800 dark:selection:bg-teal-200 dark:selection:text-blueGray-900 bg-teal-50 bg-opacity-80 dark:bg-coolGray-900 min-h-full flex flex-col justify-between m-0 p-0 opacity-0 transition-opacity duration-500' data-replace='{ "opacity-0" : "opacity-100" }'
             >
         
                 <div className={`mt-8 mb-16 flex flex-row justify-between items-center transform transition duration-300 w-11/12 2xl:w-10/12 mx-auto`}>
@@ -44,7 +44,7 @@ export default function ProjectDetails({ data }) {
                                 <span className='italic text-gray-700 dark:text-blueGray-200 text-sm md:text-base 2xl:text-lg'>
                                     {date}
                                 </span> 
-                                <span className='mb-8 ml-4 text-sm md:text-base 2xl:text-lg italic bg-emerald-500 dark:bg-emerald-300 text-blueGray-100 dark:text-blueGray-900 py-2 px-3 rounded-md'>
+                                <span className='mb-8 ml-4 text-sm md:text-base 2xl:text-lg italic text-blueGray-100 dark:text-blueGray-900 bg-blueGray-900 dark:bg-emerald-300 py-2 px-3 rounded-md'>
                                     {stack}
                                 </span>
                             </div>

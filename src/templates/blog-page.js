@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql, useStaticQuery, withPrefix } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 import { useLocation } from "@reach/router"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
@@ -65,33 +65,29 @@ const BlogIndex = ( { pageContext } ) => {
 
         <div className="blog-wrap mt-16 relative">
           <div className={`blog-filter right-0 lg:w-3/12 ${isFirstPage ? 'lg:absolute' : 'relative left-0 right-0 w-full mb-20' }`}>
-            <h5 className='text-xl font-semibold text-gray-800 dark:text-blueGray-100 mb-4'>Categories:</h5>
+            <h3 className='text-xl font-semibold text-gray-800 dark:text-blueGray-100 mb-4'>Categories:</h3>
             
             <ul className={`flex flex-row flex-wrap mb-8 lg:max-w-xs ${isFirstPage ? '' : 'max-w-none flex-wrap lg:flex-nowrap' }`}>
             { categories ? (
               categories.map(item => {
-               return (
-                <li 
-                  key={item.node.id}
-                  className={cx(
-                    'text-lg py-3 px-4 rounded-md bg-emerald-200 hover:bg-green-500 transform hover:scale-105 hover:text-white m-1 transition duration-300 cursor-pointer', 
-                    { 'text-white bg-green-600 pointer-events-none': location.pathname === withPrefix(item.node.uri) })}
-                >
-                  <Link 
-                    to={item.node.uri}
-                    activeClassName="active"
+                return (
+                  <li 
+                    key={item.node.id}
+                    className={cx(`${location.pathname.indexOf(item.node.uri) !== -1 ? ' bg-emerald-200 dark:bg-emerald-700 text-gray-900 dark:text-gray-100 pointer-events-none' : 'bg-blueGray-900 hover:bg-emerald-200 dark:bg-emerald-200 dark:hover:bg-emerald-600 text-blueGray-100 hover:text-blueGray-900 dark:text-blueGray-900 dark:hover:text-blueGray-100'} text-lg py-3 px-4 rounded-md transform hover:scale-105 m-1 transition duration-300 cursor-pointer`)}
                   >
-                    {item.node.name}
-                  </Link>
-                </li>
+                    <Link 
+                      to={item.node.uri}
+                      activeClassName="active"
+                    >
+                      {item.node.name}
+                    </Link>
+                  </li>
 
                )
               })
             ) : null }
               <li
-                className={cx(
-                    'text-lg py-3 px-4 rounded-md bg-emerald-200 hover:bg-green-500 transform hover:scale-105 hover:text-white m-1 transition duration-300 cursor-pointer', 
-                    { 'text-white bg-green-600 pointer-events-none': location.pathname === withPrefix('/blog') })}
+                className={cx(`${location.pathname.indexOf("/blog") !== -1 ? 'bg-emerald-200 dark:bg-emerald-700 text-gray-900 dark:text-gray-100 pointer-events-none' : 'bg-blueGray-900 hover:bg-emerald-200 dark:bg-emerald-200 dark:hover:bg-emerald-600 text-blueGray-100 hover:text-blueGray-900 dark:text-blueGray-900 dark:hover:text-blueGray-100'} text-lg py-3 px-4 rounded-md transform hover:scale-105 m-1 transition duration-300 cursor-pointer`)}
               >
                 <Link 
                     to='/blog'
@@ -123,7 +119,7 @@ const BlogIndex = ( { pageContext } ) => {
                         className={`relative rounded-md p-4 flex  xl:flex-row flex-nowrap justify-between items-center w-full  bg-emerald-100 dark:bg-green-200 hover:bg-yellow-200 dark:hover:bg-yellow-200 border-0 transition duration-200 ${
                             isFirstPage ? 'group-first-of-type:flex-col 2xl:group-first-of-type:flex-row lg:group-first-of-type:w-2/3 group-first-of-type:bg-white group-first-of-type:hover:bg-white group-first-of-type:border group-first-of-type:border-gray-400 group-first-of-type:border-opacity-50 lg:group-first-of-type:mb-12' : ''}`}
                       >
-                          <div className={`hidden ${isFirstPage ? 'group-first-of-type:block absolute right-4 top-4 flex-grow-0 text-sm font-bold italic text-blue-900 py-2 px-4 bg-gray-100 border border-gray-400 border-opacity-50 text-center rounded-md' : '' }`}>newest</div>
+                          <div className={`hidden ${isFirstPage ? 'group-first-of-type:block absolute right-4 top-4 flex-grow-0 text-sm font-bold italic text-blueGray-900 py-2 px-4 bg-yellow-100 text-center rounded-md' : '' }`}>newest</div>
 
                           <div className={`flex flex-row flex-nowrap justify-start items-start w-full xl:w-3/4 relative ${isFirstPage ? 'group-first-of-type:flex-wrap xl:group-first-of-type:pl-60 group-first-of-type:flex-col xl:group-first-of-type:w-full' : '' }`}>
                             <div className={`thumbnail hidden ${isFirstPage ? 'group-first-of-type:block xl:group-first-of-type:absolute group-first-of-type:left-0 group-first-of-type:w-60' : '' }`}>
@@ -147,7 +143,7 @@ const BlogIndex = ( { pageContext } ) => {
                             <div className={`excerpt hidden ${isFirstPage ? '2xl:group-first-of-type:mb-4 2xl:group-first-of-type:mr-12 group-first-of-type:block group-first-of-type:text-lg' : '' }`} dangerouslySetInnerHTML={{ __html: post.node.excerpt}}></div>
                           
                           </div>
-                          <button className={`read-more flex flex-row flex-nowrap text-2xl transform translate-x-0 group-hover:translate-x-4 transition duration-200 ${isFirstPage ? 'group-first-of-type:translate-x-0 group-hover:group-first-of-type:translate-x-4 2xl:group-hover:group-first-of-type:-translate-x-4 group-first-of-type:mt-10 xl:group-first-of-type:mt-8 2xl:group-first-of-type:mt-0 group-first-of-type:self-start xl:group-first-of-type:ml-60 2xl:group-first-of-type:ml-0 2xl:group-first-of-type:mt-24 group-first-of-type:py-3 group-first-of-type:px-4 group-first-of-type:bg-emerald-500 group-first-of-type:text-white group-first-of-type:rounded-md' : '' }`}>
+                          <button className={`read-more flex flex-row flex-nowrap text-2xl transform translate-x-0 group-hover:translate-x-2 transition duration-200 ${isFirstPage ? 'group-first-of-type:translate-x-0 group-hover:group-first-of-type:translate-x-4 2xl:group-hover:group-first-of-type:-translate-x-4 group-first-of-type:mt-10 xl:group-first-of-type:mt-8 group-first-of-type:self-start xl:group-first-of-type:ml-60 2xl:group-first-of-type:ml-0 2xl:group-first-of-type:mt-24 group-first-of-type:py-3 group-first-of-type:px-4 group-first-of-type:bg-blueGray-900 group-first-of-type:hover:bg-emerald-100 dark:group-first-of-type:bg-emerald-300 dark:group-first-of-type:hover:bg-emerald-700 group-first-of-type:text-blueGray-100 group-first-of-type:hover:text-blueGray-900 dark:group-first-of-type:text-blueGray-900 dark:group-first-of-type:hover:text-blueGray-100 group-first-of-type:rounded-md' : '' }`}>
                               <span className={`hidden ${isFirstPage ? 'group-first-of-type:inline-block group-first-of-type:mr-2' : '' }`}>Read</span> →
                           </button>
                       </article>

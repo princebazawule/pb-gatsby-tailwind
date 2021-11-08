@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, withPrefix } from "gatsby"
+import { Link } from "gatsby"
 import { useLocation } from "@reach/router"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
@@ -63,29 +63,26 @@ const ArchiveIndex = ( { pageContext } ) => {
             
             <ul className={`flex flex-row flex-wrap mb-8 lg:max-w-xs ${isFirstPage ? '' : 'max-w-none flex-wrap lg:flex-nowrap' }`}>
             { categories ? (
+              
               categories.map(item => {
-               return (
-                <li 
-                  key={item.node.id}
-                  className={cx(
-                    'text-lg py-3 px-4 rounded-md bg-emerald-200 hover:bg-green-500 transform hover:scale-105 hover:text-white m-1 transition duration-300 cursor-pointer', 
-                    { 'text-white bg-green-600 pointer-events-none': location.pathname === withPrefix(item.node.uri) })}
-                >
-                  <Link
-                    to={item.node.uri}
-                    activeClassName="active"
+                return (
+                  <li 
+                    key={item.node.id}
+                    className={cx(`${location.pathname.indexOf(item.node.uri) !== -1 ? ' bg-emerald-200 dark:bg-emerald-700 text-gray-900 dark:text-gray-100 pointer-events-none' : 'bg-blueGray-900 hover:bg-emerald-200 dark:bg-emerald-200 dark:hover:bg-emerald-600 text-blueGray-100 hover:text-blueGray-900 dark:text-blueGray-900 dark:hover:text-blueGray-100'} text-lg py-3 px-4 rounded-md transform hover:scale-105 m-1 transition duration-300 cursor-pointer`)}
                   >
-                    {item.node.name}
-                  </Link>
-                </li>
+                    <Link
+                      to={item.node.uri}
+                      activeClassName="active"
+                    >
+                      {item.node.name}
+                    </Link>
+                  </li>
 
                )
               })
             ) : null }
               <li
-                className={cx(
-                  'text-lg py-3 px-4 rounded-md bg-emerald-200 hover:bg-green-500 transform hover:scale-105 hover:text-white m-1 transition duration-300 cursor-pointer', 
-                  { 'text-white bg-green-600 pointer-events-none': location.pathname === withPrefix('/blog') })}
+                className={cx(`${location.pathname.indexOf("/blog") !== -1 ? 'bg-emerald-200 dark:bg-emerald-700 text-gray-900 dark:text-gray-100 pointer-events-none' : 'bg-blueGray-900 hover:bg-emerald-200 dark:bg-emerald-200 dark:hover:bg-emerald-600 text-blueGray-100 hover:text-blueGray-900 dark:text-blueGray-900 dark:hover:text-blueGray-100'} text-lg py-3 px-4 rounded-md transform hover:scale-105 m-1 transition duration-300 cursor-pointer`)}
               >
                 <Link 
                     to='/blog'
