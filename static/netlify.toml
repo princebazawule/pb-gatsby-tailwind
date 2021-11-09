@@ -11,14 +11,26 @@
         max-age=63072000;
         includeSubDomains;
         preload'''
-
+ 
+# to be able to build this site locally, let's specify
+# build settings in this file
 [build]
     command = "npm run build"
     publish = "build"
 
 [build.environment]
+    # cache Cypress binary in local "node_modules" folder
+    # so Netlify caches it
     CYPRESS_CACHE_FOLDER = "./node_modules/CypressBinary"
+    # set TERM variable for terminal output
     TERM = "xterm"
 
+# run Cypress E2E tests
 [[plugins]]
     package = "netlify-plugin-cypress"
+    [plugins.inputs]
+        # skip the default tests before the deploy
+        skip = true
+    [plugins.inputs.onSuccess]
+        # run tests after the deploy
+        enable = true
