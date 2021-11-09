@@ -146,32 +146,12 @@ module.exports = {
     },
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-netlify`,
-    `gatsby-plugin-offline`,
-    // {
-    //   resolve: `gatsby-plugin-offline`,
-    //   options: {
-    //     precachePages: [`/blog/*`, `/contact/*`, `/designer/*`, `/developer/*`, `/dj/*`, `/post/*`, `/project/*`],
-    //     runtimeCaching: [
-    //       {
-    //         urlPattern: /^https:\/\/fonts\.gstatic\.com/,
-    //         handler: 'cacheFirst',
-    //         options: {
-    //           cacheableResponse: {
-    //             statuses: [0, 200]
-    //           },
-    //           cacheName: 'google-fonts-webfonts',
-    //           expiration: {
-    //             maxAgeSeconds: 60 * 60,
-    //             maxEntries: 30
-    //           }
-    //         }
-    //       },
-    //     ],
-    //     workboxConfig: {
-    //       globPatterns: ['*.html', '**/src/images/*']
-    //    }
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/blog/*`, `/contact/*`, `/designer/*`, `/developer/*`, `/dj/*`, `/post/*`, `/project/*`],
+      },
+    },
     {
       resolve: 'gatsby-plugin-htaccess',
       options: {
