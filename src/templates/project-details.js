@@ -8,7 +8,8 @@ import "../styles/blog.module.scss"
 export default function ProjectDetails({ data }) {
 
     const { html } = data.markdownRemark
-    const { title, date, category, stack, url, featuredImg }  = data.markdownRemark.frontmatter
+    const { title, category, stack, url, featuredImg }  = data.markdownRemark.frontmatter
+    // const { title, date, category, stack, url, featuredImg }  = data.markdownRemark.frontmatter
 
     useEffect(() => {
         const replacers = document.querySelectorAll('[data-replace]')
@@ -99,17 +100,19 @@ export default function ProjectDetails({ data }) {
                             )}
                             
                             {url && (
-                            <OutboundLink 
-                                href={url}
-                                target='_blank'
-                                rel='noreferrer'
-                                title={`${title} project link`}
-                                className='inline-block'>
-                                <div className="inline-block my-12 py-4 px-8 rounded-md bg-blueGray-900 hover:bg-emerald-100 dark:bg-emerald-300 dark:hover:bg-emerald-700 text-blueGray-100 hover:text-blueGray-900 dark:text-blueGray-900 dark:hover:text-blueGray-100 transform hover:scale-105 transition duration-300">
-                                    <button className='text-2xl font-semibold'>view project</button>
-                                </div>
-                            </OutboundLink>)}
-
+                            <div className='block w-full mx-auto'>
+                                <OutboundLink 
+                                    href={url}
+                                    target='_blank'
+                                    rel='noreferrer'
+                                    title={`${title} project link`}
+                                    className='inline-block'>
+                                    <div className="inline-block my-12 py-4 px-8 rounded-md bg-blueGray-900 hover:bg-emerald-100 dark:bg-emerald-300 dark:hover:bg-emerald-700 text-blueGray-100 hover:text-blueGray-900 dark:text-blueGray-900 dark:hover:text-blueGray-100 transform hover:scale-105 transition duration-300">
+                                        <button className='text-2xl font-semibold'>view project</button>
+                                    </div>
+                                </OutboundLink>
+                            </div>)}
+                            
                             <div className="block my-12">
                                 <div className="inline-block s9-widget-wrapper"></div>
                             </div>
