@@ -149,7 +149,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-offline`,
       options: {
-        precachePages: [`/blog/*`, `/contact/*`, `/designer/*`, `/developer/*`, `/dj/*`, `/post/*`, `/project/*`],
+        precachePages: [`/blog/*`, `/blog/**/*`, `/category/*`, `/category/**/*`, `/contact/*`, `/designer/*`, `/developer/*`, `/dj/*`, `/post/*`, `/post/**/*`, `/project/*`, `/project/**/*`],
         workboxConfig: {
           globPatterns: ['*.html', '**/src/images/*']
         }
