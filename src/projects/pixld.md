@@ -1,6 +1,6 @@
 ---
 title: PixlD Inc
-stack: React, JS, HTML & CSS
+stack: React, JAMStack, SCSS
 slug: pixld
 date: 2021-10-01 00:00:00 +0000
 category: coding
@@ -17,6 +17,6 @@ featuredImg:
 - src: ../images/featured/pxld-8.png
 ---
 
-*PixlD Inc web redesign*
+*PixlD Inc web re-designed and developed*
 
-working with JAMStack technologies, I had to bring the PixlD website bang up-to-date. React, PWA, theme-switcher and served as super-fast pre-rendered static files.
+This is the PixlD website brought bang up-to-date with JAMStack technologies. Now a React SPA, with PWA & theme-switcher integrated as well as served as super-fast pre-rendered static files.

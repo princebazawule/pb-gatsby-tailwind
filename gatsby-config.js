@@ -134,6 +134,7 @@ module.exports = {
         icon_options: {
           purpose: `any maskable`,
         },
+        cache_busting_mode: 'none'
       },
     },
     `gatsby-plugin-sitemap`,
@@ -159,7 +160,7 @@ module.exports = {
           },
         ],
         workboxConfig: {
-          globPatterns: ['**/icon-path*']
+          globPatterns: ['*.html', '**/src/images/*']
        }
       },
     },

@@ -1,8 +1,8 @@
 ---
 title: GHA DDB
-stack: JS, HTML & CSS
+stack: PHP, JS, SCSS, CMS & CDN
 slug: gha-ddb
-date: 2021-03-03 00:00:00 +0000
+date: 2014-03-03 00:00:00 +0000
 category: coding
 url: 
 thumb: ../images/thumb/gha.png
@@ -17,4 +17,4 @@ featuredImg:
 
 *GHA DDB - Design & Development*
 
-A Caribbean regional advertising agency, look and feel matched the brand. Showcased agency and client work in a responsive, dynamic manner with integration of web apps.
+An award-winning regional Caribbean advertising agency, look, feel and UX, was key. PHP, JS, SCSS, CMS & CDN technologies were used to deliver a fitting online presence that showcased client work in a responsive, dynamic manner.

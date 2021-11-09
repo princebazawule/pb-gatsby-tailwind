@@ -41,9 +41,9 @@ export default function ProjectDetails({ data }) {
                                 {title}
                             </h1>
                             <div>
-                                <span className='italic text-gray-700 dark:text-blueGray-200 text-sm md:text-base 2xl:text-lg'>
+                                {/* <span className='italic text-gray-700 dark:text-blueGray-200 text-sm md:text-base 2xl:text-lg'>
                                     {date}
-                                </span> 
+                                </span>  */}
                                 <span className='mb-8 ml-4 text-sm md:text-base 2xl:text-lg italic text-blueGray-100 dark:text-blueGray-900 bg-blueGray-900 dark:bg-emerald-300 py-2 px-3 rounded-md'>
                                     {stack}
                                 </span>
@@ -91,7 +91,8 @@ export default function ProjectDetails({ data }) {
                                             key={index}
                                             image={image} 
                                             alt={alt}
-                                            className='mb-8 border-16 bg-white border-white drop-shadow-lg block h-full 3xl:w-4/5 3xl:mx-auto'
+                                            objectFit='contain'
+                                            className='mb-16 xl:mb-24 border-16 bg-white border-white drop-shadow-lg block h-full 3xl:w-4/5 3xl:mx-auto'
                                         />
                                     )
                                 })
@@ -103,7 +104,7 @@ export default function ProjectDetails({ data }) {
                                 target='_blank'
                                 rel='noreferrer'
                                 title={`${title} project link`}
-                                className='block'>
+                                className='inline-block'>
                                 <div className="inline-block my-12 py-4 px-8 rounded-md bg-blueGray-900 hover:bg-emerald-100 dark:bg-emerald-300 dark:hover:bg-emerald-700 text-blueGray-100 hover:text-blueGray-900 dark:text-blueGray-900 dark:hover:text-blueGray-100 transform hover:scale-105 transition duration-300">
                                     <button className='text-2xl font-semibold'>view project</button>
                                 </div>
@@ -127,7 +128,7 @@ query ProjectPages($slug: String) {
             title
             stack
             url
-            date(formatString: "DD MMM, 'YY")
+            date(formatString: "YYYY")
             category
             featuredImg {
                 src {

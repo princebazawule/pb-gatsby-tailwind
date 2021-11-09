@@ -1,8 +1,8 @@
 ---
 title: Invest Barbados
-stack: JS, HTML & CSS
+stack: PHP, JS, SCSS, CMS, I18n & CDN
 slug: invest-barbados
-date: 2021-04-04 00:00:00 +0000
+date: 2020-04-04 00:00:00 +0000
 category: coding
 url: 
 thumb: ../images/thumb/ib.png
@@ -18,4 +18,4 @@ featuredImg:
 
 *Invest Barbados Website design & development*
 
-Responsive, content-intensive with mega-menu for organisation. Multi-lingual. Content on Wordpress CMS with PHP, JS, HTML & CSS frontend. 
+Serving as an information hub, mega-menus and i18n were some of the features included, using with PHP, JS, SCSS, CMS & CDN technologies, to provide a responsive, fast-loading and user-friendly UX for the content-intensive multi-lingual website.

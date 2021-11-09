@@ -32,8 +32,9 @@ export default function Designer({ data }) {
     })
 
     const openLink = () => {
-        window.open("https://society6.com/princebazawule")
-      }
+      window.open("https://dribbble.com/princebazawule")
+      // window.open("https://society6.com/princebazawule")
+    }
 
     return (
         <>
@@ -70,7 +71,7 @@ export default function Designer({ data }) {
                                 onClick={() => openLink()}
                                 className="flex mt-8 sm:mt-10 md:mt-10 lg:mt-6 xl:mt-8 2xl:mt-16 transition duration-300 ease-in-out bg-blueGray-900 hover:bg-emerald-100 dark:bg-emerald-300 dark:hover:bg-emerald-700 text-blueGray-100 hover:text-blueGray-900 dark:text-blueGray-900 dark:hover:text-blueGray-100 text-2xl xs:text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl 3xl:text-5xl font-bold rounded-full border-0 py-2 px-8 lg:px-12 lg:tracking-tight xl:px-12 xl:tracking-tight 2xl:px-12 2xl:tracking-tight 3xl:px-12 3xl:tracking-tight focus:ring-6 focus:ring-emerald-500 focus:ring-opacity-5"
                             >
-                                shop designs
+                                view some designs
                             </button>
                     </div>
                 </section>

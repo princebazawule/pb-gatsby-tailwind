@@ -1,8 +1,8 @@
 ---
 title: Link Caribbean
-stack: JS, HTML & CSS
+stack: PHP, JS, SCSS, CMS & CDN
 slug: link-caribbean
-date: 2021-05-05 00:00:00 +0000
+date: 2016-04-05 00:00:00 +0000
 category: coding
 url: http://link-caribbean.com/
 thumb: ../images/thumb/link.png
@@ -15,4 +15,4 @@ featuredImg:
 
 *LINK Caribbean Design & Development*
 
-An entrepreneurial incubation, the design match brand and objective, whic was to make information readily available. Responsive, fast-loading. Integration of web apps.
+An entrepreneurial incubation hub, both UX & UI were key. Design matched brand objectives and PHP, JS, SCSS, CMS & CDN technologies used ensured a reliable, responsive and fast-loading website experience.

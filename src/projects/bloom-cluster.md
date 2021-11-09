@@ -1,8 +1,8 @@
 ---
 title: Bloom Cluster
-stack: JS, HTML & CSS
+stack: PHP, JS, SCSS, CMS & CDN
 slug: bloom-cluster
-date: 2021-01-01 00:00:00 +0000
+date: 2020-04-01 00:00:00 +0000
 category: coding
 url: https://bloomcluster.com/
 thumb: ../images/thumb/bloom.png
@@ -15,4 +15,4 @@ featuredImg:
 
 *BLOOM Cluster web design & development*
 
-An green energy incubation cluster, the design captures BLOOM's brand and vision. It is responsive fast and and intuitive in order to readily provide information
+A green energy incubation cluster, both UX & UI were key. Design needed to match the BLOOM vision and information readily accessible. Use of PHP, JS, SCSS, CMS & CDN technologies ensured a reliable, responsive and fast-loading website experience.
