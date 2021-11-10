@@ -112,23 +112,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [
-          `Poppins\:ital,wght@0,400;0,800;0,900;1,300`
-        ],
-        display: 'swap'
-      }
-    },
-    {
-      resolve: `gatsby-plugin-social9-socialshare`,
-      options: {
-        async:  true,
-			  defer:  true,
-        content: "7c4a243cb52d4f88b81cc53a39e7c85b"
-      }
-    },
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `princeBazawule`,

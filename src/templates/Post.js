@@ -1,13 +1,16 @@
 import React from "react"
+import { useLocation } from "@reach/router"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Seo from '../components/Seo'
+import ShareButtons from '../components/Share'
 import { PostCode } from "./PostCode"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import parse, {domToReact} from 'html-react-parser'
 import "../styles/blog.module.scss"
 
-const BlogPostTemplate = ({ data, data: { previous, next, post } }) => {
+const BlogPostTemplate = ({ data: { previous, next, post } }) => {
+  const location = useLocation()
 
   // console.log(data)
 
@@ -128,7 +131,9 @@ const BlogPostTemplate = ({ data, data: { previous, next, post } }) => {
         </div> 
 
         <div className="block my-12">
-          <div className="inline-block s9-widget-wrapper"></div>
+          <div>
+              <ShareButtons title={`View ${post.title}`} url={location.href} twitterHandle='princebazawule' tags={[post.categories.nodes[0].name]} caption={`Read the blog post - ${post.title}`} />
+          </div>
         </div>
 
       </section>

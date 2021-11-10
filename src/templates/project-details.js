@@ -1,11 +1,14 @@
 import React, { useEffect } from "react"
+import { useLocation } from "@reach/router"
 import { graphql, navigate } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 import Seo from '../components/Seo'
+import ShareButtons from '../components/Share'
 import "../styles/blog.module.scss"
 
 export default function ProjectDetails({ data }) {
+    const location = useLocation()
 
     const { html } = data.markdownRemark
     const { title, category, stack, url, featuredImg }  = data.markdownRemark.frontmatter
@@ -26,7 +29,7 @@ export default function ProjectDetails({ data }) {
     
     return (
         <>
-            <Seo title={title} keywords={[`${title}`, `${stack}`, `design`, `development`, `web`]} description={String([(category === 'design' ? `Details for design project - ${title}` : `Details for web development project - ${title}`)])} />
+            <Seo title={title} keywords={[`${title}`, `${stack}`, (category === 'design' ? `design` : `web`, `development`)]} description={String([(category === 'design' ? `Details for design project - ${title}` : `Details for web development project - ${title}`)])} />
 
             <section 
                 className='post selection:bg-yellow-100 selection:text-blueGray-800 dark:selection:bg-teal-200 dark:selection:text-blueGray-900 bg-teal-50 bg-opacity-80 dark:bg-coolGray-900 min-h-full flex flex-col justify-between m-0 p-0 opacity-0 transition-opacity duration-500' data-replace='{ "opacity-0" : "opacity-100" }'
@@ -107,14 +110,16 @@ export default function ProjectDetails({ data }) {
                                     rel='noreferrer'
                                     title={`${title} project link`}
                                     className='inline-block'>
-                                    <div className="inline-block my-12 py-4 px-8 rounded-md bg-blueGray-900 hover:bg-emerald-100 dark:bg-emerald-300 dark:hover:bg-emerald-700 text-blueGray-100 hover:text-blueGray-900 dark:text-blueGray-900 dark:hover:text-blueGray-100 transform hover:scale-105 transition duration-300">
+                                    <div className="inline-block my-0 xs:my-12 py-4 px-8 rounded-md bg-blueGray-900 hover:bg-emerald-100 dark:bg-emerald-300 dark:hover:bg-emerald-700 text-blueGray-100 hover:text-blueGray-900 dark:text-blueGray-900 dark:hover:text-blueGray-100 transform hover:scale-105 transition duration-300">
                                         <button className='text-2xl font-semibold'>view project</button>
                                     </div>
                                 </OutboundLink>
                             </div>)}
                             
                             <div className="block my-12">
-                                <div className="inline-block s9-widget-wrapper"></div>
+                                <div>
+                                    <ShareButtons title={`View ${title}`} url={location.href} twitterHandle='princebazawule' tags={Array.from(stack.split(', '))} caption={String([(category === 'design' ? `Details for design project - ${title}` : `Details for web development project - ${title}`)])} />
+                                </div>
                             </div>
                         </section>
                     </article>
