@@ -146,15 +146,16 @@ module.exports = {
     },
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-netlify`,
-    {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        precachePages: [`/blog/*`, `/blog/**/*`, `/category/*`, `/category/**/*`, `/contact/*`, `/designer/*`, `/developer/*`, `/dj/*`, `/post/*`, `/post/**/*`, `/project/*`, `/project/**/*`],
-        workboxConfig: {
-          globPatterns: ['*.html', '**/src/images/*']
-        }
-      },
-    },
+    `gatsby-plugin-offline`,
+    // {
+    //   resolve: `gatsby-plugin-offline`,
+    //   options: {
+    //     precachePages: [`/blog/*`, `/blog/**/*`, `/category/*`, `/category/**/*`, `/contact/*`, `/designer/*`, `/developer/*`, `/dj/*`, `/post/*`, `/post/**/*`, `/project/*`, `/project/**/*`],
+    //     workboxConfig: {
+    //       globPatterns: ['*.html', '**/src/images/*']
+    //     }
+    //   },
+    // },
     // `gatsby-plugin-offline`,
     // {
     //   resolve: `gatsby-plugin-offline`,
