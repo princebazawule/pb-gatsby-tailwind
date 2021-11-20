@@ -14,7 +14,7 @@ module.exports = {
       initials: `pb`,
       summary: `designer, developer, dj`,
     },
-    description: `designer, developer, dj & gooner`,
+    description: `Prince Bazawule - Award-winning designer, experienced developer, DJ & Gooner`,
     copyright: `2021 — princebazawule`,
     siteUrl: `https://princebazawule.com`,
     social: [
