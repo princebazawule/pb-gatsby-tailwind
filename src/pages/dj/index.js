@@ -33,7 +33,7 @@ export default function Dj({ data }) {
   return (
     <>
       <Layout>
-        <Seo title="DJ" keywords={[`music`, `mixes`, `playlist`, `mixcloud`, `soundcloud`, `spotify`]} />
+        <Seo title="DJ" keywords={[`music`, `mixes`, `playlist`, `mixcloud`, `soundcloud`, `spotify`]} description={`Prince Bazawule - Music lover, curator and DJ`} />
 
         <section ref={textRef}
           className="xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-20 xl:px-4 2xl:px-8 flex flex-col justify-center sm:flex-initial cursor-default xl:w-3/4"

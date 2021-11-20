@@ -37,7 +37,7 @@ export default function Developer({ data }) {
     return (
         <>
             <Layout>
-              <Seo title="Developer" keywords={[`frontend`, `react`, `vue`, `javascript`, `gatsby`]} />
+              <Seo title="Developer" keywords={[`frontend`, `react`, `vue`, `javascript`, `gatsby`]} description={`Prince Bazawule - Developer, creating fast responsive UIs and rich web experiences for over 15 years`} />
 
               <section
                 ref={textRef}

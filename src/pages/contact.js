@@ -2,6 +2,7 @@ import { graphql } from "gatsby"
 import React, { useRef, useEffect, useState } from 'react'
 import { gsap } from "gsap"
 import Layout from "../components/Layout"
+import Seo from '../components/Seo'
 import { getIconComponentByName } from "../utils/icons-map"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 import "../styles/contact.module.scss"
@@ -37,6 +38,8 @@ export default function Contact({ data }) {
   return (
     <>
       <Layout>
+        <Seo title="Connect" keywords={[`connect`, `contact`, `social`, `social links`, `links`]} description={`Prince Bazawule - Connect with me on social media, request a collaboration, explore my music and shop my designs`} />
+
         <section 
           ref={textRef}
           className="xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-10 xl:px-4 2xl:px-8 flex flex-col justify-center sm:flex-initial cursor-default"

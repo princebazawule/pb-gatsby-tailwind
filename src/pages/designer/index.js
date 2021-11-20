@@ -39,7 +39,7 @@ export default function Designer({ data }) {
     return (
         <>
             <Layout>
-              <Seo title="Designer" keywords={[`ui design`, `digital art`, `graphic design`, `design`, `art`, `artist`]} />
+              <Seo title="Designer" keywords={[`ui design`, `digital art`, `graphic design`, `design`, `art`, `artist`]} description={`Prince Bazawule - Award-winning multi-disciplinary designer`} />
 
               <section 
                 ref={textRef}
