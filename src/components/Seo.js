@@ -3,7 +3,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
  
- function Seo({ description, lang, meta, keywords, title }) {
+ function Seo({ description, lang, meta, keywords, title, image }) {
    const { site } = useStaticQuery(
      graphql`
        query {
@@ -22,6 +22,7 @@ import PropTypes from 'prop-types'
    )
  
    const metaDescription = description || site.siteMetadata.description
+   const metaImage =  image
  
    return (
      <Helmet
@@ -46,6 +47,10 @@ import PropTypes from 'prop-types'
          {
            property: `og:type`,
            content: `website`,
+         },
+         {
+          property: `og:image`,
+          content: metaImage,
          },
          {
            name: `twitter:card`,

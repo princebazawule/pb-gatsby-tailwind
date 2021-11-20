@@ -47,6 +47,9 @@ export default function Home({ data }) {
   const image = getImage(selectedImage[0].node.childImageSharp)
   const name = selectedImage[0].node.name
 
+  const selectDefaultImage = profileImages.filter(item => item.node.name === 'default')
+  const defaultImageSrc = selectDefaultImage[0].node.childImageSharp.gatsbyImageData.images.fallback.src
+
   useEffect(() => {
     gsap.to(textRef.current, {
       rotationY: -5 * position.y,
@@ -71,7 +74,7 @@ export default function Home({ data }) {
   return (
     <>
       <Layout>
-        <Seo title="Home" keywords={[`frontend`, `developer`, `designer`, `dj`, `artist`]} />
+        <Seo title="Home" keywords={[`frontend`, `developer`, `designer`, `dj`, `artist`]} image={defaultImageSrc} />
 
         <div className="flex flex-col sm:flex-grow 3xl:w-11/12 4xl:w-11/12 3xl:mx-auto justify-between flex-1">
           <section
