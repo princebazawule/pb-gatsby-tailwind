@@ -13,7 +13,7 @@ export default function Contact({ data }) {
   const { images } = data
 
   const profileImages = images.edges
-  const selectDefaultImage = profileImages.filter(item => item.node.name === 'default')
+  const selectDefaultImage = profileImages.filter(item => item.node.name === 'og-default')
   const defaultImageSrc = selectDefaultImage[0].node.childImageSharp.gatsbyImageData.images.fallback.src
 
   // console.log(data)
