@@ -13,7 +13,7 @@ export default function Dj({ data }) {
 
   const profileImages = images.edges
   const selectDefaultImage = profileImages.filter(item => item.node.name === 'og-dj')
-  const defaultImageSrc = selectDefaultImage[0].node.childImageSharp.gatsbyImageData.images.fallback.src
+  const defaultImageSrc = selectDefaultImage[0].node.childImageSharp.fluid.src
   
   // console.log(data)
 
@@ -120,12 +120,9 @@ query DeejayPage {
         node {
           id
           childImageSharp {
-            gatsbyImageData(
-              width: 200
-              placeholder: BLURRED
-              blurredOptions: {toFormat: NO_CHANGE}
-              formats: [AUTO, WEBP, AVIF]
-            )
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
           }
           name
         }

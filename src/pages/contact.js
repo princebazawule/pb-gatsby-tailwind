@@ -14,7 +14,7 @@ export default function Contact({ data }) {
 
   const profileImages = images.edges
   const selectDefaultImage = profileImages.filter(item => item.node.name === 'og-default')
-  const defaultImageSrc = selectDefaultImage[0].node.childImageSharp.gatsbyImageData.images.fallback.src
+  const defaultImageSrc = selectDefaultImage[0].node.childImageSharp.fluid.src
 
   // console.log(data)
 
@@ -177,12 +177,9 @@ export const query = graphql`
         node {
           id
           childImageSharp {
-            gatsbyImageData(
-              width: 200
-              placeholder: BLURRED
-              blurredOptions: {toFormat: NO_CHANGE}
-              formats: [AUTO, WEBP, AVIF]
-            )
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
           }
           name
         }

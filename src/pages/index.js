@@ -49,7 +49,7 @@ export default function Home({ data }) {
   const name = selectedImage[0].node.name
 
   const selectDefaultImage = profileImages.filter(item => item.node.name === 'og-default')
-  const defaultImageSrc = selectDefaultImage[0].node.childImageSharp.gatsbyImageData.images.fallback.src
+  const defaultImageSrc = selectDefaultImage[0].node.childImageSharp.fluid.src
 
   useEffect(() => {
     gsap.to(textRef.current, {
@@ -246,6 +246,9 @@ export const query = graphql`
               blurredOptions: {toFormat: NO_CHANGE}
               formats: [AUTO, WEBP, AVIF]
             )
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
           }
           name
         }

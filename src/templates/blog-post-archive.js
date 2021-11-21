@@ -18,12 +18,9 @@ const ArchiveIndex = ( { pageContext } ) => {
           node {
             id
             childImageSharp {
-              gatsbyImageData(
-                width: 200
-                placeholder: BLURRED
-                blurredOptions: {toFormat: NO_CHANGE}
-                formats: [AUTO, WEBP, AVIF]
-              )
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
             }
             name
           }
@@ -43,7 +40,7 @@ const ArchiveIndex = ( { pageContext } ) => {
 
   const profileImages = images.edges
   const selectDefaultImage = profileImages.filter(item => item.node.name === 'og-blog')
-  const defaultImageSrc = selectDefaultImage[0].node.childImageSharp.gatsbyImageData.images.fallback.src
+  const defaultImageSrc = selectDefaultImage[0].node.childImageSharp.fluid.src
 
   const { group, index, first, last, pathPrefix, additionalContext } = pageContext;
 
