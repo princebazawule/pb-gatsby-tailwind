@@ -16,6 +16,7 @@ export default function Home({ data }) {
   // console.log(data)
 
   const { author } = data.site.siteMetadata
+  const { siteUrl } = data.site.siteMetadata
   const { images } = data
 
   const profileImages = images.edges
@@ -47,7 +48,7 @@ export default function Home({ data }) {
   const image = getImage(selectedImage[0].node.childImageSharp)
   const name = selectedImage[0].node.name
 
-  const selectDefaultImage = profileImages.filter(item => item.node.name === 'default')
+  const selectDefaultImage = profileImages.filter(item => item.node.name === 'og-default')
   const defaultImageSrc = selectDefaultImage[0].node.childImageSharp.gatsbyImageData.images.fallback.src
 
   useEffect(() => {
@@ -74,7 +75,8 @@ export default function Home({ data }) {
   return (
     <>
       <Layout>
-        <Seo title="Home" keywords={[`frontend`, `developer`, `designer`, `dj`, `artist`]} description={`Prince Bazawule - Award-winning designer, experienced developer, DJ & Gooner`} image={defaultImageSrc} />
+        <Seo title="Home" keywords={[`frontend`, `developer`, `designer`, `dj`, `artist`]} description={`Prince Bazawule - Award-winning designer, experienced developer, DJ & Gooner`} image={`${siteUrl}${defaultImageSrc}`} />
+        {/* <Seo title="Home" keywords={[`frontend`, `developer`, `designer`, `dj`, `artist`]} description={`Prince Bazawule - Award-winning designer, experienced developer, DJ & Gooner`} /> */}
 
         <div className="flex flex-col sm:flex-grow 3xl:w-11/12 4xl:w-11/12 3xl:mx-auto justify-between flex-1">
           <section
@@ -229,6 +231,7 @@ export const query = graphql`
         author {
           first_name
         }
+        siteUrl
       }
     }
 

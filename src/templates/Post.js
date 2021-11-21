@@ -9,13 +9,17 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import parse, {domToReact} from 'html-react-parser'
 import "../styles/blog.module.scss"
 
-const BlogPostTemplate = ({ data: { previous, next, post } }) => {
+const BlogPostTemplate = ({ data: { previous, next, post, site } }) => {
   const location = useLocation()
 
   // console.log(data)
 
+  const { siteUrl } = site.siteMetadata
+
   const image = getImage(post.featuredImage.node.localFile)
   const alt = post.featuredImage.node.altText
+
+  const defaultImageSrc = post.featuredImage.node.localFile.childImageSharp.gatsbyImageData.images.fallback.src
 
   const replaceCode = node => {
     if (node.name === 'pre') {
@@ -40,7 +44,7 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
 
   return (
     <Layout>
-      <Seo title={post.title} keywords={[`${post.categories.nodes[0].name}`, `blog`, `tips`, `tutorials`, `resources`, `freebies`]} description={`Prince Bazawule - Details of blog post: ${post.title}`} />
+      <Seo title={post.title} keywords={[`${post.categories.nodes[0].name}`, `blog`, `tips`, `tutorials`, `resources`, `freebies`]} description={`Prince Bazawule - Details of blog post: ${post.title}`} image={`${siteUrl}${defaultImageSrc}`} />
 
       <section 
         className="post xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-20 xl:px-4 2xl:px-8 flex flex-col lg:flex-row flex-nowrap justify-center items-start sm:flex-initial"
@@ -191,6 +195,12 @@ query BlogPostById(
   next: wpPost(id: { eq: $nextPostId }) {
     uri
     title
+  }
+
+  site {
+    siteMetadata {
+      siteUrl
+    }
   }
 }
 `

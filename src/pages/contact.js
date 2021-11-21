@@ -9,6 +9,13 @@ import "../styles/contact.module.scss"
 
 export default function Contact({ data }) {
 
+  const { siteUrl } = data.site.siteMetadata
+  const { images } = data
+
+  const profileImages = images.edges
+  const selectDefaultImage = profileImages.filter(item => item.node.name === 'default')
+  const defaultImageSrc = selectDefaultImage[0].node.childImageSharp.gatsbyImageData.images.fallback.src
+
   // console.log(data)
 
   const [position, setPosition] = useState({ x: 0, y: 0 })
@@ -38,7 +45,7 @@ export default function Contact({ data }) {
   return (
     <>
       <Layout>
-        <Seo title="Connect" keywords={[`connect`, `contact`, `social`, `social links`, `links`]} description={`Prince Bazawule - Connect with me on social media, request a collaboration, explore my music and shop my designs`} />
+        <Seo title="Connect" keywords={[`connect`, `contact`, `social`, `social links`, `links`]} description={`Prince Bazawule - Connect with me on social media, request a collaboration, explore my music and shop my designs`} image={`${siteUrl}${defaultImageSrc}`} />
 
         <section 
           ref={textRef}
@@ -144,23 +151,47 @@ export const query = graphql`
     site {
       siteMetadata {
         social {
-            artwork
-            color
-            link
-            network
+          artwork
+          color
+          link
+          network
+        }
+        shop {
+          artwork
+          color
+          link
+          network
+        }
+        play {
+          artwork
+          color
+          link
+          network
+        }
+        siteUrl
+      }
+    }
+
+    images: allFile(filter: {absolutePath: {regex: "/(images/profile)/"}}) {
+      edges {
+        node {
+          id
+          childImageSharp {
+            gatsbyImageData(
+              width: 200
+              placeholder: BLURRED
+              blurredOptions: {toFormat: NO_CHANGE}
+              formats: [AUTO, WEBP, AVIF]
+            )
           }
-          shop {
-            artwork
-            color
-            link
-            network
-          }
-          play {
-            artwork
-            color
-            link
-            network
-          }
+          name
+        }
+      }
+    }
+
+    site {
+      siteMetadata {
+        siteUrl
       }
     }
   }

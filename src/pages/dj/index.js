@@ -7,6 +7,13 @@ import MusicGallery from '../../components/MusicGallery'
 import '../../styles/dj.module.scss'
 
 export default function Dj({ data }) {
+
+  const { siteUrl } = data.site.siteMetadata
+  const { images } = data
+
+  const profileImages = images.edges
+  const selectDefaultImage = profileImages.filter(item => item.node.name === 'og-dj')
+  const defaultImageSrc = selectDefaultImage[0].node.childImageSharp.gatsbyImageData.images.fallback.src
   
   // console.log(data)
 
@@ -33,7 +40,7 @@ export default function Dj({ data }) {
   return (
     <>
       <Layout>
-        <Seo title="DJ" keywords={[`music`, `mixes`, `playlist`, `mixcloud`, `soundcloud`, `spotify`]} description={`Prince Bazawule - Music lover, curator and DJ`} />
+        <Seo title="DJ" keywords={[`music`, `mixes`, `playlist`, `mixcloud`, `soundcloud`, `spotify`]} description={`Prince Bazawule - Music lover, curator and DJ`} image={`${siteUrl}${defaultImageSrc}`} />
 
         <section ref={textRef}
           className="xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-20 xl:px-4 2xl:px-8 flex flex-col justify-center sm:flex-initial cursor-default xl:w-3/4"
@@ -105,6 +112,29 @@ query DeejayPage {
           }
         }
         id
+      }
+    }
+
+    images: allFile(filter: {absolutePath: {regex: "/(images/profile)/"}}) {
+      edges {
+        node {
+          id
+          childImageSharp {
+            gatsbyImageData(
+              width: 200
+              placeholder: BLURRED
+              blurredOptions: {toFormat: NO_CHANGE}
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+          name
+        }
+      }
+    }
+
+    site {
+      siteMetadata {
+        siteUrl
       }
     }
   } 

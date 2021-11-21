@@ -7,6 +7,13 @@ import ProjectGallery from '../../components/ProjectGallery'
 import '../../styles/developer.module.scss'
 
 export default function Developer({ data }) {
+  
+  const { siteUrl } = data.site.siteMetadata
+  const { images } = data
+
+  const profileImages = images.edges
+  const selectDefaultImage = profileImages.filter(item => item.node.name === 'og-code')
+  const defaultImageSrc = selectDefaultImage[0].node.childImageSharp.gatsbyImageData.images.fallback.src
 
   // console.log(data)
 
@@ -37,7 +44,7 @@ export default function Developer({ data }) {
     return (
         <>
             <Layout>
-              <Seo title="Developer" keywords={[`frontend`, `react`, `vue`, `javascript`, `gatsby`]} description={`Prince Bazawule - Developer, creating fast responsive UIs and rich web experiences for over 15 years`} />
+              <Seo title="Developer" keywords={[`frontend`, `react`, `vue`, `javascript`, `gatsby`]} description={`Prince Bazawule - Developer, creating fast responsive UIs and rich web experiences for over 15 years`} image={`${siteUrl}${defaultImageSrc}`} />
 
               <section
                 ref={textRef}
@@ -119,6 +126,29 @@ export const query = graphql`
           }
         }
         id
+      }
+    }
+
+    images: allFile(filter: {absolutePath: {regex: "/(images/profile)/"}}) {
+      edges {
+        node {
+          id
+          childImageSharp {
+            gatsbyImageData(
+              width: 200
+              placeholder: BLURRED
+              blurredOptions: {toFormat: NO_CHANGE}
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+          name
+        }
+      }
+    }
+
+    site {
+      siteMetadata {
+        siteUrl
       }
     }
   }

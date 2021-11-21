@@ -8,6 +8,13 @@ import DesignGallery from '../../components/DesignGallery'
 import '../../styles/designer.module.scss'
 
 export default function Designer({ data }) {
+  
+  const { siteUrl } = data.site.siteMetadata
+  const { images } = data
+
+  const profileImages = images.edges
+  const selectDefaultImage = profileImages.filter(item => item.node.name === 'og-design')
+  const defaultImageSrc = selectDefaultImage[0].node.childImageSharp.gatsbyImageData.images.fallback.src
 
     // console.log(data)
 
@@ -39,7 +46,7 @@ export default function Designer({ data }) {
     return (
         <>
             <Layout>
-              <Seo title="Designer" keywords={[`ui design`, `digital art`, `graphic design`, `design`, `art`, `artist`]} description={`Prince Bazawule - Award-winning multi-disciplinary designer`} />
+              <Seo title="Designer" keywords={[`ui design`, `digital art`, `graphic design`, `design`, `art`, `artist`]} description={`Prince Bazawule - Award-winning multi-disciplinary designer`} image={`${siteUrl}${defaultImageSrc}`} />
 
               <section 
                 ref={textRef}
@@ -118,6 +125,29 @@ export const query = graphql`
           }
         }
         id
+      }
+    }
+
+    images: allFile(filter: {absolutePath: {regex: "/(images/profile)/"}}) {
+      edges {
+        node {
+          id
+          childImageSharp {
+            gatsbyImageData(
+              width: 200
+              placeholder: BLURRED
+              blurredOptions: {toFormat: NO_CHANGE}
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+          name
+        }
+      }
+    }
+
+    site {
+      siteMetadata {
+        siteUrl
       }
     }
   }

@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 import { useLocation } from "@reach/router"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
@@ -10,6 +10,40 @@ import "../styles/blog.module.scss"
 const ArchiveIndex = ( { pageContext } ) => {
 
   const location = useLocation()
+
+  const getCategories = useStaticQuery(graphql`
+    query GetCategory {
+      images: allFile(filter: {absolutePath: {regex: "/(images/profile)/"}}) {
+        edges {
+          node {
+            id
+            childImageSharp {
+              gatsbyImageData(
+                width: 200
+                placeholder: BLURRED
+                blurredOptions: {toFormat: NO_CHANGE}
+                formats: [AUTO, WEBP, AVIF]
+              )
+            }
+            name
+          }
+        }
+      }
+  
+      site {
+        siteMetadata {
+          siteUrl
+        }
+      }
+    }
+  `)
+
+  const { siteUrl } = getCategories.site.siteMetadata
+  const { images } = getCategories
+
+  const profileImages = images.edges
+  const selectDefaultImage = profileImages.filter(item => item.node.name === 'og-blog')
+  const defaultImageSrc = selectDefaultImage[0].node.childImageSharp.gatsbyImageData.images.fallback.src
 
   const { group, index, first, last, pathPrefix, additionalContext } = pageContext;
 
@@ -39,7 +73,7 @@ const ArchiveIndex = ( { pageContext } ) => {
 
   return (
     <Layout>
-      <Seo title="Blog" keywords={[`tips`, `tutorials`, `resources`, `freebies`]} description={`Prince Bazawule - Collection of my articles, tutorials, tips and resources. Check back regularly`} />
+      <Seo title="Blog" keywords={[`tips`, `tutorials`, `resources`, `freebies`]} description={`Prince Bazawule - Collection of my articles, tutorials, tips and resources. Check back regularly`} image={`${siteUrl}${defaultImageSrc}`} />
 
       <section 
           className="xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-20 xl:px-4 2xl:px-8 flex flex-col justify-center sm:flex-initial"

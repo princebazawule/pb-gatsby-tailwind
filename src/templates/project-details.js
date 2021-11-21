@@ -10,10 +10,13 @@ import "../styles/blog.module.scss"
 export default function ProjectDetails({ data }) {
     const location = useLocation()
 
+    const { siteUrl } = data.site.siteMetadata
+
     const { html } = data.markdownRemark
     const { title, category, stack, url, featuredImg }  = data.markdownRemark.frontmatter
-    // const { title, date, category, stack, url, featuredImg }  = data.markdownRemark.frontmatter
 
+    const defaultImageSrc = featuredImg[0].src.childImageSharp.gatsbyImageData.images.fallback.src
+    
     useEffect(() => {
         const replacers = document.querySelectorAll('[data-replace]')
 
@@ -29,7 +32,7 @@ export default function ProjectDetails({ data }) {
     
     return (
         <>
-            <Seo title={title} keywords={[`${title}`, `${stack}`, (category === 'design' ? `design` : `web`, `development`)]} description={String([(category === 'design' ? `Prince Bazawule - Details of design project: ${title}` : `Prince Bazawule - Details of web development project: ${title}`)])} />
+            <Seo title={title} keywords={[`${title}`, `${stack}`, (category === 'design' ? `design` : `web`, `development`)]} description={String([(category === 'design' ? `Prince Bazawule - Details of design project: ${title}` : `Prince Bazawule - Details of web development project: ${title}`)])} image={`${siteUrl}${defaultImageSrc}`} />
 
             <section 
                 className='post selection:bg-yellow-100 selection:text-blueGray-800 dark:selection:bg-teal-200 dark:selection:text-blueGray-900 bg-teal-50 bg-opacity-80 dark:bg-coolGray-900 min-h-full flex flex-col justify-between m-0 p-0 opacity-0 transition-opacity duration-500' data-replace='{ "opacity-0" : "opacity-100" }'
@@ -152,6 +155,12 @@ query ProjectPages($slug: String) {
             }
         }
         html
+    }
+
+    site {
+        siteMetadata {
+            siteUrl
+        }
     }
 }
   
