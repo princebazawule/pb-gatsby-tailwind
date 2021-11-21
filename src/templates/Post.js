@@ -44,7 +44,7 @@ const BlogPostTemplate = ({ data: { previous, next, post, site } }) => {
 
   return (
     <Layout>
-      <Seo title={post.title} keywords={[`${post.categories.nodes[0].name}`, `blog`, `tips`, `tutorials`, `resources`, `freebies`]} description={`Prince Bazawule - Details of blog post: ${post.title}`} image={`${siteUrl}${defaultImageSrc}`} />
+      <Seo title={post.title} keywords={[`${post.categories.nodes[0].name}`, `blog`, `tips`, `tutorials`, `resources`, `freebies`]} description={`Prince Bazawule - Details of blog post: ${post.title}`} image={`${siteUrl}${defaultImageSrc}`} url={location.href} />
 
       <section 
         className="post xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-20 xl:px-4 2xl:px-8 flex flex-col lg:flex-row flex-nowrap justify-center items-start sm:flex-initial"
@@ -134,13 +134,14 @@ const BlogPostTemplate = ({ data: { previous, next, post, site } }) => {
           </nav>
         </div> 
 
-        <div className="block my-12">
-          <div>
-              <ShareButtons title={`View ${post.title}`} url={location.href} twitterHandle='princebazawule' tags={[post.categories.nodes[0].name]} caption={`Read the blog post - ${post.title}`} />
-          </div>
-        </div>
 
       </section>
+
+      <div className="block my-12 text-center">
+        <div>
+            <ShareButtons title={`View ${post.title}`} url={location.href} twitterHandle='princebazawule' tags={[post.categories.nodes[0].name]} caption={`Read the blog post - ${post.title}`} />
+        </div>
+      </div>
     </Layout>
   )
 }
