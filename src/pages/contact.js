@@ -45,7 +45,7 @@ export default function Contact({ data }) {
   return (
     <>
       <Layout>
-        <Seo title="`Prince Bazawule - Contact`" keywords={[`connect`, `contact`, `social`, `social links`, `links`]} description={`Prince Bazawule - Connect with me on social media, request a collaboration, explore my music and shop my designs`} image={`${siteUrl}${defaultImageSrc}`} url={`${siteUrl}/contact/`} />
+        <Seo title="Contact | Prince Bazawule" keywords={[`connect`, `contact`, `social`, `social links`, `links`]} description={`Prince Bazawule - Connect with me on social media, request a collaboration, explore my music and shop my designs`} image={`${siteUrl}${defaultImageSrc}`} url={`${siteUrl}/contact/`} />
 
         <section 
           ref={textRef}

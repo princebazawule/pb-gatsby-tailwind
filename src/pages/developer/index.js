@@ -44,7 +44,7 @@ export default function Developer({ data }) {
     return (
         <>
             <Layout>
-              <Seo title="Prince Bazawule - Developer" keywords={[`frontend`, `react`, `vue`, `javascript`, `gatsby`]} description={`Prince Bazawule - Developer, creating fast responsive UIs and rich web experiences for over 15 years`} image={`${siteUrl}${defaultImageSrc}`} url={`${siteUrl}/developer/`} />
+              <Seo title="Developer | Prince Bazawule" keywords={[`frontend`, `react`, `vue`, `javascript`, `gatsby`]} description={`Prince Bazawule - Developer, creating fast responsive UIs and rich web experiences for over 15 years`} image={`${siteUrl}${defaultImageSrc}`} url={`${siteUrl}/developer/`} />
 
               <section
                 ref={textRef}

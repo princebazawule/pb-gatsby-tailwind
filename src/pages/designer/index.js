@@ -46,7 +46,7 @@ export default function Designer({ data }) {
     return (
         <>
             <Layout>
-              <Seo title="Prince Bazawule - Designer" keywords={[`ui design`, `digital art`, `graphic design`, `design`, `art`, `artist`]} description={`Prince Bazawule - Award-winning multi-disciplinary designer`} image={`${siteUrl}${defaultImageSrc}`} url={`${siteUrl}/designer/`} />
+              <Seo title="Designer | Prince Bazawule" keywords={[`ui design`, `digital art`, `graphic design`, `design`, `art`, `artist`]} description={`Prince Bazawule - Award-winning multi-disciplinary designer`} image={`${siteUrl}${defaultImageSrc}`} url={`${siteUrl}/designer/`} />
 
               <section 
                 ref={textRef}
