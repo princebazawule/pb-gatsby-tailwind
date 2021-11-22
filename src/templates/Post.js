@@ -44,7 +44,7 @@ const BlogPostTemplate = ({ data: { previous, next, post, site } }) => {
 
   return (
     <Layout>
-      <Seo title={post.title} keywords={[`${post.categories.nodes[0].name}`, `blog`, `tips`, `tutorials`, `resources`, `freebies`]} description={`Prince Bazawule - Details of blog post: ${post.title}`} image={`${siteUrl}${defaultImageSrc}`} url={location.href} />
+      <Seo title={`Prince Bazawule - ${post.title}`} keywords={[`${post.categories.nodes[0].name}`, `blog`, `tips`, `tutorials`, `resources`, `freebies`]} description={`Prince Bazawule - Details of blog post: ${post.title}`} image={`${siteUrl}${defaultImageSrc}`} url={location.href} />
 
       <section 
         className="post xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-20 xl:px-4 2xl:px-8 flex flex-col lg:flex-row flex-nowrap justify-center items-start sm:flex-initial"

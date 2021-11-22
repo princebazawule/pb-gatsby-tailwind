@@ -74,7 +74,7 @@ const BlogIndex = ( { pageContext } ) => {
 
   return (
     <Layout>
-      <Seo title="Blog" keywords={[`tips`, `tutorials`, `resources`, `freebies`]} description={`Prince Bazawule - Collection of my articles, tutorials, tips and resources. Check back regularly`} image={`${siteUrl}${defaultImageSrc}`} url={`${siteUrl}/blog/`} />
+      <Seo title="Prince Bazawule - Blog" keywords={[`tips`, `tutorials`, `resources`, `freebies`]} description={`Prince Bazawule - Collection of my articles, tutorials, tips and resources. Check back regularly`} image={`${siteUrl}${defaultImageSrc}`} url={`${siteUrl}/blog/`} />
 
       <section 
           className="xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-20 xl:px-4 2xl:px-8 flex flex-col justify-center sm:flex-initial"

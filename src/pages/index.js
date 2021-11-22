@@ -75,7 +75,7 @@ export default function Home({ data }) {
   return (
     <>
       <Layout>
-        <Seo title="Home" keywords={[`frontend`, `developer`, `designer`, `dj`, `artist`]} description={`Prince Bazawule - Award-winning designer, experienced developer, DJ & Gooner`} image={`${siteUrl}${defaultImageSrc}`} url={`${siteUrl}/`} />
+        <Seo title="Prince Bazawule - About" keywords={[`frontend`, `developer`, `designer`, `dj`, `artist`]} description={`Prince Bazawule - Award-winning designer, experienced developer, DJ & Gooner`} image={`${siteUrl}${defaultImageSrc}`} url={`${siteUrl}/`} />
         {/* <Seo title="Home" keywords={[`frontend`, `developer`, `designer`, `dj`, `artist`]} description={`Prince Bazawule - Award-winning designer, experienced developer, DJ & Gooner`} /> */}
 
         <div className="flex flex-col sm:flex-grow 3xl:w-11/12 4xl:w-11/12 3xl:mx-auto justify-between flex-1">
