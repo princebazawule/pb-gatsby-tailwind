@@ -90,7 +90,7 @@ module.exports = {
       },
       {
         network: `zazzle`,
-        link: `https://www.zazzle.co.uk/`,
+        link: `https://www.zazzle.com/collections/tote_bags-119799191265928315`,
         artwork:``,
         color: `green.lightGreen`,
       },
