@@ -17,6 +17,7 @@ module.exports = {
     description: `Prince Bazawule - Award-winning designer, experienced developer, DJ & Gooner`,
     copyright: `2021 — princebazawule`,
     siteUrl: `https://princebazawule.com`,
+    cvLink: `https://drive.google.com/file/d/1PDjRWF8dPXca_5HODokvtLlRKQ0kJkXA/view?usp=sharing`,
     social: [
       {
         network: `twitter`,

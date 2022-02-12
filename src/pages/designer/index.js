@@ -16,8 +16,6 @@ export default function Designer({ data }) {
   const selectDefaultImage = profileImages.filter(item => item.node.name === 'og-design')
   const defaultImageSrc = selectDefaultImage[0].node.childImageSharp.fluid.src
 
-    // console.log(data)
-
     const [position, setPosition] = useState({ x: 0, y: 0 })
     const textRef = useRef()
 
@@ -61,11 +59,11 @@ export default function Designer({ data }) {
                     </h1>
 
                     <h2 className="mb-8 lg:mb-14 mt-4 xs:mt-2 text text-blueGray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight font-black text-2xl leading-tight xs:text-3xl xs:leading-none sm:text-4xl sm:leading-none md:text-5xl md:leading-none lg:text-5xl lg:leading-none xl:text-5xl xl:leading-none 2xl:text-5xl 2xl:leading-none 3xl:text-6xl 3xl:leading-none 4xl:text-6xl 4xl:leading-none">
-                        i am a multi-disciplinary designer
+                        I am a Graphic &amp; UX Designer
                     </h2>
                     
                     <p className="mb-8 text text-gray-800 dark:text-blueGray-100 tracking-tighter sm:tracking-tight font-normal text-xl leading-normal xs:text-2xl xs:leading-normal sm:text-2xl sm:leading-normal md:text-2xl md:leading-normal lg:text-2xl lg:leading-normal xl:text-2xl xl:leading-normal 2xl:text-3xl 2xl:leading-normal 3xl:text-3xl 3xl:leading-normal 4xl:text-3xl 4xl:leading-normal">
-                        I love to explore UIs, digital art and have been happy to create <span className='hidden xl:block leading-3'><br /></span> award-winning work for clients.
+                        I love creating digital designs that excite. I also create award-winning <span className='hidden xl:block leading-3'><br /></span>UIs that solve user challenges and empower them.
                     </p>
                     <p className="mb-8 text text-gray-800 dark:text-blueGray-100 tracking-tighter sm:tracking-tight font-normal text-xl leading-normal xs:text-2xl xs:leading-normal sm:text-2xl sm:leading-normal md:text-2xl md:leading-normal lg:text-2xl lg:leading-normal xl:text-2xl xl:leading-normal 2xl:text-3xl 2xl:leading-normal 3xl:text-3xl 3xl:leading-normal 4xl:text-3xl 4xl:leading-normal">
                         Explore my designs on <OutboundLink href="https://dribbble.com/princebazawule" target='_blank' rel='noreferrer' title='external link' className='text-blueGray-900 dark:text-emerald-200 no-underline hover:text-emerald-500 dark:hover:text-emerald-300 hover:underline transition duration-300'><i>dribbble</i></OutboundLink> &amp; <OutboundLink href="https://behance.net/princebazawule" target='_blank' rel='noreferrer' title='external link' className='text-blueGray-900 dark:text-emerald-200 no-underline hover:text-emerald-500 dark:hover:text-emerald-300 hover:underline transition duration-300'><i>behance</i></OutboundLink> or shop them on <OutboundLink href="https://society6.com/princebazawule" target='_blank' rel='noreferrer' title='external link ' className='text-blueGray-900 dark:text-emerald-200 no-underline hover:text-emerald-500 dark:hover:text-emerald-300 hover:underline transition duration-300'><i>society6</i></OutboundLink> &amp; <OutboundLink href="https://zazzle.com/princebazawule" target='_blank' rel='noreferrer' title='external link' className='text-blueGray-900 dark:text-emerald-200 no-underline hover:text-emerald-500 dark:hover:text-emerald-300 hover:underline transition duration-300'><i>zazzle</i></OutboundLink>.

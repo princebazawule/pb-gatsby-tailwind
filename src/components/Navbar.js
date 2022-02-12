@@ -9,8 +9,6 @@ import { ThemeToggler } from 'gatsby-plugin-dark-mode'
 export default function Navbar() {
   const location = useLocation()
   
-  // console.log(location)
-
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
@@ -41,9 +39,9 @@ export default function Navbar() {
         <Link
           className={cx(
             "nav-item text-emerald-500 dark:text-blueGray-100 ease-in-out tracking-tight font-black text-5xl leading-normal sm:text-5xl md:text-6xl md:leading-normal lg:text-6xl lg:leading-normal xl:text-6xl 2xl:text-8xl 2xl:leading-normal hover:text-blueGray-700 dark:hover:text-emerald-200 focus:text-blueGray-700 dark:focus:text-emerald-200 transition duration-300",
-            { 'text-blueGray-800 dark:text-emerald-300 pointer-events-none focus:text-current dark:focus:text-emerald-300': location.pathname === "/" }
+            { 'text-blueGray-800 dark:text-emerald-300 pointer-events-none focus:text-current dark:focus:text-emerald-300': location.pathname === "/about" }
           )}
-          to="/"
+          to="/about"
           activeClassName="active"
         >
           about
