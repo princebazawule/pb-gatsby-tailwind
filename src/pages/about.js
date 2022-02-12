@@ -83,7 +83,7 @@ export default function About({ data }) {
                             {social.map(item => {
                                 return (
                                     <span 
-                                        className='mb-6 scale-75 mx-2'
+                                        className='mb-6 scale-75 mx-1 xl:mx-2'
                                         key={item.network}
                                     >
                                         <OutboundLink href={item.link} className='social-icon transition text-sm scale-80' target='_blank' rel='noreferrer' title='social icon'>
