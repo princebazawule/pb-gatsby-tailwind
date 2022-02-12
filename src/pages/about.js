@@ -9,6 +9,27 @@ import "../styles/contact.module.scss"
 import AboutGallery from "../components/AboutGallery"
 
 export default function About({ data }) {
+
+    const [position, setPosition] = useState({ x: 0, y: 0 })
+    const textRef = useRef()
+
+    const handlePositionChange = e => {
+        setPosition({
+        x: e.clientX / window.innerWidth - 0.5,
+        y: e.clientY / window.innerHeight - 0.5,
+        })
+    }
+
+    useEffect(() => {
+        gsap.to(textRef.current, {
+        rotationY: -2 * position.y,
+        rotationX: 2 * position.x,
+        transformPerspective: 1200,
+        ease: 'power3',
+        transformOrigin: "center",
+        })
+    })
+    
     const images = data.images.edges
     const { social } = data.site.siteMetadata
     const { cvLink } = data.site.siteMetadata
@@ -19,8 +40,10 @@ export default function About({ data }) {
         <Seo title="About | Prince Bazawule" keywords={[`about me`, `about`, `ux designer`, `graphic designer`, `web developer`, `developer`]} description={`Prince Bazawule - A Graphic & UX designer, Web Developer & DJ`} />
 
         <section 
-          className="xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-10 xl:px-4 2xl:px-8 flex flex-col justify-center sm:flex-initial cursor-default"
-          role="region"
+            ref={textRef}
+            className="xl:min-h-8/10 py-8 sm:py-6 xs:px-10 sm:px-14 md:px-16 lg:px-10 xl:px-4 2xl:px-8 flex flex-col justify-center sm:flex-initial cursor-default"
+            onMouseMove={e => handlePositionChange(e)}
+            role="region"
         >
           <h1 className="text text-blueGray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight xl:tracking-tighter font-black text-4xl leading-normal xs:text-5xl xs:leading-normal sm:text-6xl sm:leading-normal md:text-7xl md:leading-normal lg:text-8xl lg:leading-normal xl:text-8xl xl:leading-normal 2xl:text-8xl 2xl:leading-normal 3xl:text-9xl 3xl:leading-normal 4xl:text-10xl 4xl:leading-normal lg:w-11/12 2xl:w-10/12 3xl:w-10/12">
             <span className="transition duration-300 ease-in-out bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
@@ -56,11 +79,11 @@ export default function About({ data }) {
                     </p>
                     <p className="text text-gray-800 dark:text-blueGray-100 tracking-tighter sm:tracking-tight font-normal text-xl leading-normal xs:text-2xl xs:leading-normal sm:text-2xl sm:leading-normal md:text-2xl md:leading-normal lg:text-2xl lg:leading-normal xl:text-2xl xl:leading-normal 2xl:text-3xl 2xl:leading-normal 3xl:text-3xl 3xl:leading-normal 4xl:text-3xl 4xl:leading-normal">
                         On socials:
-                        <span className='flex flex-row justify-start items-start'>
+                        <span className='flex flex-row justify-start items-start mt-1'>
                             {social.map(item => {
                                 return (
                                     <span 
-                                        className='mb-6 scale-50 mx-1'
+                                        className='mb-6 scale-75 mx-2'
                                         key={item.network}
                                     >
                                         <OutboundLink href={item.link} className='social-icon transition text-sm scale-80' target='_blank' rel='noreferrer' title='social icon'>
