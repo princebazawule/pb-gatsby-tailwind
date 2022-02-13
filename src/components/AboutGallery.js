@@ -6,8 +6,8 @@ import SvgUparrowIcon from "../components/icons/UparrowIcon"
 import useWindowWidth from "../utils/useWindowWidth"
 import '../styles/gallery.module.scss'
 
-export default function AboutGallery( { images }) {
-    const photos = images
+export default function AboutGallery( { aboutImages }) {
+    const photos = aboutImages
 
     return (
         <section
