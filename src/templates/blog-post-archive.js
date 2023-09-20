@@ -129,9 +129,9 @@ const ArchiveIndex = ( { pageContext } ) => {
             <ul>
               {group.map(post => {
                 
-                const image = getImage(post.featuredImage.node.localFile)
-                const alt = post.featuredImage.node.altText
-                const title = post.title
+                const image = getImage(post?.featuredImage?.node?.localFile)
+                const alt = post?.featuredImage?.node?.altText
+                const title = post?.title
 
                 return (
                   <li 
@@ -152,10 +152,12 @@ const ArchiveIndex = ( { pageContext } ) => {
                             
                               <div className="mb-4 rounded-5xl flex flex-col justify-center items-center content-center overflow-hidden scale-100 transform-gpu rotate-12 transition duration-300 ease-in-out group-hover:rotate-3 group-hover:scale-100 flex-shrink w-32 h-32 xs:w-40 xs:h-40 md:w-48 md:h-48">
                                 <span className="-rotate-12 transform scale-150">
-                                  <GatsbyImage 
+                                  { image &&
+                                    <GatsbyImage 
                                     image={image} 
                                     alt={alt} 
                                   />
+                                  }
                                 </span>
                               </div>
                               

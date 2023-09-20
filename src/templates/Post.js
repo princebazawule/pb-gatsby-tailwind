@@ -16,10 +16,10 @@ const BlogPostTemplate = ({ data: { previous, next, post, site } }) => {
 
   const { siteUrl } = site.siteMetadata
 
-  const image = getImage(post.featuredImage.node.localFile)
-  const alt = post.featuredImage.node.altText
+  const image = getImage(post?.featuredImage?.node?.localFile)
+  const alt = post?.featuredImage?.node?.altText
 
-  const defaultImageSrc = post.featuredImage.node.localFile.childImageSharp.gatsbyImageData.images.fallback.src
+  const defaultImageSrc = post?.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData?.images?.fallback?.src
 
   const replaceCode = node => {
     if (node.name === 'pre') {
@@ -69,11 +69,13 @@ const BlogPostTemplate = ({ data: { previous, next, post, site } }) => {
             itemType="http://schema.org/Article"
           >
             <header>
-              <GatsbyImage 
+              { image &&
+                <GatsbyImage 
                 image={image} 
-                alt={alt}
+                alt={alt} 
                 className='border-16 bg-white border-white drop-shadow-lg h-64 w-full aspect-w-16 aspect-h-6'
               />
+              }
               <h1 
                 itemProp="headline"
                 className="mt-16 mb-4 text text-blueGray-900 dark:text-blueGray-100 tracking-tighter sm:tracking-tight xl:tracking-tighter font-black text-xl leading-tight xs:text-2xl xs:leading-tight sm:text-2xl sm:leading-tight md:text-3xl md:leading-tight lg:text-4xl lg:leading-tight xl:text-4xl xl:leading-tight 2xl:text-5xl 2xl:leading-tight 3xl:text-6xl 3xl:leading-tight 4xl:text-6xl 4xl:leading-tight"
